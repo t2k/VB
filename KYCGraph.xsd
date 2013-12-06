@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KYCGraph" targetNamespace="http://tempuri.org/KYCGraph.xsd" xmlns:mstns="http://tempuri.org/KYCGraph.xsd" xmlns="http://tempuri.org/KYCGraph.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=DNYIAS11\SQLEXPRESS;Initial Catalog=DZKYC;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="DZKYCConnectionString" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DZKYCConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DZKYCConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DZKYCConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KYCGraphRiskScoreNoFacilityddlDeptTableAdapter" GeneratorDataComponentClassName="KYCGraphRiskScoreNoFacilityddlDeptTableAdapter" Name="KYCGraphRiskScoreNoFacilityddlDept" UserDataComponentName="KYCGraphRiskScoreNoFacilityddlDeptTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZKYCConnectionString (Web.config)" DbObjectName="DZKYC.dbo.KYCGraphRSbyDept" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Owner
+FROM         KYCGraphRSbyDept
+GROUP BY Owner
+ORDER BY Owner</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KYCGraphRSAllTableAdapter" GeneratorDataComponentClassName="KYCGraphRSAllTableAdapter" Name="KYCGraphRSAll" UserDataComponentName="KYCGraphRSAllTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZKYCConnectionString (Web.config)" DbObjectName="DZKYC.dbo.KYCGraphRSAll" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     AvgScore, Rating AS TotalRating, CountID, DeptCount, AsPercent
+FROM         KYCGraphRSAll
+ORDER BY AvgScore</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AvgScore" DataSetColumn="AvgScore" />
+              <Mapping SourceColumn="CountID" DataSetColumn="CountID" />
+              <Mapping SourceColumn="DeptCount" DataSetColumn="DeptCount" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="TotalRating" DataSetColumn="TotalRating" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KYCGraphRSbyDeptTableAdapter" GeneratorDataComponentClassName="KYCGraphRSbyDeptTableAdapter" Name="KYCGraphRSbyDept" UserDataComponentName="KYCGraphRSbyDeptTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZKYCConnectionString (Web.config)" DbObjectName="DZKYC.dbo.KYCGraphRSbyDept" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Owner, AvgScore, Rating AS TotalRating, CountID, DeptCount, AsPercent
+FROM         KYCGraphRSbyDept
+WHERE     (Owner LIKE @hfDept)
+ORDER BY Owner, AvgScore</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="hfDept" ColumnName="Owner" DataSourceName="DZKYC.dbo.KYCGraphRSbyDept" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@hfDept" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Owner" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+              <Mapping SourceColumn="AvgScore" DataSetColumn="AvgScore" />
+              <Mapping SourceColumn="CountID" DataSetColumn="CountID" />
+              <Mapping SourceColumn="DeptCount" DataSetColumn="DeptCount" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="TotalRating" DataSetColumn="TotalRating" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KYCGraphRiskDetailTableAdapter" GeneratorDataComponentClassName="KYCGraphRiskDetailTableAdapter" Name="KYCGraphRiskDetail" UserDataComponentName="KYCGraphRiskDetailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZKYCConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     CUSTUniversal.ID, CUSTUniversal.Owner, CUSTUniversal.FullName, CUST.Score, CUST.Rating
+FROM         CUST INNER JOIN
+                      CUSTUniversal ON CUST.ID = CUSTUniversal.ID INNER JOIN
+                      CUSTDetail ON CUSTUniversal.ID = CUSTDetail.ID
+WHERE     (CUSTUniversal.Owner LIKE @hfOwner) AND (CUST.Rating LIKE @hfRating) AND (NOT (CUSTDetail.CMNE LIKE N'xx%')) OR
+                      (CUSTUniversal.Owner LIKE @hfOwner) AND (CUST.Rating LIKE @hfRating) AND (NOT (CUSTDetail.CMNE LIKE N'xx%'))
+ORDER BY CUSTUniversal.Owner, CUSTUniversal.FullName</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="hfOwner" ColumnName="Owner" DataSourceName="DZKYC.dbo.CUSTUniversal" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@hfOwner" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Owner" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="hfRating" ColumnName="Rating" DataSourceName="DZKYC.dbo.CUST" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@hfRating" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="Rating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+              <Mapping SourceColumn="FullName" DataSetColumn="FullName" />
+              <Mapping SourceColumn="Score" DataSetColumn="Score" />
+              <Mapping SourceColumn="Rating" DataSetColumn="Rating" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KYCGraphRSbyDeptAllTableAdapter" GeneratorDataComponentClassName="KYCGraphRSbyDeptAllTableAdapter" Name="KYCGraphRSbyDeptAll" UserDataComponentName="KYCGraphRSbyDeptAllTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZKYCConnectionString (Web.config)" DbObjectName="DZKYC.dbo.KYCGraphRSbyDeptAll" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Owner, AvgScore, Rating AS TotalRating, CountID, DeptCount, AsPercent
+FROM         KYCGraphRSbyDeptAll
+ORDER BY Owner, AvgScore</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+              <Mapping SourceColumn="AvgScore" DataSetColumn="AvgScore" />
+              <Mapping SourceColumn="CountID" DataSetColumn="CountID" />
+              <Mapping SourceColumn="DeptCount" DataSetColumn="DeptCount" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="TotalRating" DataSetColumn="TotalRating" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KYCGraph" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="KYCGraph" msprop:Generator_DataSetName="KYCGraph">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KYCGraphRiskScoreNoFacilityddlDept" msprop:Generator_UserTableName="KYCGraphRiskScoreNoFacilityddlDept" msprop:Generator_RowDeletedName="KYCGraphRiskScoreNoFacilityddlDeptRowDeleted" msprop:Generator_RowChangedName="KYCGraphRiskScoreNoFacilityddlDeptRowChanged" msprop:Generator_RowClassName="KYCGraphRiskScoreNoFacilityddlDeptRow" msprop:Generator_RowChangingName="KYCGraphRiskScoreNoFacilityddlDeptRowChanging" msprop:Generator_RowEvArgName="KYCGraphRiskScoreNoFacilityddlDeptRowChangeEvent" msprop:Generator_RowEvHandlerName="KYCGraphRiskScoreNoFacilityddlDeptRowChangeEventHandler" msprop:Generator_TableClassName="KYCGraphRiskScoreNoFacilityddlDeptDataTable" msprop:Generator_TableVarName="tableKYCGraphRiskScoreNoFacilityddlDept" msprop:Generator_RowDeletingName="KYCGraphRiskScoreNoFacilityddlDeptRowDeleting" msprop:Generator_TablePropName="KYCGraphRiskScoreNoFacilityddlDept">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KYCGraphRSAll" msprop:Generator_UserTableName="KYCGraphRSAll" msprop:Generator_RowDeletedName="KYCGraphRSAllRowDeleted" msprop:Generator_RowChangedName="KYCGraphRSAllRowChanged" msprop:Generator_RowClassName="KYCGraphRSAllRow" msprop:Generator_RowChangingName="KYCGraphRSAllRowChanging" msprop:Generator_RowEvArgName="KYCGraphRSAllRowChangeEvent" msprop:Generator_RowEvHandlerName="KYCGraphRSAllRowChangeEventHandler" msprop:Generator_TableClassName="KYCGraphRSAllDataTable" msprop:Generator_TableVarName="tableKYCGraphRSAll" msprop:Generator_RowDeletingName="KYCGraphRSAllRowDeleting" msprop:Generator_TablePropName="KYCGraphRSAll">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AvgScore" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AvgScore" msprop:Generator_ColumnVarNameInTable="columnAvgScore" msprop:Generator_ColumnPropNameInRow="AvgScore" msprop:Generator_ColumnPropNameInTable="AvgScoreColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="CountID" msprop:Generator_UserColumnName="CountID" msprop:Generator_ColumnVarNameInTable="columnCountID" msprop:Generator_ColumnPropNameInRow="CountID" msprop:Generator_ColumnPropNameInTable="CountIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DeptCount" msprop:Generator_UserColumnName="DeptCount" msprop:Generator_ColumnVarNameInTable="columnDeptCount" msprop:Generator_ColumnPropNameInRow="DeptCount" msprop:Generator_ColumnPropNameInTable="DeptCountColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="AsPercent" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalRating" msprop:Generator_UserColumnName="TotalRating" msprop:Generator_ColumnVarNameInTable="columnTotalRating" msprop:Generator_ColumnPropNameInRow="TotalRating" msprop:Generator_ColumnPropNameInTable="TotalRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KYCGraphRSbyDept" msprop:Generator_UserTableName="KYCGraphRSbyDept" msprop:Generator_RowDeletedName="KYCGraphRSbyDeptRowDeleted" msprop:Generator_RowChangedName="KYCGraphRSbyDeptRowChanged" msprop:Generator_RowClassName="KYCGraphRSbyDeptRow" msprop:Generator_RowChangingName="KYCGraphRSbyDeptRowChanging" msprop:Generator_RowEvArgName="KYCGraphRSbyDeptRowChangeEvent" msprop:Generator_RowEvHandlerName="KYCGraphRSbyDeptRowChangeEventHandler" msprop:Generator_TableClassName="KYCGraphRSbyDeptDataTable" msprop:Generator_TableVarName="tableKYCGraphRSbyDept" msprop:Generator_RowDeletingName="KYCGraphRSbyDeptRowDeleting" msprop:Generator_TablePropName="KYCGraphRSbyDept">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AvgScore" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AvgScore" msprop:Generator_ColumnVarNameInTable="columnAvgScore" msprop:Generator_ColumnPropNameInRow="AvgScore" msprop:Generator_ColumnPropNameInTable="AvgScoreColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="CountID" msprop:Generator_UserColumnName="CountID" msprop:Generator_ColumnVarNameInTable="columnCountID" msprop:Generator_ColumnPropNameInRow="CountID" msprop:Generator_ColumnPropNameInTable="CountIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DeptCount" msprop:Generator_UserColumnName="DeptCount" msprop:Generator_ColumnVarNameInTable="columnDeptCount" msprop:Generator_ColumnPropNameInRow="DeptCount" msprop:Generator_ColumnPropNameInTable="DeptCountColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="AsPercent" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalRating" msprop:Generator_UserColumnName="TotalRating" msprop:Generator_ColumnVarNameInTable="columnTotalRating" msprop:Generator_ColumnPropNameInRow="TotalRating" msprop:Generator_ColumnPropNameInTable="TotalRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KYCGraphRiskDetail" msprop:Generator_UserTableName="KYCGraphRiskDetail" msprop:Generator_RowDeletedName="KYCGraphRiskDetailRowDeleted" msprop:Generator_RowChangedName="KYCGraphRiskDetailRowChanged" msprop:Generator_RowClassName="KYCGraphRiskDetailRow" msprop:Generator_RowChangingName="KYCGraphRiskDetailRowChanging" msprop:Generator_RowEvArgName="KYCGraphRiskDetailRowChangeEvent" msprop:Generator_RowEvHandlerName="KYCGraphRiskDetailRowChangeEventHandler" msprop:Generator_TableClassName="KYCGraphRiskDetailDataTable" msprop:Generator_TableVarName="tableKYCGraphRiskDetail" msprop:Generator_RowDeletingName="KYCGraphRiskDetailRowDeleting" msprop:Generator_TablePropName="KYCGraphRiskDetail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullName" msprop:Generator_UserColumnName="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Score" msprop:Generator_UserColumnName="Score" msprop:Generator_ColumnVarNameInTable="columnScore" msprop:Generator_ColumnPropNameInRow="Score" msprop:Generator_ColumnPropNameInTable="ScoreColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Rating" msprop:Generator_UserColumnName="Rating" msprop:Generator_ColumnVarNameInTable="columnRating" msprop:Generator_ColumnPropNameInRow="Rating" msprop:Generator_ColumnPropNameInTable="RatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KYCGraphRSbyDeptAll" msprop:Generator_UserTableName="KYCGraphRSbyDeptAll" msprop:Generator_RowDeletedName="KYCGraphRSbyDeptAllRowDeleted" msprop:Generator_RowChangedName="KYCGraphRSbyDeptAllRowChanged" msprop:Generator_RowClassName="KYCGraphRSbyDeptAllRow" msprop:Generator_RowChangingName="KYCGraphRSbyDeptAllRowChanging" msprop:Generator_RowEvArgName="KYCGraphRSbyDeptAllRowChangeEvent" msprop:Generator_RowEvHandlerName="KYCGraphRSbyDeptAllRowChangeEventHandler" msprop:Generator_TableClassName="KYCGraphRSbyDeptAllDataTable" msprop:Generator_TableVarName="tableKYCGraphRSbyDeptAll" msprop:Generator_RowDeletingName="KYCGraphRSbyDeptAllRowDeleting" msprop:Generator_TablePropName="KYCGraphRSbyDeptAll">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Owner" msprop:Generator_UserColumnName="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AvgScore" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AvgScore" msprop:Generator_ColumnVarNameInTable="columnAvgScore" msprop:Generator_ColumnPropNameInRow="AvgScore" msprop:Generator_ColumnPropNameInTable="AvgScoreColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="CountID" msprop:Generator_UserColumnName="CountID" msprop:Generator_ColumnVarNameInTable="columnCountID" msprop:Generator_ColumnPropNameInRow="CountID" msprop:Generator_ColumnPropNameInTable="CountIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="DeptCount" msprop:Generator_UserColumnName="DeptCount" msprop:Generator_ColumnVarNameInTable="columnDeptCount" msprop:Generator_ColumnPropNameInRow="DeptCount" msprop:Generator_ColumnPropNameInTable="DeptCountColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="AsPercent" msdata:ReadOnly="true" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalRating" msprop:Generator_UserColumnName="TotalRating" msprop:Generator_ColumnVarNameInTable="columnTotalRating" msprop:Generator_ColumnPropNameInRow="TotalRating" msprop:Generator_ColumnPropNameInTable="TotalRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KYCGraphRiskDetail" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

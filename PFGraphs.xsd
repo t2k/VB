@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PFGraphs" targetNamespace="http://tempuri.org/PFGraphs.xsd" xmlns:mstns="http://tempuri.org/PFGraphs.xsd" xmlns="http://tempuri.org/PFGraphs.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="PFProspectsConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PFProspectsConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.PFProspectsConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="PFConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PFConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.PFConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="DZNYConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DZNYConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.DZNYConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoFacilityreferenceTableAdapter" GeneratorDataComponentClassName="NoFacilityreferenceTableAdapter" Name="NoFacilityreference" UserDataComponentName="NoFacilityreferenceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFProspectsConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoFacilityreference" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT     Name, DealRefNo, AcctOfficer, AcctMgr, Status, CloseProject, ProjectID
+FROM         NoFacilityreference</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="DealRefNo" DataSetColumn="DealRefNo" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="CloseProject" DataSetColumn="CloseProject" />
+              <Mapping SourceColumn="ProjectID" DataSetColumn="ProjectID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoOfftakers2TableAdapter" GeneratorDataComponentClassName="NoOfftakers2TableAdapter" Name="NoOfftakers2" UserDataComponentName="NoOfftakers2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFProspectsConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoOfftakers2" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, TotalOffTake, AcctOfficer, AcctMgr, Status, CloseProject, ProjectID, Sector
+FROM         NoOfftakers2</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="TotalOffTake" DataSetColumn="TotalOffTake" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="CloseProject" DataSetColumn="CloseProject" />
+              <Mapping SourceColumn="ProjectID" DataSetColumn="ProjectID" />
+              <Mapping SourceColumn="Sector" DataSetColumn="Sector" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoSectorTableAdapter" GeneratorDataComponentClassName="NoSectorTableAdapter" Name="NoSector" UserDataComponentName="NoSectorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFProspectsConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoSector" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT     Name, Sector, AcctOfficer, AcctMgr, Status, CloseProject, ProjectID
+FROM         NoSector</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Sector" DataSetColumn="Sector" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="CloseProject" DataSetColumn="CloseProject" />
+              <Mapping SourceColumn="ProjectID" DataSetColumn="ProjectID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoSponsorTableAdapter" GeneratorDataComponentClassName="NoSponsorTableAdapter" Name="NoSponsor" UserDataComponentName="NoSponsorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFProspectsConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoSponsor" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT     Name, SponsorID, AcctOfficer, AcctMgr, Status, CloseProject
+FROM         NoSponsor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="SponsorID" DataSetColumn="SponsorID" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="CloseProject" DataSetColumn="CloseProject" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbySectorTableAdapter" GeneratorDataComponentClassName="GraphCommbySectorTableAdapter" Name="GraphCommbySector" UserDataComponentName="GraphCommbySectorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbySector" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Commitment, Sector, Total, AsPercent, AsDecimal
+FROM         GraphCommbySector
+ORDER BY Commitment DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Sector" DataSetColumn="Sector" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbySponsorTableAdapter" GeneratorDataComponentClassName="GraphCommbySponsorTableAdapter" Name="GraphCommbySponsor" UserDataComponentName="GraphCommbySponsorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbySponsor" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, ICR, NameRating, Commitment, Total, AsPercent, AsDecimal
+FROM         GraphCommbySponsor
+ORDER BY Commitment DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="ICR" DataSetColumn="ICR" />
+              <Mapping SourceColumn="NameRating" DataSetColumn="NameRating" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbyOfftakerRatingTableAdapter" GeneratorDataComponentClassName="GraphCommbyOfftakerRatingTableAdapter" Name="GraphCommbyOfftakerRating" UserDataComponentName="GraphCommbyOfftakerRatingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbyOfftakerRating" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     ICR, Commitment, Total, AsPercent, AsDecimal
+FROM         GraphCommbyOfftakerRating
+ORDER BY ICR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ICR" DataSetColumn="ICR" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphHistoryMaxDateTableAdapter" GeneratorDataComponentClassName="GraphHistoryMaxDateTableAdapter" Name="GraphHistoryMaxDate" UserDataComponentName="GraphHistoryMaxDateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphHistoryMaxDate" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     MaxDate
+FROM         GraphHistoryMaxDate</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MaxDate" DataSetColumn="MaxDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphHistoryTableAdapter" GeneratorDataComponentClassName="GraphHistoryTableAdapter" Name="GraphHistory" UserDataComponentName="GraphHistoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphHistory" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [GraphHistory] WHERE (([ID] = @Original_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [GraphHistory] ([GraphID], [HistoryDate], [Commitment], [AsPercent], [AsDecimal], [Name], [ICR], [NameRating], [Sector], [DZRating], [Contract], [NERC]) VALUES (@GraphID, @HistoryDate, @Commitment, @AsPercent, @AsDecimal, @Name, @ICR, @NameRating, @Sector, @DZRating, @Contract, @NERC)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GraphID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GraphID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@HistoryDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="HistoryDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Commitment" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Commitment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@AsPercent" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="AsPercent" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@AsDecimal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="AsDecimal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ICR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ICR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NameRating" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NameRating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Sector" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Sector" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DZRating" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DZRating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Contract" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Contract" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NERC" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NERC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     ID, GraphID, HistoryDate, Commitment, AsPercent, AsDecimal, Name, ICR, NameRating, Sector, DZRating, Contract, NERC
+FROM         GraphHistory</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [GraphHistory] SET [GraphID] = @GraphID, [HistoryDate] = @HistoryDate, [Commitment] = @Commitment, [AsPercent] = @AsPercent, [AsDecimal] = @AsDecimal, [Name] = @Name, [ICR] = @ICR, [NameRating] = @NameRating, [Sector] = @Sector, [DZRating] = @DZRating, [Contract] = @Contract, [NERC] = @NERC WHERE (([ID] = @Original_ID))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GraphID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GraphID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@HistoryDate" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="HistoryDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Commitment" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="Commitment" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@AsPercent" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="AsPercent" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@AsDecimal" Precision="0" ProviderType="Float" Scale="0" Size="0" SourceColumn="AsDecimal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ICR" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ICR" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NameRating" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NameRating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Sector" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Sector" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DZRating" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DZRating" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Contract" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Contract" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NERC" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NERC" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="GraphID" DataSetColumn="GraphID" />
+              <Mapping SourceColumn="HistoryDate" DataSetColumn="HistoryDate" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="ICR" DataSetColumn="ICR" />
+              <Mapping SourceColumn="NameRating" DataSetColumn="NameRating" />
+              <Mapping SourceColumn="Sector" DataSetColumn="Sector" />
+              <Mapping SourceColumn="DZRating" DataSetColumn="DZRating" />
+              <Mapping SourceColumn="Contract" DataSetColumn="Contract" />
+              <Mapping SourceColumn="NERC" DataSetColumn="NERC" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>DELETE FROM GraphHistory
+WHERE     (HistoryDate = @hfHistoryDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="hfHistoryDate" ColumnName="HistoryDate" DataSourceName="DZNY.dbo.GraphHistory" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@hfHistoryDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="HistoryDate" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphHistory" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDDLSelection" GetMethodModifier="Public" GetMethodName="GetDataByDDLSelection" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDDLSelection" UserSourceName="GetDataByDDLSelection">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     AsDecimal, AsPercent, Commitment, Contract, DZRating, GraphID, HistoryDate, ICR, ID, NERC, Name, NameRating, Sector
+FROM         GraphHistory
+WHERE     (GraphID = @hfGraphID) AND (HistoryDate = @hfDDLDate)
+ORDER BY Commitment DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="hfGraphID" ColumnName="GraphID" DataSourceName="DZNY.dbo.GraphHistory" DataTypeServer="nvarchar(50)" DbType="String" Direction="Input" ParameterName="@hfGraphID" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumn="GraphID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="hfDDLDate" ColumnName="HistoryDate" DataSourceName="DZNY.dbo.GraphHistory" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@hfDDLDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="HistoryDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphHistoryDatesTableAdapter" GeneratorDataComponentClassName="GraphHistoryDatesTableAdapter" Name="GraphHistoryDates" UserDataComponentName="GraphHistoryDatesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphHistoryDates" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     DISTINCT HistoryDate
+FROM         GraphHistoryDates
+ORDER BY HistoryDate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="HistoryDate" DataSetColumn="HistoryDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NONercTableAdapter" GeneratorDataComponentClassName="NONercTableAdapter" Name="NONerc" UserDataComponentName="NONercTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.NONerc" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, AcctOfficer, AcctMgr
+FROM         NONerc
+ORDER BY Name</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoSponsorRatingTableAdapter" GeneratorDataComponentClassName="NoSponsorRatingTableAdapter" Name="NoSponsorRating" UserDataComponentName="NoSponsorRatingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoSponsorRating" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, AcctOfficer, Status
+FROM         NoSponsorRating
+ORDER BY Name</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoDZRatingTableAdapter" GeneratorDataComponentClassName="NoDZRatingTableAdapter" Name="NoDZRating" UserDataComponentName="NoDZRatingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoDZRating" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, AcctOfficer, AcctMgr
+FROM         NoDZRating
+ORDER BY Name</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbyDZRatingTableAdapter" GeneratorDataComponentClassName="GraphCommbyDZRatingTableAdapter" Name="GraphCommbyDZRating" UserDataComponentName="GraphCommbyDZRatingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbyDZRating" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     DZRating, Commitment, Total, AsPercent, AsDecimal
+FROM         GraphCommbyDZRating
+ORDER BY DZRating</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="DZRating" DataSetColumn="DZRating" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbyContractTableAdapter" GeneratorDataComponentClassName="GraphCommbyContractTableAdapter" Name="GraphCommbyContract" UserDataComponentName="GraphCommbyContractTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbyContract" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Contract, Total, Commitment, AsPercent, AsDecimal
+FROM         GraphCommbyContract
+WHERE     (Commitment &gt; 0)
+ORDER BY Commitment DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Contract" DataSetColumn="Contract" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbySponsorRatingTableAdapter" GeneratorDataComponentClassName="GraphCommbySponsorRatingTableAdapter" Name="GraphCommbySponsorRating" UserDataComponentName="GraphCommbySponsorRatingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbySponsorRating" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     ICR, Commitment, Total, AsPercent, AsDecimal
+FROM         GraphCommbySponsorRating
+ORDER BY Commitment DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ICR" DataSetColumn="ICR" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbyNERCTableAdapter" GeneratorDataComponentClassName="GraphCommbyNERCTableAdapter" Name="GraphCommbyNERC" UserDataComponentName="GraphCommbyNERCTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbyNERC" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     NERC, Commitment, Total, AsPercent, AsDecimal
+FROM         GraphCommbyNERC
+ORDER BY Commitment DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NERC" DataSetColumn="NERC" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphCommbyOfftakerNameandRatingTableAdapter" GeneratorDataComponentClassName="GraphCommbyOfftakerNameandRatingTableAdapter" Name="GraphCommbyOfftakerNameandRating" UserDataComponentName="GraphCommbyOfftakerNameandRatingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphCommbyOfftakerNameandRating" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     NameRating, Commitment, Total, AsPercent, AsDecimal
+FROM         GraphCommbyOfftakerNameandRating
+ORDER BY NameRating</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NameRating" DataSetColumn="NameRating" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphIncomeAllbyMonthTableAdapter" GeneratorDataComponentClassName="GraphIncomeAllbyMonthTableAdapter" Name="GraphIncomeAllbyMonth" UserDataComponentName="GraphIncomeAllbyMonthTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphIncomeAllbyMonth" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     UsageIncome, UnusedIncome, TotalIncome, EndDate, Commitment
+FROM         GraphIncomeAllbyMonth</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="UsageIncome" DataSetColumn="UsageIncome" />
+              <Mapping SourceColumn="UnusedIncome" DataSetColumn="UnusedIncome" />
+              <Mapping SourceColumn="TotalIncome" DataSetColumn="TotalIncome" />
+              <Mapping SourceColumn="EndDate" DataSetColumn="EndDate" />
+              <Mapping SourceColumn="Commitment" DataSetColumn="Commitment" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphIncomeAllbyMonth" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByNow" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataByNow" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByNow" UserSourceName="GetDataByNow">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Commitment, EndDate, TotalIncome, UnusedIncome, UsageIncome FROM GraphIncomeAllbyMonth WHERE (EndDate &gt;= { fn NOW() })</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GraphYTDIncomeTableAdapter" GeneratorDataComponentClassName="GraphYTDIncomeTableAdapter" Name="GraphYTDIncome" UserDataComponentName="GraphYTDIncomeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.GraphYTDIncome" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Project, Interest, Fee, YTDTotal, AsOf, YTDSum, AsPercent, AsDecimal, LOALPHA, ProjectAlpha
+FROM         GraphYTDIncome</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Project" DataSetColumn="Project" />
+              <Mapping SourceColumn="Interest" DataSetColumn="Interest" />
+              <Mapping SourceColumn="Fee" DataSetColumn="Fee" />
+              <Mapping SourceColumn="YTDTotal" DataSetColumn="YTDTotal" />
+              <Mapping SourceColumn="AsOf" DataSetColumn="AsOf" />
+              <Mapping SourceColumn="YTDSum" DataSetColumn="YTDSum" />
+              <Mapping SourceColumn="AsPercent" DataSetColumn="AsPercent" />
+              <Mapping SourceColumn="AsDecimal" DataSetColumn="AsDecimal" />
+              <Mapping SourceColumn="LOALPHA" DataSetColumn="LOALPHA" />
+              <Mapping SourceColumn="ProjectAlpha" DataSetColumn="ProjectAlpha" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NoOffTakersManualSPTableAdapter" GeneratorDataComponentClassName="NoOffTakersManualSPTableAdapter" Name="NoOffTakersManualSP" UserDataComponentName="NoOffTakersManualSPTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PFConnectionString (Web.config)" DbObjectName="DZNY.dbo.NoOffTakersManualSP" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, ManualDate, OffTaker, ManualRating, ID
+FROM         NoOffTakersManualSP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="ManualDate" DataSetColumn="ManualDate" />
+              <Mapping SourceColumn="OffTaker" DataSetColumn="OffTaker" />
+              <Mapping SourceColumn="ManualRating" DataSetColumn="ManualRating" />
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QuickDaysLateTableAdapter" GeneratorDataComponentClassName="QuickDaysLateTableAdapter" Name="QuickDaysLate" UserDataComponentName="QuickDaysLateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZNYConnectionString (Web.config)" DbObjectName="DZNY.dbo.QuickDaysLate" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name, DocType, DueDate, DaysLate, AcctMgr, AcctOfficer, CloseProject, ReceivedDate
+FROM         QuickDaysLate</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="DocType" DataSetColumn="DocType" />
+              <Mapping SourceColumn="DueDate" DataSetColumn="DueDate" />
+              <Mapping SourceColumn="DaysLate" DataSetColumn="DaysLate" />
+              <Mapping SourceColumn="AcctMgr" DataSetColumn="AcctMgr" />
+              <Mapping SourceColumn="AcctOfficer" DataSetColumn="AcctOfficer" />
+              <Mapping SourceColumn="CloseProject" DataSetColumn="CloseProject" />
+              <Mapping SourceColumn="ReceivedDate" DataSetColumn="ReceivedDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QuickDaysLateGroupTableAdapter" GeneratorDataComponentClassName="QuickDaysLateGroupTableAdapter" Name="QuickDaysLateGroup" UserDataComponentName="QuickDaysLateGroupTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DZNYConnectionString (Web.config)" DbObjectName="DZNY.dbo.QuickDaysLate" DbObjectType="View" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     Name
+FROM         QuickDaysLate
+GROUP BY Name</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PFGraphs" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PFGraphs" msprop:Generator_DataSetName="PFGraphs">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NoFacilityreference" msprop:Generator_UserTableName="NoFacilityreference" msprop:Generator_RowDeletedName="NoFacilityreferenceRowDeleted" msprop:Generator_RowChangedName="NoFacilityreferenceRowChanged" msprop:Generator_RowClassName="NoFacilityreferenceRow" msprop:Generator_RowChangingName="NoFacilityreferenceRowChanging" msprop:Generator_RowEvArgName="NoFacilityreferenceRowChangeEvent" msprop:Generator_RowEvHandlerName="NoFacilityreferenceRowChangeEventHandler" msprop:Generator_TableClassName="NoFacilityreferenceDataTable" msprop:Generator_TableVarName="tableNoFacilityreference" msprop:Generator_RowDeletingName="NoFacilityreferenceRowDeleting" msprop:Generator_TablePropName="NoFacilityreference">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DealRefNo" msprop:Generator_UserColumnName="DealRefNo" msprop:Generator_ColumnVarNameInTable="columnDealRefNo" msprop:Generator_ColumnPropNameInRow="DealRefNo" msprop:Generator_ColumnPropNameInTable="DealRefNoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CloseProject" msprop:Generator_UserColumnName="CloseProject" msprop:Generator_ColumnVarNameInTable="columnCloseProject" msprop:Generator_ColumnPropNameInRow="CloseProject" msprop:Generator_ColumnPropNameInTable="CloseProjectColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProjectID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ProjectID" msprop:Generator_ColumnVarNameInTable="columnProjectID" msprop:Generator_ColumnPropNameInRow="ProjectID" msprop:Generator_ColumnPropNameInTable="ProjectIDColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoOfftakers2" msprop:Generator_UserTableName="NoOfftakers2" msprop:Generator_RowDeletedName="NoOfftakers2RowDeleted" msprop:Generator_RowChangedName="NoOfftakers2RowChanged" msprop:Generator_RowClassName="NoOfftakers2Row" msprop:Generator_RowChangingName="NoOfftakers2RowChanging" msprop:Generator_RowEvArgName="NoOfftakers2RowChangeEvent" msprop:Generator_RowEvHandlerName="NoOfftakers2RowChangeEventHandler" msprop:Generator_TableClassName="NoOfftakers2DataTable" msprop:Generator_TableVarName="tableNoOfftakers2" msprop:Generator_RowDeletingName="NoOfftakers2RowDeleting" msprop:Generator_TablePropName="NoOfftakers2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalOffTake" msprop:Generator_UserColumnName="TotalOffTake" msprop:Generator_ColumnVarNameInTable="columnTotalOffTake" msprop:Generator_ColumnPropNameInRow="TotalOffTake" msprop:Generator_ColumnPropNameInTable="TotalOffTakeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CloseProject" msprop:Generator_UserColumnName="CloseProject" msprop:Generator_ColumnVarNameInTable="columnCloseProject" msprop:Generator_ColumnPropNameInRow="CloseProject" msprop:Generator_ColumnPropNameInTable="CloseProjectColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProjectID" msprop:Generator_UserColumnName="ProjectID" msprop:Generator_ColumnVarNameInTable="columnProjectID" msprop:Generator_ColumnPropNameInRow="ProjectID" msprop:Generator_ColumnPropNameInTable="ProjectIDColumn" type="xs:int" />
+              <xs:element name="Sector" msprop:Generator_UserColumnName="Sector" msprop:Generator_ColumnPropNameInRow="Sector" msprop:Generator_ColumnVarNameInTable="columnSector" msprop:Generator_ColumnPropNameInTable="SectorColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoSector" msprop:Generator_UserTableName="NoSector" msprop:Generator_RowDeletedName="NoSectorRowDeleted" msprop:Generator_RowChangedName="NoSectorRowChanged" msprop:Generator_RowClassName="NoSectorRow" msprop:Generator_RowChangingName="NoSectorRowChanging" msprop:Generator_RowEvArgName="NoSectorRowChangeEvent" msprop:Generator_RowEvHandlerName="NoSectorRowChangeEventHandler" msprop:Generator_TableClassName="NoSectorDataTable" msprop:Generator_TableVarName="tableNoSector" msprop:Generator_RowDeletingName="NoSectorRowDeleting" msprop:Generator_TablePropName="NoSector">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sector" msprop:Generator_UserColumnName="Sector" msprop:Generator_ColumnVarNameInTable="columnSector" msprop:Generator_ColumnPropNameInRow="Sector" msprop:Generator_ColumnPropNameInTable="SectorColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CloseProject" msprop:Generator_UserColumnName="CloseProject" msprop:Generator_ColumnVarNameInTable="columnCloseProject" msprop:Generator_ColumnPropNameInRow="CloseProject" msprop:Generator_ColumnPropNameInTable="CloseProjectColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProjectID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ProjectID" msprop:Generator_ColumnVarNameInTable="columnProjectID" msprop:Generator_ColumnPropNameInRow="ProjectID" msprop:Generator_ColumnPropNameInTable="ProjectIDColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoSponsor" msprop:Generator_UserTableName="NoSponsor" msprop:Generator_RowDeletedName="NoSponsorRowDeleted" msprop:Generator_RowChangedName="NoSponsorRowChanged" msprop:Generator_RowClassName="NoSponsorRow" msprop:Generator_RowChangingName="NoSponsorRowChanging" msprop:Generator_RowEvArgName="NoSponsorRowChangeEvent" msprop:Generator_RowEvHandlerName="NoSponsorRowChangeEventHandler" msprop:Generator_TableClassName="NoSponsorDataTable" msprop:Generator_TableVarName="tableNoSponsor" msprop:Generator_RowDeletingName="NoSponsorRowDeleting" msprop:Generator_TablePropName="NoSponsor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SponsorID" msprop:Generator_UserColumnName="SponsorID" msprop:Generator_ColumnVarNameInTable="columnSponsorID" msprop:Generator_ColumnPropNameInRow="SponsorID" msprop:Generator_ColumnPropNameInTable="SponsorIDColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CloseProject" msprop:Generator_UserColumnName="CloseProject" msprop:Generator_ColumnVarNameInTable="columnCloseProject" msprop:Generator_ColumnPropNameInRow="CloseProject" msprop:Generator_ColumnPropNameInTable="CloseProjectColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbySector" msprop:Generator_UserTableName="GraphCommbySector" msprop:Generator_RowDeletedName="GraphCommbySectorRowDeleted" msprop:Generator_RowChangedName="GraphCommbySectorRowChanged" msprop:Generator_RowClassName="GraphCommbySectorRow" msprop:Generator_RowChangingName="GraphCommbySectorRowChanging" msprop:Generator_RowEvArgName="GraphCommbySectorRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbySectorRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbySectorDataTable" msprop:Generator_TableVarName="tableGraphCommbySector" msprop:Generator_RowDeletingName="GraphCommbySectorRowDeleting" msprop:Generator_TablePropName="GraphCommbySector">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Sector" msprop:Generator_UserColumnName="Sector" msprop:Generator_ColumnVarNameInTable="columnSector" msprop:Generator_ColumnPropNameInRow="Sector" msprop:Generator_ColumnPropNameInTable="SectorColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbySponsor" msprop:Generator_UserTableName="GraphCommbySponsor" msprop:Generator_RowDeletedName="GraphCommbySponsorRowDeleted" msprop:Generator_RowChangedName="GraphCommbySponsorRowChanged" msprop:Generator_RowClassName="GraphCommbySponsorRow" msprop:Generator_RowChangingName="GraphCommbySponsorRowChanging" msprop:Generator_RowEvArgName="GraphCommbySponsorRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbySponsorRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbySponsorDataTable" msprop:Generator_TableVarName="tableGraphCommbySponsor" msprop:Generator_RowDeletingName="GraphCommbySponsorRowDeleting" msprop:Generator_TablePropName="GraphCommbySponsor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ICR" msprop:Generator_UserColumnName="ICR" msprop:Generator_ColumnVarNameInTable="columnICR" msprop:Generator_ColumnPropNameInRow="ICR" msprop:Generator_ColumnPropNameInTable="ICRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameRating" msprop:Generator_UserColumnName="NameRating" msprop:Generator_ColumnVarNameInTable="columnNameRating" msprop:Generator_ColumnPropNameInRow="NameRating" msprop:Generator_ColumnPropNameInTable="NameRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="107" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbyOfftakerRating" msprop:Generator_UserTableName="GraphCommbyOfftakerRating" msprop:Generator_RowDeletedName="GraphCommbyOfftakerRatingRowDeleted" msprop:Generator_RowChangedName="GraphCommbyOfftakerRatingRowChanged" msprop:Generator_RowClassName="GraphCommbyOfftakerRatingRow" msprop:Generator_RowChangingName="GraphCommbyOfftakerRatingRowChanging" msprop:Generator_RowEvArgName="GraphCommbyOfftakerRatingRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbyOfftakerRatingRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbyOfftakerRatingDataTable" msprop:Generator_TableVarName="tableGraphCommbyOfftakerRating" msprop:Generator_RowDeletingName="GraphCommbyOfftakerRatingRowDeleting" msprop:Generator_TablePropName="GraphCommbyOfftakerRating">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ICR" msprop:Generator_UserColumnName="ICR" msprop:Generator_ColumnVarNameInTable="columnICR" msprop:Generator_ColumnPropNameInRow="ICR" msprop:Generator_ColumnPropNameInTable="ICRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphHistoryMaxDate" msprop:Generator_UserTableName="GraphHistoryMaxDate" msprop:Generator_RowDeletedName="GraphHistoryMaxDateRowDeleted" msprop:Generator_RowChangedName="GraphHistoryMaxDateRowChanged" msprop:Generator_RowClassName="GraphHistoryMaxDateRow" msprop:Generator_RowChangingName="GraphHistoryMaxDateRowChanging" msprop:Generator_RowEvArgName="GraphHistoryMaxDateRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphHistoryMaxDateRowChangeEventHandler" msprop:Generator_TableClassName="GraphHistoryMaxDateDataTable" msprop:Generator_TableVarName="tableGraphHistoryMaxDate" msprop:Generator_RowDeletingName="GraphHistoryMaxDateRowDeleting" msprop:Generator_TablePropName="GraphHistoryMaxDate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaxDate" msprop:Generator_UserColumnName="MaxDate" msprop:Generator_ColumnVarNameInTable="columnMaxDate" msprop:Generator_ColumnPropNameInRow="MaxDate" msprop:Generator_ColumnPropNameInTable="MaxDateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphHistory" msprop:Generator_UserTableName="GraphHistory" msprop:Generator_RowDeletedName="GraphHistoryRowDeleted" msprop:Generator_RowChangedName="GraphHistoryRowChanged" msprop:Generator_RowClassName="GraphHistoryRow" msprop:Generator_RowChangingName="GraphHistoryRowChanging" msprop:Generator_RowEvArgName="GraphHistoryRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphHistoryRowChangeEventHandler" msprop:Generator_TableClassName="GraphHistoryDataTable" msprop:Generator_TableVarName="tableGraphHistory" msprop:Generator_RowDeletingName="GraphHistoryRowDeleting" msprop:Generator_TablePropName="GraphHistory">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="GraphID" msprop:Generator_UserColumnName="GraphID" msprop:Generator_ColumnVarNameInTable="columnGraphID" msprop:Generator_ColumnPropNameInRow="GraphID" msprop:Generator_ColumnPropNameInTable="GraphIDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HistoryDate" msprop:Generator_UserColumnName="HistoryDate" msprop:Generator_ColumnVarNameInTable="columnHistoryDate" msprop:Generator_ColumnPropNameInRow="HistoryDate" msprop:Generator_ColumnPropNameInTable="HistoryDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ICR" msprop:Generator_UserColumnName="ICR" msprop:Generator_ColumnVarNameInTable="columnICR" msprop:Generator_ColumnPropNameInRow="ICR" msprop:Generator_ColumnPropNameInTable="ICRColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NameRating" msprop:Generator_UserColumnName="NameRating" msprop:Generator_ColumnVarNameInTable="columnNameRating" msprop:Generator_ColumnPropNameInRow="NameRating" msprop:Generator_ColumnPropNameInTable="NameRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sector" msprop:Generator_UserColumnName="Sector" msprop:Generator_ColumnVarNameInTable="columnSector" msprop:Generator_ColumnPropNameInRow="Sector" msprop:Generator_ColumnPropNameInTable="SectorColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DZRating" msprop:Generator_UserColumnName="DZRating" msprop:Generator_ColumnPropNameInRow="DZRating" msprop:Generator_ColumnVarNameInTable="columnDZRating" msprop:Generator_ColumnPropNameInTable="DZRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contract" msprop:Generator_UserColumnName="Contract" msprop:Generator_ColumnPropNameInRow="Contract" msprop:Generator_ColumnVarNameInTable="columnContract" msprop:Generator_ColumnPropNameInTable="ContractColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NERC" msprop:Generator_UserColumnName="NERC" msprop:Generator_ColumnPropNameInRow="NERC" msprop:Generator_ColumnVarNameInTable="columnNERC" msprop:Generator_ColumnPropNameInTable="NERCColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphHistoryDates" msprop:Generator_UserTableName="GraphHistoryDates" msprop:Generator_RowDeletedName="GraphHistoryDatesRowDeleted" msprop:Generator_RowChangedName="GraphHistoryDatesRowChanged" msprop:Generator_RowClassName="GraphHistoryDatesRow" msprop:Generator_RowChangingName="GraphHistoryDatesRowChanging" msprop:Generator_RowEvArgName="GraphHistoryDatesRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphHistoryDatesRowChangeEventHandler" msprop:Generator_TableClassName="GraphHistoryDatesDataTable" msprop:Generator_TableVarName="tableGraphHistoryDates" msprop:Generator_RowDeletingName="GraphHistoryDatesRowDeleting" msprop:Generator_TablePropName="GraphHistoryDates">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="HistoryDate" msprop:Generator_UserColumnName="HistoryDate" msprop:Generator_ColumnVarNameInTable="columnHistoryDate" msprop:Generator_ColumnPropNameInRow="HistoryDate" msprop:Generator_ColumnPropNameInTable="HistoryDateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NONerc" msprop:Generator_UserTableName="NONerc" msprop:Generator_RowDeletedName="NONercRowDeleted" msprop:Generator_RowChangedName="NONercRowChanged" msprop:Generator_RowClassName="NONercRow" msprop:Generator_RowChangingName="NONercRowChanging" msprop:Generator_RowEvArgName="NONercRowChangeEvent" msprop:Generator_RowEvHandlerName="NONercRowChangeEventHandler" msprop:Generator_TableClassName="NONercDataTable" msprop:Generator_TableVarName="tableNONerc" msprop:Generator_RowDeletingName="NONercRowDeleting" msprop:Generator_TablePropName="NONerc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoSponsorRating" msprop:Generator_UserTableName="NoSponsorRating" msprop:Generator_RowDeletedName="NoSponsorRatingRowDeleted" msprop:Generator_RowChangedName="NoSponsorRatingRowChanged" msprop:Generator_RowClassName="NoSponsorRatingRow" msprop:Generator_RowChangingName="NoSponsorRatingRowChanging" msprop:Generator_RowEvArgName="NoSponsorRatingRowChangeEvent" msprop:Generator_RowEvHandlerName="NoSponsorRatingRowChangeEventHandler" msprop:Generator_TableClassName="NoSponsorRatingDataTable" msprop:Generator_TableVarName="tableNoSponsorRating" msprop:Generator_RowDeletingName="NoSponsorRatingRowDeleting" msprop:Generator_TablePropName="NoSponsorRating">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInTable="StatusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoDZRating" msprop:Generator_UserTableName="NoDZRating" msprop:Generator_RowDeletedName="NoDZRatingRowDeleted" msprop:Generator_RowChangedName="NoDZRatingRowChanged" msprop:Generator_RowClassName="NoDZRatingRow" msprop:Generator_RowChangingName="NoDZRatingRowChanging" msprop:Generator_RowEvArgName="NoDZRatingRowChangeEvent" msprop:Generator_RowEvHandlerName="NoDZRatingRowChangeEventHandler" msprop:Generator_TableClassName="NoDZRatingDataTable" msprop:Generator_TableVarName="tableNoDZRating" msprop:Generator_RowDeletingName="NoDZRatingRowDeleting" msprop:Generator_TablePropName="NoDZRating">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbyDZRating" msprop:Generator_UserTableName="GraphCommbyDZRating" msprop:Generator_RowDeletedName="GraphCommbyDZRatingRowDeleted" msprop:Generator_RowChangedName="GraphCommbyDZRatingRowChanged" msprop:Generator_RowClassName="GraphCommbyDZRatingRow" msprop:Generator_RowChangingName="GraphCommbyDZRatingRowChanging" msprop:Generator_RowEvArgName="GraphCommbyDZRatingRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbyDZRatingRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbyDZRatingDataTable" msprop:Generator_TableVarName="tableGraphCommbyDZRating" msprop:Generator_RowDeletingName="GraphCommbyDZRatingRowDeleting" msprop:Generator_TablePropName="GraphCommbyDZRating">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DZRating" msprop:Generator_UserColumnName="DZRating" msprop:Generator_ColumnPropNameInRow="DZRating" msprop:Generator_ColumnVarNameInTable="columnDZRating" msprop:Generator_ColumnPropNameInTable="DZRatingColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbyContract" msprop:Generator_UserTableName="GraphCommbyContract" msprop:Generator_RowDeletedName="GraphCommbyContractRowDeleted" msprop:Generator_RowChangedName="GraphCommbyContractRowChanged" msprop:Generator_RowClassName="GraphCommbyContractRow" msprop:Generator_RowChangingName="GraphCommbyContractRowChanging" msprop:Generator_RowEvArgName="GraphCommbyContractRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbyContractRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbyContractDataTable" msprop:Generator_TableVarName="tableGraphCommbyContract" msprop:Generator_RowDeletingName="GraphCommbyContractRowDeleting" msprop:Generator_TablePropName="GraphCommbyContract">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Contract" msprop:Generator_UserColumnName="Contract" msprop:Generator_ColumnPropNameInRow="Contract" msprop:Generator_ColumnVarNameInTable="columnContract" msprop:Generator_ColumnPropNameInTable="ContractColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbySponsorRating" msprop:Generator_UserTableName="GraphCommbySponsorRating" msprop:Generator_RowDeletedName="GraphCommbySponsorRatingRowDeleted" msprop:Generator_RowChangedName="GraphCommbySponsorRatingRowChanged" msprop:Generator_RowClassName="GraphCommbySponsorRatingRow" msprop:Generator_RowChangingName="GraphCommbySponsorRatingRowChanging" msprop:Generator_RowEvArgName="GraphCommbySponsorRatingRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbySponsorRatingRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbySponsorRatingDataTable" msprop:Generator_TableVarName="tableGraphCommbySponsorRating" msprop:Generator_RowDeletingName="GraphCommbySponsorRatingRowDeleting" msprop:Generator_TablePropName="GraphCommbySponsorRating">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ICR" msprop:Generator_UserColumnName="ICR" msprop:Generator_ColumnPropNameInRow="ICR" msprop:Generator_ColumnVarNameInTable="columnICR" msprop:Generator_ColumnPropNameInTable="ICRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbyNERC" msprop:Generator_UserTableName="GraphCommbyNERC" msprop:Generator_RowDeletedName="GraphCommbyNERCRowDeleted" msprop:Generator_RowChangedName="GraphCommbyNERCRowChanged" msprop:Generator_RowClassName="GraphCommbyNERCRow" msprop:Generator_RowChangingName="GraphCommbyNERCRowChanging" msprop:Generator_RowEvArgName="GraphCommbyNERCRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbyNERCRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbyNERCDataTable" msprop:Generator_TableVarName="tableGraphCommbyNERC" msprop:Generator_RowDeletingName="GraphCommbyNERCRowDeleting" msprop:Generator_TablePropName="GraphCommbyNERC">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NERC" msprop:Generator_UserColumnName="NERC" msprop:Generator_ColumnPropNameInRow="NERC" msprop:Generator_ColumnVarNameInTable="columnNERC" msprop:Generator_ColumnPropNameInTable="NERCColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphCommbyOfftakerNameandRating" msprop:Generator_UserTableName="GraphCommbyOfftakerNameandRating" msprop:Generator_RowDeletedName="GraphCommbyOfftakerNameandRatingRowDeleted" msprop:Generator_RowChangedName="GraphCommbyOfftakerNameandRatingRowChanged" msprop:Generator_RowClassName="GraphCommbyOfftakerNameandRatingRow" msprop:Generator_RowChangingName="GraphCommbyOfftakerNameandRatingRowChanging" msprop:Generator_RowEvArgName="GraphCommbyOfftakerNameandRatingRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphCommbyOfftakerNameandRatingRowChangeEventHandler" msprop:Generator_TableClassName="GraphCommbyOfftakerNameandRatingDataTable" msprop:Generator_TableVarName="tableGraphCommbyOfftakerNameandRating" msprop:Generator_RowDeletingName="GraphCommbyOfftakerNameandRatingRowDeleting" msprop:Generator_TablePropName="GraphCommbyOfftakerNameandRating">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NameRating" msprop:Generator_UserColumnName="NameRating" msprop:Generator_ColumnPropNameInRow="NameRating" msprop:Generator_ColumnVarNameInTable="columnNameRating" msprop:Generator_ColumnPropNameInTable="NameRatingColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="57" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphIncomeAllbyMonth" msprop:Generator_UserTableName="GraphIncomeAllbyMonth" msprop:Generator_RowDeletedName="GraphIncomeAllbyMonthRowDeleted" msprop:Generator_RowChangedName="GraphIncomeAllbyMonthRowChanged" msprop:Generator_RowClassName="GraphIncomeAllbyMonthRow" msprop:Generator_RowChangingName="GraphIncomeAllbyMonthRowChanging" msprop:Generator_RowEvArgName="GraphIncomeAllbyMonthRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphIncomeAllbyMonthRowChangeEventHandler" msprop:Generator_TableClassName="GraphIncomeAllbyMonthDataTable" msprop:Generator_TableVarName="tableGraphIncomeAllbyMonth" msprop:Generator_RowDeletingName="GraphIncomeAllbyMonthRowDeleting" msprop:Generator_TablePropName="GraphIncomeAllbyMonth">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UsageIncome" msprop:Generator_UserColumnName="UsageIncome" msprop:Generator_ColumnVarNameInTable="columnUsageIncome" msprop:Generator_ColumnPropNameInRow="UsageIncome" msprop:Generator_ColumnPropNameInTable="UsageIncomeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="UnusedIncome" msprop:Generator_UserColumnName="UnusedIncome" msprop:Generator_ColumnVarNameInTable="columnUnusedIncome" msprop:Generator_ColumnPropNameInRow="UnusedIncome" msprop:Generator_ColumnPropNameInTable="UnusedIncomeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalIncome" msprop:Generator_UserColumnName="TotalIncome" msprop:Generator_ColumnVarNameInTable="columnTotalIncome" msprop:Generator_ColumnPropNameInRow="TotalIncome" msprop:Generator_ColumnPropNameInTable="TotalIncomeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EndDate" msprop:Generator_UserColumnName="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Commitment" msprop:Generator_UserColumnName="Commitment" msprop:Generator_ColumnPropNameInRow="Commitment" msprop:Generator_ColumnVarNameInTable="columnCommitment" msprop:Generator_ColumnPropNameInTable="CommitmentColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GraphYTDIncome" msprop:Generator_UserTableName="GraphYTDIncome" msprop:Generator_RowDeletedName="GraphYTDIncomeRowDeleted" msprop:Generator_RowChangedName="GraphYTDIncomeRowChanged" msprop:Generator_RowClassName="GraphYTDIncomeRow" msprop:Generator_RowChangingName="GraphYTDIncomeRowChanging" msprop:Generator_RowEvArgName="GraphYTDIncomeRowChangeEvent" msprop:Generator_RowEvHandlerName="GraphYTDIncomeRowChangeEventHandler" msprop:Generator_TableClassName="GraphYTDIncomeDataTable" msprop:Generator_TableVarName="tableGraphYTDIncome" msprop:Generator_RowDeletingName="GraphYTDIncomeRowDeleting" msprop:Generator_TablePropName="GraphYTDIncome">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Project" msprop:Generator_UserColumnName="Project" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInTable="ProjectColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Interest" msprop:Generator_UserColumnName="Interest" msprop:Generator_ColumnPropNameInRow="Interest" msprop:Generator_ColumnVarNameInTable="columnInterest" msprop:Generator_ColumnPropNameInTable="InterestColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Fee" msprop:Generator_UserColumnName="Fee" msprop:Generator_ColumnPropNameInRow="Fee" msprop:Generator_ColumnVarNameInTable="columnFee" msprop:Generator_ColumnPropNameInTable="FeeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="YTDTotal" msprop:Generator_UserColumnName="YTDTotal" msprop:Generator_ColumnPropNameInRow="YTDTotal" msprop:Generator_ColumnVarNameInTable="columnYTDTotal" msprop:Generator_ColumnPropNameInTable="YTDTotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsOf" msprop:Generator_UserColumnName="AsOf" msprop:Generator_ColumnPropNameInRow="AsOf" msprop:Generator_ColumnVarNameInTable="columnAsOf" msprop:Generator_ColumnPropNameInTable="AsOfColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="YTDSum" msprop:Generator_UserColumnName="YTDSum" msprop:Generator_ColumnPropNameInRow="YTDSum" msprop:Generator_ColumnVarNameInTable="columnYTDSum" msprop:Generator_ColumnPropNameInTable="YTDSumColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsPercent" msprop:Generator_UserColumnName="AsPercent" msprop:Generator_ColumnPropNameInRow="AsPercent" msprop:Generator_ColumnVarNameInTable="columnAsPercent" msprop:Generator_ColumnPropNameInTable="AsPercentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AsDecimal" msprop:Generator_UserColumnName="AsDecimal" msprop:Generator_ColumnPropNameInRow="AsDecimal" msprop:Generator_ColumnVarNameInTable="columnAsDecimal" msprop:Generator_ColumnPropNameInTable="AsDecimalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="LOALPHA" msprop:Generator_UserColumnName="LOALPHA" msprop:Generator_ColumnPropNameInRow="LOALPHA" msprop:Generator_ColumnVarNameInTable="columnLOALPHA" msprop:Generator_ColumnPropNameInTable="LOALPHAColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProjectAlpha" msdata:ReadOnly="true" msprop:Generator_UserColumnName="ProjectAlpha" msprop:Generator_ColumnPropNameInRow="ProjectAlpha" msprop:Generator_ColumnVarNameInTable="columnProjectAlpha" msprop:Generator_ColumnPropNameInTable="ProjectAlphaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="151" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoOffTakersManualSP" msprop:Generator_UserTableName="NoOffTakersManualSP" msprop:Generator_RowDeletedName="NoOffTakersManualSPRowDeleted" msprop:Generator_RowChangedName="NoOffTakersManualSPRowChanged" msprop:Generator_RowClassName="NoOffTakersManualSPRow" msprop:Generator_RowChangingName="NoOffTakersManualSPRowChanging" msprop:Generator_RowEvArgName="NoOffTakersManualSPRowChangeEvent" msprop:Generator_RowEvHandlerName="NoOffTakersManualSPRowChangeEventHandler" msprop:Generator_TableClassName="NoOffTakersManualSPDataTable" msprop:Generator_TableVarName="tableNoOffTakersManualSP" msprop:Generator_RowDeletingName="NoOffTakersManualSPRowDeleting" msprop:Generator_TablePropName="NoOffTakersManualSP">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ManualDate" msprop:Generator_UserColumnName="ManualDate" msprop:Generator_ColumnPropNameInRow="ManualDate" msprop:Generator_ColumnVarNameInTable="columnManualDate" msprop:Generator_ColumnPropNameInTable="ManualDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="OffTaker" msprop:Generator_UserColumnName="OffTaker" msprop:Generator_ColumnPropNameInRow="OffTaker" msprop:Generator_ColumnVarNameInTable="columnOffTaker" msprop:Generator_ColumnPropNameInTable="OffTakerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ManualRating" msprop:Generator_UserColumnName="ManualRating" msprop:Generator_ColumnPropNameInRow="ManualRating" msprop:Generator_ColumnVarNameInTable="columnManualRating" msprop:Generator_ColumnPropNameInTable="ManualRatingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QuickDaysLate" msprop:Generator_UserTableName="QuickDaysLate" msprop:Generator_RowDeletedName="QuickDaysLateRowDeleted" msprop:Generator_TableClassName="QuickDaysLateDataTable" msprop:Generator_RowChangedName="QuickDaysLateRowChanged" msprop:Generator_RowClassName="QuickDaysLateRow" msprop:Generator_RowChangingName="QuickDaysLateRowChanging" msprop:Generator_RowEvArgName="QuickDaysLateRowChangeEvent" msprop:Generator_RowEvHandlerName="QuickDaysLateRowChangeEventHandler" msprop:Generator_TablePropName="QuickDaysLate" msprop:Generator_TableVarName="tableQuickDaysLate" msprop:Generator_RowDeletingName="QuickDaysLateRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DocType" msprop:Generator_UserColumnName="DocType" msprop:Generator_ColumnPropNameInRow="DocType" msprop:Generator_ColumnVarNameInTable="columnDocType" msprop:Generator_ColumnPropNameInTable="DocTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DueDate" msprop:Generator_UserColumnName="DueDate" msprop:Generator_ColumnPropNameInRow="DueDate" msprop:Generator_ColumnVarNameInTable="columnDueDate" msprop:Generator_ColumnPropNameInTable="DueDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DaysLate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="DaysLate" msprop:Generator_ColumnPropNameInRow="DaysLate" msprop:Generator_ColumnVarNameInTable="columnDaysLate" msprop:Generator_ColumnPropNameInTable="DaysLateColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="AcctMgr" msprop:Generator_UserColumnName="AcctMgr" msprop:Generator_ColumnPropNameInRow="AcctMgr" msprop:Generator_ColumnVarNameInTable="columnAcctMgr" msprop:Generator_ColumnPropNameInTable="AcctMgrColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AcctOfficer" msprop:Generator_UserColumnName="AcctOfficer" msprop:Generator_ColumnPropNameInRow="AcctOfficer" msprop:Generator_ColumnVarNameInTable="columnAcctOfficer" msprop:Generator_ColumnPropNameInTable="AcctOfficerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CloseProject" msprop:Generator_UserColumnName="CloseProject" msprop:Generator_ColumnPropNameInRow="CloseProject" msprop:Generator_ColumnVarNameInTable="columnCloseProject" msprop:Generator_ColumnPropNameInTable="CloseProjectColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReceivedDate" msprop:Generator_UserColumnName="ReceivedDate" msprop:Generator_ColumnPropNameInRow="ReceivedDate" msprop:Generator_ColumnVarNameInTable="columnReceivedDate" msprop:Generator_ColumnPropNameInTable="ReceivedDateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QuickDaysLateGroup" msprop:Generator_UserTableName="QuickDaysLateGroup" msprop:Generator_RowDeletedName="QuickDaysLateGroupRowDeleted" msprop:Generator_TableClassName="QuickDaysLateGroupDataTable" msprop:Generator_RowChangedName="QuickDaysLateGroupRowChanged" msprop:Generator_RowClassName="QuickDaysLateGroupRow" msprop:Generator_RowChangingName="QuickDaysLateGroupRowChanging" msprop:Generator_RowEvArgName="QuickDaysLateGroupRowChangeEvent" msprop:Generator_RowEvHandlerName="QuickDaysLateGroupRowChangeEventHandler" msprop:Generator_TablePropName="QuickDaysLateGroup" msprop:Generator_TableVarName="tableQuickDaysLateGroup" msprop:Generator_RowDeletingName="QuickDaysLateGroupRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInTable="NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NoFacilityreference" />
+      <xs:field xpath="mstns:ProjectID" />
+    </xs:unique>
+    <xs:unique name="NoOfftakers2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NoOfftakers2" />
+      <xs:field xpath="mstns:ProjectID" />
+    </xs:unique>
+    <xs:unique name="NoSector_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NoSector" />
+      <xs:field xpath="mstns:ProjectID" />
+    </xs:unique>
+    <xs:unique name="GraphHistory_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GraphHistory" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="NoOffTakersManualSP_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NoOffTakersManualSP" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RDB" targetNamespace="http://tempuri.org/RDB.xsd" xmlns:mstns="http://tempuri.org/RDB.xsd" xmlns="http://tempuri.org/RDB.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionString.ConnectionString" Provider="System.Data.Odbc" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ConnectionStringRDB" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionStringRDB (Web.config)" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ConnectionStringRDB.ConnectionString" Provider="System.Data.Odbc" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PFFacilityOLDTableAdapter" GeneratorDataComponentClassName="PFFacilityOLDTableAdapter" Name="PFFacilityOLD" UserDataComponentName="PFFacilityOLDTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_status, dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_dg_fac_amt_used_port, dbo.FACILITY.fac_branch_cost_centre, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (NOT (dbo.FACILITY.fac_customer_alpha_id LIKE 'XXX%')) AND (NOT (dbo.FACILITY.fac_tranche LIKE '%PARTS%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="branch_inst_no" DataSetColumn="branch_inst_no" />
+              <Mapping SourceColumn="fac_reference_number" DataSetColumn="fac_reference_number" />
+              <Mapping SourceColumn="fac_customer_alpha_id" DataSetColumn="fac_customer_alpha_id" />
+              <Mapping SourceColumn="fac_cust_shortname" DataSetColumn="fac_cust_shortname" />
+              <Mapping SourceColumn="fac_tranche" DataSetColumn="fac_tranche" />
+              <Mapping SourceColumn="fac_status" DataSetColumn="fac_status" />
+              <Mapping SourceColumn="fac_dg_facility_amount" DataSetColumn="fac_dg_facility_amount" />
+              <Mapping SourceColumn="fac_dg_fac_amt_used_port" DataSetColumn="fac_dg_fac_amt_used_port" />
+              <Mapping SourceColumn="fac_branch_cost_centre" DataSetColumn="fac_branch_cost_centre" />
+              <Mapping SourceColumn="Used" DataSetColumn="Used" />
+              <Mapping SourceColumn="fac_com_final_maturity_date" DataSetColumn="fac_com_final_maturity_date" />
+              <Mapping SourceColumn="fac_com_agreemt_effective_date" DataSetColumn="fac_com_agreemt_effective_date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetDataBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_branch_cost_centre, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_dg_fac_amt_used_port, 
+                      dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_status, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (dbo.FACILITY.fac_customer_alpha_id = ?) AND (dbo.FACILITY.fac_customer_alpha_id &lt;&gt; 'aaaaaaaa') AND (dbo.FACILITY.fac_status = '3') AND 
+                      (NOT (dbo.FACILITY.fac_tranche LIKE '%PART%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="PARAM1" ColumnName="fac_customer_alpha_id" DataSourceName="RDB_NY.FACILITY" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="fac_customer_alpha_id" Precision="0" Scale="0" Size="8" SourceColumn="fac_customer_alpha_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetDataBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_status, dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_dg_fac_amt_used_port, dbo.FACILITY.fac_branch_cost_centre, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (NOT (dbo.FACILITY.fac_customer_alpha_id LIKE 'XXX%')) AND (NOT (dbo.FACILITY.fac_tranche LIKE '%PART%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionString (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByOpen" GetMethodModifier="Public" GetMethodName="GetDataByOpen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByOpen" UserSourceName="GetDataByOpen">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_status, dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_dg_fac_amt_used_port, dbo.FACILITY.fac_branch_cost_centre, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (NOT (dbo.FACILITY.fac_customer_alpha_id LIKE 'XXX%')) AND (dbo.FACILITY.fac_status = '3') AND (NOT (dbo.FACILITY.fac_tranche LIKE '%PARTS%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FACILITYOLDTableAdapter" GeneratorDataComponentClassName="FACILITYOLDTableAdapter" Name="FACILITYOLD" UserDataComponentName="FACILITYOLDTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT branch_inst_no, fac_reference_number, fac_currency, fac_customer_number, fac_customer_alpha_id, fac_cust_shortname, fac_tranche, fac_status, fac_dg_facility_amount, fac_dg_fac_amt_used_port, fac_multiccy_option_ind, fac_branch_limit_ind, fac_other_elig_borrower_ind, fac_committed_ind, fac_utilisation_advance_ind, fac_utilisatn_purch_draft_ind, fac_utilisatn_loan_gntee_ind, fac_utilisatn_standby_lc_ind, fac_utilisatn_doc_lc_ind, fac_dg_bank_ba_ind, fac_util_ba_risk_particip_ind, fac_facility_related_fee_ind, fac_syndicated_transaction_ind, fac_branch_cost_centre, fac_account_manager, fac_billing_for_interest_ind, fac_billing_for_fees_ind, fac_print_confirmation_ind, fac_purpose1, fac_purpose2, fac_dgbank_creditrating, fac_secured_ind, fac_extension_date, fac_participation_sold_ind, fac_fee_pay_other_bches_ind, fac_create_date, fac_create_time, fac_create_user, fac_last_change_date, fac_last_change_time, fac_last_change_user, fac_number_of_adjustments, fac_verify_date_create, fac_verify_time_create, fac_verify_user_create, fac_verify_date_change, fac_verify_time_change, fac_verify_user_change FROM dbo.FACILITY</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="branch_inst_no" DataSetColumn="branch_inst_no" />
+              <Mapping SourceColumn="fac_reference_number" DataSetColumn="fac_reference_number" />
+              <Mapping SourceColumn="fac_currency" DataSetColumn="fac_currency" />
+              <Mapping SourceColumn="fac_customer_number" DataSetColumn="fac_customer_number" />
+              <Mapping SourceColumn="fac_customer_alpha_id" DataSetColumn="fac_customer_alpha_id" />
+              <Mapping SourceColumn="fac_cust_shortname" DataSetColumn="fac_cust_shortname" />
+              <Mapping SourceColumn="fac_tranche" DataSetColumn="fac_tranche" />
+              <Mapping SourceColumn="fac_status" DataSetColumn="fac_status" />
+              <Mapping SourceColumn="fac_dg_facility_amount" DataSetColumn="fac_dg_facility_amount" />
+              <Mapping SourceColumn="fac_dg_fac_amt_used_port" DataSetColumn="fac_dg_fac_amt_used_port" />
+              <Mapping SourceColumn="fac_multiccy_option_ind" DataSetColumn="fac_multiccy_option_ind" />
+              <Mapping SourceColumn="fac_branch_limit_ind" DataSetColumn="fac_branch_limit_ind" />
+              <Mapping SourceColumn="fac_other_elig_borrower_ind" DataSetColumn="fac_other_elig_borrower_ind" />
+              <Mapping SourceColumn="fac_committed_ind" DataSetColumn="fac_committed_ind" />
+              <Mapping SourceColumn="fac_utilisation_advance_ind" DataSetColumn="fac_utilisation_advance_ind" />
+              <Mapping SourceColumn="fac_utilisatn_purch_draft_ind" DataSetColumn="fac_utilisatn_purch_draft_ind" />
+              <Mapping SourceColumn="fac_utilisatn_loan_gntee_ind" DataSetColumn="fac_utilisatn_loan_gntee_ind" />
+              <Mapping SourceColumn="fac_utilisatn_standby_lc_ind" DataSetColumn="fac_utilisatn_standby_lc_ind" />
+              <Mapping SourceColumn="fac_utilisatn_doc_lc_ind" DataSetColumn="fac_utilisatn_doc_lc_ind" />
+              <Mapping SourceColumn="fac_dg_bank_ba_ind" DataSetColumn="fac_dg_bank_ba_ind" />
+              <Mapping SourceColumn="fac_util_ba_risk_particip_ind" DataSetColumn="fac_util_ba_risk_particip_ind" />
+              <Mapping SourceColumn="fac_facility_related_fee_ind" DataSetColumn="fac_facility_related_fee_ind" />
+              <Mapping SourceColumn="fac_syndicated_transaction_ind" DataSetColumn="fac_syndicated_transaction_ind" />
+              <Mapping SourceColumn="fac_branch_cost_centre" DataSetColumn="fac_branch_cost_centre" />
+              <Mapping SourceColumn="fac_account_manager" DataSetColumn="fac_account_manager" />
+              <Mapping SourceColumn="fac_billing_for_interest_ind" DataSetColumn="fac_billing_for_interest_ind" />
+              <Mapping SourceColumn="fac_billing_for_fees_ind" DataSetColumn="fac_billing_for_fees_ind" />
+              <Mapping SourceColumn="fac_print_confirmation_ind" DataSetColumn="fac_print_confirmation_ind" />
+              <Mapping SourceColumn="fac_purpose1" DataSetColumn="fac_purpose1" />
+              <Mapping SourceColumn="fac_purpose2" DataSetColumn="fac_purpose2" />
+              <Mapping SourceColumn="fac_dgbank_creditrating" DataSetColumn="fac_dgbank_creditrating" />
+              <Mapping SourceColumn="fac_secured_ind" DataSetColumn="fac_secured_ind" />
+              <Mapping SourceColumn="fac_extension_date" DataSetColumn="fac_extension_date" />
+              <Mapping SourceColumn="fac_participation_sold_ind" DataSetColumn="fac_participation_sold_ind" />
+              <Mapping SourceColumn="fac_fee_pay_other_bches_ind" DataSetColumn="fac_fee_pay_other_bches_ind" />
+              <Mapping SourceColumn="fac_create_date" DataSetColumn="fac_create_date" />
+              <Mapping SourceColumn="fac_create_time" DataSetColumn="fac_create_time" />
+              <Mapping SourceColumn="fac_create_user" DataSetColumn="fac_create_user" />
+              <Mapping SourceColumn="fac_last_change_date" DataSetColumn="fac_last_change_date" />
+              <Mapping SourceColumn="fac_last_change_time" DataSetColumn="fac_last_change_time" />
+              <Mapping SourceColumn="fac_last_change_user" DataSetColumn="fac_last_change_user" />
+              <Mapping SourceColumn="fac_number_of_adjustments" DataSetColumn="fac_number_of_adjustments" />
+              <Mapping SourceColumn="fac_verify_date_create" DataSetColumn="fac_verify_date_create" />
+              <Mapping SourceColumn="fac_verify_time_create" DataSetColumn="fac_verify_time_create" />
+              <Mapping SourceColumn="fac_verify_user_create" DataSetColumn="fac_verify_user_create" />
+              <Mapping SourceColumn="fac_verify_date_change" DataSetColumn="fac_verify_date_change" />
+              <Mapping SourceColumn="fac_verify_time_change" DataSetColumn="fac_verify_time_change" />
+              <Mapping SourceColumn="fac_verify_user_change" DataSetColumn="fac_verify_user_change" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FACILITYTableAdapter" GeneratorDataComponentClassName="FACILITYTableAdapter" Name="FACILITY" UserDataComponentName="FACILITYTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     branch_inst_no, fac_reference_number, fac_currency, fac_customer_number, fac_customer_alpha_id, fac_cust_shortname, fac_tranche, fac_status, 
+                      fac_dg_facility_amount, fac_dg_fac_amt_used_port, fac_multiccy_option_ind, fac_branch_limit_ind, fac_other_elig_borrower_ind, fac_committed_ind, 
+                      fac_utilisation_advance_ind, fac_utilisatn_purch_draft_ind, fac_utilisatn_loan_gntee_ind, fac_utilisatn_standby_lc_ind, fac_utilisatn_doc_lc_ind, 
+                      fac_dg_bank_ba_ind, fac_util_ba_risk_particip_ind, fac_facility_related_fee_ind, fac_syndicated_transaction_ind, fac_branch_cost_centre, 
+                      fac_account_manager, fac_billing_for_interest_ind, fac_billing_for_fees_ind, fac_print_confirmation_ind, fac_purpose1, fac_purpose2, 
+                      fac_dgbank_creditrating, fac_secured_ind, fac_extension_date, fac_participation_sold_ind, fac_fee_pay_other_bches_ind, fac_create_date, 
+                      fac_create_time, fac_create_user, fac_last_change_date, fac_last_change_time, fac_last_change_user, fac_number_of_adjustments, 
+                      fac_verify_date_create, fac_verify_time_create, fac_verify_user_create, fac_verify_date_change, fac_verify_time_change, 
+                      fac_verify_user_change
+FROM         dbo.FACILITY</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="branch_inst_no" DataSetColumn="branch_inst_no" />
+              <Mapping SourceColumn="fac_reference_number" DataSetColumn="fac_reference_number" />
+              <Mapping SourceColumn="fac_currency" DataSetColumn="fac_currency" />
+              <Mapping SourceColumn="fac_customer_number" DataSetColumn="fac_customer_number" />
+              <Mapping SourceColumn="fac_customer_alpha_id" DataSetColumn="fac_customer_alpha_id" />
+              <Mapping SourceColumn="fac_cust_shortname" DataSetColumn="fac_cust_shortname" />
+              <Mapping SourceColumn="fac_tranche" DataSetColumn="fac_tranche" />
+              <Mapping SourceColumn="fac_status" DataSetColumn="fac_status" />
+              <Mapping SourceColumn="fac_dg_facility_amount" DataSetColumn="fac_dg_facility_amount" />
+              <Mapping SourceColumn="fac_dg_fac_amt_used_port" DataSetColumn="fac_dg_fac_amt_used_port" />
+              <Mapping SourceColumn="fac_multiccy_option_ind" DataSetColumn="fac_multiccy_option_ind" />
+              <Mapping SourceColumn="fac_branch_limit_ind" DataSetColumn="fac_branch_limit_ind" />
+              <Mapping SourceColumn="fac_other_elig_borrower_ind" DataSetColumn="fac_other_elig_borrower_ind" />
+              <Mapping SourceColumn="fac_committed_ind" DataSetColumn="fac_committed_ind" />
+              <Mapping SourceColumn="fac_utilisation_advance_ind" DataSetColumn="fac_utilisation_advance_ind" />
+              <Mapping SourceColumn="fac_utilisatn_purch_draft_ind" DataSetColumn="fac_utilisatn_purch_draft_ind" />
+              <Mapping SourceColumn="fac_utilisatn_loan_gntee_ind" DataSetColumn="fac_utilisatn_loan_gntee_ind" />
+              <Mapping SourceColumn="fac_utilisatn_standby_lc_ind" DataSetColumn="fac_utilisatn_standby_lc_ind" />
+              <Mapping SourceColumn="fac_utilisatn_doc_lc_ind" DataSetColumn="fac_utilisatn_doc_lc_ind" />
+              <Mapping SourceColumn="fac_dg_bank_ba_ind" DataSetColumn="fac_dg_bank_ba_ind" />
+              <Mapping SourceColumn="fac_util_ba_risk_particip_ind" DataSetColumn="fac_util_ba_risk_particip_ind" />
+              <Mapping SourceColumn="fac_facility_related_fee_ind" DataSetColumn="fac_facility_related_fee_ind" />
+              <Mapping SourceColumn="fac_syndicated_transaction_ind" DataSetColumn="fac_syndicated_transaction_ind" />
+              <Mapping SourceColumn="fac_branch_cost_centre" DataSetColumn="fac_branch_cost_centre" />
+              <Mapping SourceColumn="fac_account_manager" DataSetColumn="fac_account_manager" />
+              <Mapping SourceColumn="fac_billing_for_interest_ind" DataSetColumn="fac_billing_for_interest_ind" />
+              <Mapping SourceColumn="fac_billing_for_fees_ind" DataSetColumn="fac_billing_for_fees_ind" />
+              <Mapping SourceColumn="fac_print_confirmation_ind" DataSetColumn="fac_print_confirmation_ind" />
+              <Mapping SourceColumn="fac_purpose1" DataSetColumn="fac_purpose1" />
+              <Mapping SourceColumn="fac_purpose2" DataSetColumn="fac_purpose2" />
+              <Mapping SourceColumn="fac_dgbank_creditrating" DataSetColumn="fac_dgbank_creditrating" />
+              <Mapping SourceColumn="fac_secured_ind" DataSetColumn="fac_secured_ind" />
+              <Mapping SourceColumn="fac_extension_date" DataSetColumn="fac_extension_date" />
+              <Mapping SourceColumn="fac_participation_sold_ind" DataSetColumn="fac_participation_sold_ind" />
+              <Mapping SourceColumn="fac_fee_pay_other_bches_ind" DataSetColumn="fac_fee_pay_other_bches_ind" />
+              <Mapping SourceColumn="fac_create_date" DataSetColumn="fac_create_date" />
+              <Mapping SourceColumn="fac_create_time" DataSetColumn="fac_create_time" />
+              <Mapping SourceColumn="fac_create_user" DataSetColumn="fac_create_user" />
+              <Mapping SourceColumn="fac_last_change_date" DataSetColumn="fac_last_change_date" />
+              <Mapping SourceColumn="fac_last_change_time" DataSetColumn="fac_last_change_time" />
+              <Mapping SourceColumn="fac_last_change_user" DataSetColumn="fac_last_change_user" />
+              <Mapping SourceColumn="fac_number_of_adjustments" DataSetColumn="fac_number_of_adjustments" />
+              <Mapping SourceColumn="fac_verify_date_create" DataSetColumn="fac_verify_date_create" />
+              <Mapping SourceColumn="fac_verify_time_create" DataSetColumn="fac_verify_time_create" />
+              <Mapping SourceColumn="fac_verify_user_create" DataSetColumn="fac_verify_user_create" />
+              <Mapping SourceColumn="fac_verify_date_change" DataSetColumn="fac_verify_date_change" />
+              <Mapping SourceColumn="fac_verify_time_change" DataSetColumn="fac_verify_time_change" />
+              <Mapping SourceColumn="fac_verify_user_change" DataSetColumn="fac_verify_user_change" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PFFacilityTableAdapter" GeneratorDataComponentClassName="PFFacilityTableAdapter" Name="PFFacility" UserDataComponentName="PFFacilityTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_status, dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_dg_fac_amt_used_port, dbo.FACILITY.fac_branch_cost_centre, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (NOT (dbo.FACILITY.fac_customer_alpha_id LIKE 'XXX%')) AND (NOT (dbo.FACILITY.fac_tranche LIKE '%PARTS%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="branch_inst_no" DataSetColumn="branch_inst_no" />
+              <Mapping SourceColumn="fac_reference_number" DataSetColumn="fac_reference_number" />
+              <Mapping SourceColumn="fac_customer_alpha_id" DataSetColumn="fac_customer_alpha_id" />
+              <Mapping SourceColumn="fac_tranche" DataSetColumn="fac_tranche" />
+              <Mapping SourceColumn="fac_status" DataSetColumn="fac_status" />
+              <Mapping SourceColumn="fac_dg_facility_amount" DataSetColumn="fac_dg_facility_amount" />
+              <Mapping SourceColumn="fac_dg_fac_amt_used_port" DataSetColumn="fac_dg_fac_amt_used_port" />
+              <Mapping SourceColumn="fac_branch_cost_centre" DataSetColumn="fac_branch_cost_centre" />
+              <Mapping SourceColumn="Used" DataSetColumn="Used" />
+              <Mapping SourceColumn="fac_com_final_maturity_date" DataSetColumn="fac_com_final_maturity_date" />
+              <Mapping SourceColumn="fac_com_agreemt_effective_date" DataSetColumn="fac_com_agreemt_effective_date" />
+              <Mapping SourceColumn="fac_cust_shortname" DataSetColumn="fac_cust_shortname" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="GetDataBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_branch_cost_centre, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_dg_fac_amt_used_port, 
+                      dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_status, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (dbo.FACILITY.fac_customer_alpha_id = ?) AND (dbo.FACILITY.fac_customer_alpha_id &lt;&gt; 'aaaaaaaa') AND (dbo.FACILITY.fac_status = '3') AND 
+                      (NOT (dbo.FACILITY.fac_tranche LIKE '%PART%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="PARAM2" ColumnName="fac_customer_alpha_id" DataSourceName="RDB_NY.FACILITY" DataTypeServer="char" DbType="AnsiString" Direction="Input" ParameterName="fac_customer_alpha_id" Precision="0" Scale="0" Size="8" SourceColumn="fac_customer_alpha_id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetDataBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_status, dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_dg_fac_amt_used_port, dbo.FACILITY.fac_branch_cost_centre, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (NOT (dbo.FACILITY.fac_customer_alpha_id LIKE 'XXX%')) AND (NOT (dbo.FACILITY.fac_tranche LIKE '%PART%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ConnectionStringRDB (Web.config)" DbObjectType="Unknown" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByOpen" GetMethodModifier="Public" GetMethodName="GetDataByOpen" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByOpen" UserSourceName="GetDataByOpen">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT     dbo.FACILITY.branch_inst_no, dbo.FACILITY.fac_reference_number, dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche, 
+                      dbo.FACILITY.fac_status, dbo.FACILITY.fac_dg_facility_amount, dbo.FACILITY.fac_dg_fac_amt_used_port, dbo.FACILITY.fac_branch_cost_centre, 
+                      dbo.FACILITY.fac_dg_facility_amount - dbo.FACILITY.fac_dg_fac_amt_used_port AS Used, 
+                      dbo.FACILITY_COMMITMENT.fac_com_agreemt_effective_date, dbo.FACILITY_COMMITMENT.fac_com_final_maturity_date, 
+                      dbo.FACILITY.fac_cust_shortname
+FROM         dbo.FACILITY, dbo.FACILITY_COMMITMENT
+WHERE     dbo.FACILITY.fac_reference_number = dbo.FACILITY_COMMITMENT.fac_reference_number AND (dbo.FACILITY.fac_branch_cost_centre = '1100') AND 
+                      (NOT (dbo.FACILITY.fac_customer_alpha_id LIKE 'XXX%')) AND (dbo.FACILITY.fac_status = '3') AND (NOT (dbo.FACILITY.fac_tranche LIKE '%PARTS%'))
+ORDER BY dbo.FACILITY.fac_customer_alpha_id, dbo.FACILITY.fac_tranche</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RDB" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="RDB" msprop:Generator_DataSetName="RDB">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PFFacilityOLD" msprop:Generator_UserTableName="PFFacilityOLD" msprop:Generator_RowDeletedName="PFFacilityOLDRowDeleted" msprop:Generator_RowChangedName="PFFacilityOLDRowChanged" msprop:Generator_RowClassName="PFFacilityOLDRow" msprop:Generator_RowChangingName="PFFacilityOLDRowChanging" msprop:Generator_RowEvArgName="PFFacilityOLDRowChangeEvent" msprop:Generator_RowEvHandlerName="PFFacilityOLDRowChangeEventHandler" msprop:Generator_TableClassName="PFFacilityOLDDataTable" msprop:Generator_TableVarName="tablePFFacilityOLD" msprop:Generator_RowDeletingName="PFFacilityOLDRowDeleting" msprop:Generator_TablePropName="PFFacilityOLD">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="branch_inst_no" msprop:Generator_UserColumnName="branch_inst_no" msprop:Generator_ColumnPropNameInRow="branch_inst_no" msprop:Generator_ColumnVarNameInTable="columnbranch_inst_no" msprop:Generator_ColumnPropNameInTable="branch_inst_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_reference_number" msprop:Generator_UserColumnName="fac_reference_number" msprop:Generator_ColumnPropNameInRow="fac_reference_number" msprop:Generator_ColumnVarNameInTable="columnfac_reference_number" msprop:Generator_ColumnPropNameInTable="fac_reference_numberColumn" type="xs:decimal" />
+              <xs:element name="fac_customer_alpha_id" msprop:Generator_UserColumnName="fac_customer_alpha_id" msprop:Generator_ColumnPropNameInRow="fac_customer_alpha_id" msprop:Generator_ColumnVarNameInTable="columnfac_customer_alpha_id" msprop:Generator_ColumnPropNameInTable="fac_customer_alpha_idColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_cust_shortname" msprop:Generator_UserColumnName="fac_cust_shortname" msprop:Generator_ColumnPropNameInRow="fac_cust_shortname" msprop:Generator_ColumnVarNameInTable="columnfac_cust_shortname" msprop:Generator_ColumnPropNameInTable="fac_cust_shortnameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_tranche" msprop:Generator_UserColumnName="fac_tranche" msprop:Generator_ColumnPropNameInRow="fac_tranche" msprop:Generator_ColumnVarNameInTable="columnfac_tranche" msprop:Generator_ColumnPropNameInTable="fac_trancheColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_status" msprop:Generator_UserColumnName="fac_status" msprop:Generator_ColumnPropNameInRow="fac_status" msprop:Generator_ColumnVarNameInTable="columnfac_status" msprop:Generator_ColumnPropNameInTable="fac_statusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dg_facility_amount" msprop:Generator_UserColumnName="fac_dg_facility_amount" msprop:Generator_ColumnPropNameInRow="fac_dg_facility_amount" msprop:Generator_ColumnVarNameInTable="columnfac_dg_facility_amount" msprop:Generator_ColumnPropNameInTable="fac_dg_facility_amountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_dg_fac_amt_used_port" msprop:Generator_UserColumnName="fac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInRow="fac_dg_fac_amt_used_port" msprop:Generator_ColumnVarNameInTable="columnfac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInTable="fac_dg_fac_amt_used_portColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_branch_cost_centre" msprop:Generator_UserColumnName="fac_branch_cost_centre" msprop:Generator_ColumnPropNameInRow="fac_branch_cost_centre" msprop:Generator_ColumnVarNameInTable="columnfac_branch_cost_centre" msprop:Generator_ColumnPropNameInTable="fac_branch_cost_centreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Used" msprop:Generator_UserColumnName="Used" msprop:Generator_ColumnPropNameInRow="Used" msprop:Generator_ColumnVarNameInTable="columnUsed" msprop:Generator_ColumnPropNameInTable="UsedColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_com_final_maturity_date" msprop:Generator_UserColumnName="fac_com_final_maturity_date" msprop:Generator_ColumnPropNameInRow="fac_com_final_maturity_date" msprop:Generator_ColumnVarNameInTable="columnfac_com_final_maturity_date" msprop:Generator_ColumnPropNameInTable="fac_com_final_maturity_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_com_agreemt_effective_date" msprop:Generator_UserColumnName="fac_com_agreemt_effective_date" msprop:Generator_ColumnPropNameInRow="fac_com_agreemt_effective_date" msprop:Generator_ColumnVarNameInTable="columnfac_com_agreemt_effective_date" msprop:Generator_ColumnPropNameInTable="fac_com_agreemt_effective_dateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FACILITYOLD" msprop:Generator_UserTableName="FACILITYOLD" msprop:Generator_RowDeletedName="FACILITYOLDRowDeleted" msprop:Generator_RowChangedName="FACILITYOLDRowChanged" msprop:Generator_RowClassName="FACILITYOLDRow" msprop:Generator_RowChangingName="FACILITYOLDRowChanging" msprop:Generator_RowEvArgName="FACILITYOLDRowChangeEvent" msprop:Generator_RowEvHandlerName="FACILITYOLDRowChangeEventHandler" msprop:Generator_TableClassName="FACILITYOLDDataTable" msprop:Generator_TableVarName="tableFACILITYOLD" msprop:Generator_RowDeletingName="FACILITYOLDRowDeleting" msprop:Generator_TablePropName="FACILITYOLD">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="branch_inst_no" msprop:Generator_UserColumnName="branch_inst_no" msprop:Generator_ColumnPropNameInRow="branch_inst_no" msprop:Generator_ColumnVarNameInTable="columnbranch_inst_no" msprop:Generator_ColumnPropNameInTable="branch_inst_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_reference_number" msprop:Generator_UserColumnName="fac_reference_number" msprop:Generator_ColumnPropNameInRow="fac_reference_number" msprop:Generator_ColumnVarNameInTable="columnfac_reference_number" msprop:Generator_ColumnPropNameInTable="fac_reference_numberColumn" type="xs:decimal" />
+              <xs:element name="fac_currency" msprop:Generator_UserColumnName="fac_currency" msprop:Generator_ColumnPropNameInRow="fac_currency" msprop:Generator_ColumnVarNameInTable="columnfac_currency" msprop:Generator_ColumnPropNameInTable="fac_currencyColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_customer_number" msprop:Generator_UserColumnName="fac_customer_number" msprop:Generator_ColumnPropNameInRow="fac_customer_number" msprop:Generator_ColumnVarNameInTable="columnfac_customer_number" msprop:Generator_ColumnPropNameInTable="fac_customer_numberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_customer_alpha_id" msprop:Generator_UserColumnName="fac_customer_alpha_id" msprop:Generator_ColumnPropNameInRow="fac_customer_alpha_id" msprop:Generator_ColumnVarNameInTable="columnfac_customer_alpha_id" msprop:Generator_ColumnPropNameInTable="fac_customer_alpha_idColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_cust_shortname" msprop:Generator_UserColumnName="fac_cust_shortname" msprop:Generator_ColumnPropNameInRow="fac_cust_shortname" msprop:Generator_ColumnVarNameInTable="columnfac_cust_shortname" msprop:Generator_ColumnPropNameInTable="fac_cust_shortnameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_tranche" msprop:Generator_UserColumnName="fac_tranche" msprop:Generator_ColumnPropNameInRow="fac_tranche" msprop:Generator_ColumnVarNameInTable="columnfac_tranche" msprop:Generator_ColumnPropNameInTable="fac_trancheColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_status" msprop:Generator_UserColumnName="fac_status" msprop:Generator_ColumnPropNameInRow="fac_status" msprop:Generator_ColumnVarNameInTable="columnfac_status" msprop:Generator_ColumnPropNameInTable="fac_statusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dg_facility_amount" msprop:Generator_UserColumnName="fac_dg_facility_amount" msprop:Generator_ColumnPropNameInRow="fac_dg_facility_amount" msprop:Generator_ColumnVarNameInTable="columnfac_dg_facility_amount" msprop:Generator_ColumnPropNameInTable="fac_dg_facility_amountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_dg_fac_amt_used_port" msprop:Generator_UserColumnName="fac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInRow="fac_dg_fac_amt_used_port" msprop:Generator_ColumnVarNameInTable="columnfac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInTable="fac_dg_fac_amt_used_portColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_multiccy_option_ind" msprop:Generator_UserColumnName="fac_multiccy_option_ind" msprop:Generator_ColumnPropNameInRow="fac_multiccy_option_ind" msprop:Generator_ColumnVarNameInTable="columnfac_multiccy_option_ind" msprop:Generator_ColumnPropNameInTable="fac_multiccy_option_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_branch_limit_ind" msprop:Generator_UserColumnName="fac_branch_limit_ind" msprop:Generator_ColumnPropNameInRow="fac_branch_limit_ind" msprop:Generator_ColumnVarNameInTable="columnfac_branch_limit_ind" msprop:Generator_ColumnPropNameInTable="fac_branch_limit_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_other_elig_borrower_ind" msprop:Generator_UserColumnName="fac_other_elig_borrower_ind" msprop:Generator_ColumnPropNameInRow="fac_other_elig_borrower_ind" msprop:Generator_ColumnVarNameInTable="columnfac_other_elig_borrower_ind" msprop:Generator_ColumnPropNameInTable="fac_other_elig_borrower_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_committed_ind" msprop:Generator_UserColumnName="fac_committed_ind" msprop:Generator_ColumnPropNameInRow="fac_committed_ind" msprop:Generator_ColumnVarNameInTable="columnfac_committed_ind" msprop:Generator_ColumnPropNameInTable="fac_committed_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisation_advance_ind" msprop:Generator_UserColumnName="fac_utilisation_advance_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisation_advance_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisation_advance_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisation_advance_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_purch_draft_ind" msprop:Generator_UserColumnName="fac_utilisatn_purch_draft_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_purch_draft_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_purch_draft_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_purch_draft_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_loan_gntee_ind" msprop:Generator_UserColumnName="fac_utilisatn_loan_gntee_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_loan_gntee_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_loan_gntee_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_loan_gntee_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_standby_lc_ind" msprop:Generator_UserColumnName="fac_utilisatn_standby_lc_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_standby_lc_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_standby_lc_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_standby_lc_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_doc_lc_ind" msprop:Generator_UserColumnName="fac_utilisatn_doc_lc_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_doc_lc_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_doc_lc_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_doc_lc_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dg_bank_ba_ind" msprop:Generator_UserColumnName="fac_dg_bank_ba_ind" msprop:Generator_ColumnPropNameInRow="fac_dg_bank_ba_ind" msprop:Generator_ColumnVarNameInTable="columnfac_dg_bank_ba_ind" msprop:Generator_ColumnPropNameInTable="fac_dg_bank_ba_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_util_ba_risk_particip_ind" msprop:Generator_UserColumnName="fac_util_ba_risk_particip_ind" msprop:Generator_ColumnPropNameInRow="fac_util_ba_risk_particip_ind" msprop:Generator_ColumnVarNameInTable="columnfac_util_ba_risk_particip_ind" msprop:Generator_ColumnPropNameInTable="fac_util_ba_risk_particip_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_facility_related_fee_ind" msprop:Generator_UserColumnName="fac_facility_related_fee_ind" msprop:Generator_ColumnPropNameInRow="fac_facility_related_fee_ind" msprop:Generator_ColumnVarNameInTable="columnfac_facility_related_fee_ind" msprop:Generator_ColumnPropNameInTable="fac_facility_related_fee_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_syndicated_transaction_ind" msprop:Generator_UserColumnName="fac_syndicated_transaction_ind" msprop:Generator_ColumnPropNameInRow="fac_syndicated_transaction_ind" msprop:Generator_ColumnVarNameInTable="columnfac_syndicated_transaction_ind" msprop:Generator_ColumnPropNameInTable="fac_syndicated_transaction_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_branch_cost_centre" msprop:Generator_UserColumnName="fac_branch_cost_centre" msprop:Generator_ColumnPropNameInRow="fac_branch_cost_centre" msprop:Generator_ColumnVarNameInTable="columnfac_branch_cost_centre" msprop:Generator_ColumnPropNameInTable="fac_branch_cost_centreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_account_manager" msprop:Generator_UserColumnName="fac_account_manager" msprop:Generator_ColumnPropNameInRow="fac_account_manager" msprop:Generator_ColumnVarNameInTable="columnfac_account_manager" msprop:Generator_ColumnPropNameInTable="fac_account_managerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_billing_for_interest_ind" msprop:Generator_UserColumnName="fac_billing_for_interest_ind" msprop:Generator_ColumnPropNameInRow="fac_billing_for_interest_ind" msprop:Generator_ColumnVarNameInTable="columnfac_billing_for_interest_ind" msprop:Generator_ColumnPropNameInTable="fac_billing_for_interest_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_billing_for_fees_ind" msprop:Generator_UserColumnName="fac_billing_for_fees_ind" msprop:Generator_ColumnPropNameInRow="fac_billing_for_fees_ind" msprop:Generator_ColumnVarNameInTable="columnfac_billing_for_fees_ind" msprop:Generator_ColumnPropNameInTable="fac_billing_for_fees_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_print_confirmation_ind" msprop:Generator_UserColumnName="fac_print_confirmation_ind" msprop:Generator_ColumnPropNameInRow="fac_print_confirmation_ind" msprop:Generator_ColumnVarNameInTable="columnfac_print_confirmation_ind" msprop:Generator_ColumnPropNameInTable="fac_print_confirmation_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_purpose1" msprop:Generator_UserColumnName="fac_purpose1" msprop:Generator_ColumnPropNameInRow="fac_purpose1" msprop:Generator_ColumnVarNameInTable="columnfac_purpose1" msprop:Generator_ColumnPropNameInTable="fac_purpose1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_purpose2" msprop:Generator_UserColumnName="fac_purpose2" msprop:Generator_ColumnPropNameInRow="fac_purpose2" msprop:Generator_ColumnVarNameInTable="columnfac_purpose2" msprop:Generator_ColumnPropNameInTable="fac_purpose2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dgbank_creditrating" msprop:Generator_UserColumnName="fac_dgbank_creditrating" msprop:Generator_ColumnPropNameInRow="fac_dgbank_creditrating" msprop:Generator_ColumnVarNameInTable="columnfac_dgbank_creditrating" msprop:Generator_ColumnPropNameInTable="fac_dgbank_creditratingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_secured_ind" msprop:Generator_UserColumnName="fac_secured_ind" msprop:Generator_ColumnPropNameInRow="fac_secured_ind" msprop:Generator_ColumnVarNameInTable="columnfac_secured_ind" msprop:Generator_ColumnPropNameInTable="fac_secured_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_extension_date" msprop:Generator_UserColumnName="fac_extension_date" msprop:Generator_ColumnPropNameInRow="fac_extension_date" msprop:Generator_ColumnVarNameInTable="columnfac_extension_date" msprop:Generator_ColumnPropNameInTable="fac_extension_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_participation_sold_ind" msprop:Generator_UserColumnName="fac_participation_sold_ind" msprop:Generator_ColumnPropNameInRow="fac_participation_sold_ind" msprop:Generator_ColumnVarNameInTable="columnfac_participation_sold_ind" msprop:Generator_ColumnPropNameInTable="fac_participation_sold_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_fee_pay_other_bches_ind" msprop:Generator_UserColumnName="fac_fee_pay_other_bches_ind" msprop:Generator_ColumnPropNameInRow="fac_fee_pay_other_bches_ind" msprop:Generator_ColumnVarNameInTable="columnfac_fee_pay_other_bches_ind" msprop:Generator_ColumnPropNameInTable="fac_fee_pay_other_bches_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_create_date" msprop:Generator_UserColumnName="fac_create_date" msprop:Generator_ColumnPropNameInRow="fac_create_date" msprop:Generator_ColumnVarNameInTable="columnfac_create_date" msprop:Generator_ColumnPropNameInTable="fac_create_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_create_time" msprop:Generator_UserColumnName="fac_create_time" msprop:Generator_ColumnPropNameInRow="fac_create_time" msprop:Generator_ColumnVarNameInTable="columnfac_create_time" msprop:Generator_ColumnPropNameInTable="fac_create_timeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_create_user" msprop:Generator_UserColumnName="fac_create_user" msprop:Generator_ColumnPropNameInRow="fac_create_user" msprop:Generator_ColumnVarNameInTable="columnfac_create_user" msprop:Generator_ColumnPropNameInTable="fac_create_userColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_last_change_date" msprop:Generator_UserColumnName="fac_last_change_date" msprop:Generator_ColumnPropNameInRow="fac_last_change_date" msprop:Generator_ColumnVarNameInTable="columnfac_last_change_date" msprop:Generator_ColumnPropNameInTable="fac_last_change_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_last_change_time" msprop:Generator_UserColumnName="fac_last_change_time" msprop:Generator_ColumnPropNameInRow="fac_last_change_time" msprop:Generator_ColumnVarNameInTable="columnfac_last_change_time" msprop:Generator_ColumnPropNameInTable="fac_last_change_timeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_last_change_user" msprop:Generator_UserColumnName="fac_last_change_user" msprop:Generator_ColumnPropNameInRow="fac_last_change_user" msprop:Generator_ColumnVarNameInTable="columnfac_last_change_user" msprop:Generator_ColumnPropNameInTable="fac_last_change_userColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_number_of_adjustments" msprop:Generator_UserColumnName="fac_number_of_adjustments" msprop:Generator_ColumnPropNameInRow="fac_number_of_adjustments" msprop:Generator_ColumnVarNameInTable="columnfac_number_of_adjustments" msprop:Generator_ColumnPropNameInTable="fac_number_of_adjustmentsColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_verify_date_create" msprop:Generator_UserColumnName="fac_verify_date_create" msprop:Generator_ColumnPropNameInRow="fac_verify_date_create" msprop:Generator_ColumnVarNameInTable="columnfac_verify_date_create" msprop:Generator_ColumnPropNameInTable="fac_verify_date_createColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_verify_time_create" msprop:Generator_UserColumnName="fac_verify_time_create" msprop:Generator_ColumnPropNameInRow="fac_verify_time_create" msprop:Generator_ColumnVarNameInTable="columnfac_verify_time_create" msprop:Generator_ColumnPropNameInTable="fac_verify_time_createColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_verify_user_create" msprop:Generator_UserColumnName="fac_verify_user_create" msprop:Generator_ColumnPropNameInRow="fac_verify_user_create" msprop:Generator_ColumnVarNameInTable="columnfac_verify_user_create" msprop:Generator_ColumnPropNameInTable="fac_verify_user_createColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_verify_date_change" msprop:Generator_UserColumnName="fac_verify_date_change" msprop:Generator_ColumnPropNameInRow="fac_verify_date_change" msprop:Generator_ColumnVarNameInTable="columnfac_verify_date_change" msprop:Generator_ColumnPropNameInTable="fac_verify_date_changeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_verify_time_change" msprop:Generator_UserColumnName="fac_verify_time_change" msprop:Generator_ColumnPropNameInRow="fac_verify_time_change" msprop:Generator_ColumnVarNameInTable="columnfac_verify_time_change" msprop:Generator_ColumnPropNameInTable="fac_verify_time_changeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_verify_user_change" msprop:Generator_UserColumnName="fac_verify_user_change" msprop:Generator_ColumnPropNameInRow="fac_verify_user_change" msprop:Generator_ColumnVarNameInTable="columnfac_verify_user_change" msprop:Generator_ColumnPropNameInTable="fac_verify_user_changeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FACILITY" msprop:Generator_UserTableName="FACILITY" msprop:Generator_RowDeletedName="FACILITYRowDeleted" msprop:Generator_TableClassName="FACILITYDataTable" msprop:Generator_RowChangedName="FACILITYRowChanged" msprop:Generator_RowClassName="FACILITYRow" msprop:Generator_RowChangingName="FACILITYRowChanging" msprop:Generator_RowEvArgName="FACILITYRowChangeEvent" msprop:Generator_RowEvHandlerName="FACILITYRowChangeEventHandler" msprop:Generator_TablePropName="FACILITY" msprop:Generator_TableVarName="tableFACILITY" msprop:Generator_RowDeletingName="FACILITYRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="branch_inst_no" msprop:Generator_UserColumnName="branch_inst_no" msprop:Generator_ColumnPropNameInRow="branch_inst_no" msprop:Generator_ColumnVarNameInTable="columnbranch_inst_no" msprop:Generator_ColumnPropNameInTable="branch_inst_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_reference_number" msprop:Generator_UserColumnName="fac_reference_number" msprop:Generator_ColumnPropNameInRow="fac_reference_number" msprop:Generator_ColumnVarNameInTable="columnfac_reference_number" msprop:Generator_ColumnPropNameInTable="fac_reference_numberColumn" type="xs:decimal" />
+              <xs:element name="fac_currency" msprop:Generator_UserColumnName="fac_currency" msprop:Generator_ColumnPropNameInRow="fac_currency" msprop:Generator_ColumnVarNameInTable="columnfac_currency" msprop:Generator_ColumnPropNameInTable="fac_currencyColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_customer_number" msprop:Generator_UserColumnName="fac_customer_number" msprop:Generator_ColumnPropNameInRow="fac_customer_number" msprop:Generator_ColumnVarNameInTable="columnfac_customer_number" msprop:Generator_ColumnPropNameInTable="fac_customer_numberColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_customer_alpha_id" msprop:Generator_UserColumnName="fac_customer_alpha_id" msprop:Generator_ColumnPropNameInRow="fac_customer_alpha_id" msprop:Generator_ColumnVarNameInTable="columnfac_customer_alpha_id" msprop:Generator_ColumnPropNameInTable="fac_customer_alpha_idColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_cust_shortname" msprop:Generator_UserColumnName="fac_cust_shortname" msprop:Generator_ColumnPropNameInRow="fac_cust_shortname" msprop:Generator_ColumnVarNameInTable="columnfac_cust_shortname" msprop:Generator_ColumnPropNameInTable="fac_cust_shortnameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_tranche" msprop:Generator_UserColumnName="fac_tranche" msprop:Generator_ColumnPropNameInRow="fac_tranche" msprop:Generator_ColumnVarNameInTable="columnfac_tranche" msprop:Generator_ColumnPropNameInTable="fac_trancheColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_status" msprop:Generator_UserColumnName="fac_status" msprop:Generator_ColumnPropNameInRow="fac_status" msprop:Generator_ColumnVarNameInTable="columnfac_status" msprop:Generator_ColumnPropNameInTable="fac_statusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dg_facility_amount" msprop:Generator_UserColumnName="fac_dg_facility_amount" msprop:Generator_ColumnPropNameInRow="fac_dg_facility_amount" msprop:Generator_ColumnVarNameInTable="columnfac_dg_facility_amount" msprop:Generator_ColumnPropNameInTable="fac_dg_facility_amountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_dg_fac_amt_used_port" msprop:Generator_UserColumnName="fac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInRow="fac_dg_fac_amt_used_port" msprop:Generator_ColumnVarNameInTable="columnfac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInTable="fac_dg_fac_amt_used_portColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_multiccy_option_ind" msprop:Generator_UserColumnName="fac_multiccy_option_ind" msprop:Generator_ColumnPropNameInRow="fac_multiccy_option_ind" msprop:Generator_ColumnVarNameInTable="columnfac_multiccy_option_ind" msprop:Generator_ColumnPropNameInTable="fac_multiccy_option_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_branch_limit_ind" msprop:Generator_UserColumnName="fac_branch_limit_ind" msprop:Generator_ColumnPropNameInRow="fac_branch_limit_ind" msprop:Generator_ColumnVarNameInTable="columnfac_branch_limit_ind" msprop:Generator_ColumnPropNameInTable="fac_branch_limit_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_other_elig_borrower_ind" msprop:Generator_UserColumnName="fac_other_elig_borrower_ind" msprop:Generator_ColumnPropNameInRow="fac_other_elig_borrower_ind" msprop:Generator_ColumnVarNameInTable="columnfac_other_elig_borrower_ind" msprop:Generator_ColumnPropNameInTable="fac_other_elig_borrower_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_committed_ind" msprop:Generator_UserColumnName="fac_committed_ind" msprop:Generator_ColumnPropNameInRow="fac_committed_ind" msprop:Generator_ColumnVarNameInTable="columnfac_committed_ind" msprop:Generator_ColumnPropNameInTable="fac_committed_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisation_advance_ind" msprop:Generator_UserColumnName="fac_utilisation_advance_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisation_advance_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisation_advance_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisation_advance_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_purch_draft_ind" msprop:Generator_UserColumnName="fac_utilisatn_purch_draft_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_purch_draft_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_purch_draft_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_purch_draft_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_loan_gntee_ind" msprop:Generator_UserColumnName="fac_utilisatn_loan_gntee_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_loan_gntee_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_loan_gntee_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_loan_gntee_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_standby_lc_ind" msprop:Generator_UserColumnName="fac_utilisatn_standby_lc_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_standby_lc_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_standby_lc_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_standby_lc_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_utilisatn_doc_lc_ind" msprop:Generator_UserColumnName="fac_utilisatn_doc_lc_ind" msprop:Generator_ColumnPropNameInRow="fac_utilisatn_doc_lc_ind" msprop:Generator_ColumnVarNameInTable="columnfac_utilisatn_doc_lc_ind" msprop:Generator_ColumnPropNameInTable="fac_utilisatn_doc_lc_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dg_bank_ba_ind" msprop:Generator_UserColumnName="fac_dg_bank_ba_ind" msprop:Generator_ColumnPropNameInRow="fac_dg_bank_ba_ind" msprop:Generator_ColumnVarNameInTable="columnfac_dg_bank_ba_ind" msprop:Generator_ColumnPropNameInTable="fac_dg_bank_ba_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_util_ba_risk_particip_ind" msprop:Generator_UserColumnName="fac_util_ba_risk_particip_ind" msprop:Generator_ColumnPropNameInRow="fac_util_ba_risk_particip_ind" msprop:Generator_ColumnVarNameInTable="columnfac_util_ba_risk_particip_ind" msprop:Generator_ColumnPropNameInTable="fac_util_ba_risk_particip_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_facility_related_fee_ind" msprop:Generator_UserColumnName="fac_facility_related_fee_ind" msprop:Generator_ColumnPropNameInRow="fac_facility_related_fee_ind" msprop:Generator_ColumnVarNameInTable="columnfac_facility_related_fee_ind" msprop:Generator_ColumnPropNameInTable="fac_facility_related_fee_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_syndicated_transaction_ind" msprop:Generator_UserColumnName="fac_syndicated_transaction_ind" msprop:Generator_ColumnPropNameInRow="fac_syndicated_transaction_ind" msprop:Generator_ColumnVarNameInTable="columnfac_syndicated_transaction_ind" msprop:Generator_ColumnPropNameInTable="fac_syndicated_transaction_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_branch_cost_centre" msprop:Generator_UserColumnName="fac_branch_cost_centre" msprop:Generator_ColumnPropNameInRow="fac_branch_cost_centre" msprop:Generator_ColumnVarNameInTable="columnfac_branch_cost_centre" msprop:Generator_ColumnPropNameInTable="fac_branch_cost_centreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_account_manager" msprop:Generator_UserColumnName="fac_account_manager" msprop:Generator_ColumnPropNameInRow="fac_account_manager" msprop:Generator_ColumnVarNameInTable="columnfac_account_manager" msprop:Generator_ColumnPropNameInTable="fac_account_managerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_billing_for_interest_ind" msprop:Generator_UserColumnName="fac_billing_for_interest_ind" msprop:Generator_ColumnPropNameInRow="fac_billing_for_interest_ind" msprop:Generator_ColumnVarNameInTable="columnfac_billing_for_interest_ind" msprop:Generator_ColumnPropNameInTable="fac_billing_for_interest_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_billing_for_fees_ind" msprop:Generator_UserColumnName="fac_billing_for_fees_ind" msprop:Generator_ColumnPropNameInRow="fac_billing_for_fees_ind" msprop:Generator_ColumnVarNameInTable="columnfac_billing_for_fees_ind" msprop:Generator_ColumnPropNameInTable="fac_billing_for_fees_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_print_confirmation_ind" msprop:Generator_UserColumnName="fac_print_confirmation_ind" msprop:Generator_ColumnPropNameInRow="fac_print_confirmation_ind" msprop:Generator_ColumnVarNameInTable="columnfac_print_confirmation_ind" msprop:Generator_ColumnPropNameInTable="fac_print_confirmation_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_purpose1" msprop:Generator_UserColumnName="fac_purpose1" msprop:Generator_ColumnPropNameInRow="fac_purpose1" msprop:Generator_ColumnVarNameInTable="columnfac_purpose1" msprop:Generator_ColumnPropNameInTable="fac_purpose1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_purpose2" msprop:Generator_UserColumnName="fac_purpose2" msprop:Generator_ColumnPropNameInRow="fac_purpose2" msprop:Generator_ColumnVarNameInTable="columnfac_purpose2" msprop:Generator_ColumnPropNameInTable="fac_purpose2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dgbank_creditrating" msprop:Generator_UserColumnName="fac_dgbank_creditrating" msprop:Generator_ColumnPropNameInRow="fac_dgbank_creditrating" msprop:Generator_ColumnVarNameInTable="columnfac_dgbank_creditrating" msprop:Generator_ColumnPropNameInTable="fac_dgbank_creditratingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_secured_ind" msprop:Generator_UserColumnName="fac_secured_ind" msprop:Generator_ColumnPropNameInRow="fac_secured_ind" msprop:Generator_ColumnVarNameInTable="columnfac_secured_ind" msprop:Generator_ColumnPropNameInTable="fac_secured_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_extension_date" msprop:Generator_UserColumnName="fac_extension_date" msprop:Generator_ColumnPropNameInRow="fac_extension_date" msprop:Generator_ColumnVarNameInTable="columnfac_extension_date" msprop:Generator_ColumnPropNameInTable="fac_extension_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_participation_sold_ind" msprop:Generator_UserColumnName="fac_participation_sold_ind" msprop:Generator_ColumnPropNameInRow="fac_participation_sold_ind" msprop:Generator_ColumnVarNameInTable="columnfac_participation_sold_ind" msprop:Generator_ColumnPropNameInTable="fac_participation_sold_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_fee_pay_other_bches_ind" msprop:Generator_UserColumnName="fac_fee_pay_other_bches_ind" msprop:Generator_ColumnPropNameInRow="fac_fee_pay_other_bches_ind" msprop:Generator_ColumnVarNameInTable="columnfac_fee_pay_other_bches_ind" msprop:Generator_ColumnPropNameInTable="fac_fee_pay_other_bches_indColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_create_date" msprop:Generator_UserColumnName="fac_create_date" msprop:Generator_ColumnPropNameInRow="fac_create_date" msprop:Generator_ColumnVarNameInTable="columnfac_create_date" msprop:Generator_ColumnPropNameInTable="fac_create_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_create_time" msprop:Generator_UserColumnName="fac_create_time" msprop:Generator_ColumnPropNameInRow="fac_create_time" msprop:Generator_ColumnVarNameInTable="columnfac_create_time" msprop:Generator_ColumnPropNameInTable="fac_create_timeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_create_user" msprop:Generator_UserColumnName="fac_create_user" msprop:Generator_ColumnPropNameInRow="fac_create_user" msprop:Generator_ColumnVarNameInTable="columnfac_create_user" msprop:Generator_ColumnPropNameInTable="fac_create_userColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_last_change_date" msprop:Generator_UserColumnName="fac_last_change_date" msprop:Generator_ColumnPropNameInRow="fac_last_change_date" msprop:Generator_ColumnVarNameInTable="columnfac_last_change_date" msprop:Generator_ColumnPropNameInTable="fac_last_change_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_last_change_time" msprop:Generator_UserColumnName="fac_last_change_time" msprop:Generator_ColumnPropNameInRow="fac_last_change_time" msprop:Generator_ColumnVarNameInTable="columnfac_last_change_time" msprop:Generator_ColumnPropNameInTable="fac_last_change_timeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_last_change_user" msprop:Generator_UserColumnName="fac_last_change_user" msprop:Generator_ColumnPropNameInRow="fac_last_change_user" msprop:Generator_ColumnVarNameInTable="columnfac_last_change_user" msprop:Generator_ColumnPropNameInTable="fac_last_change_userColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_number_of_adjustments" msprop:Generator_UserColumnName="fac_number_of_adjustments" msprop:Generator_ColumnPropNameInRow="fac_number_of_adjustments" msprop:Generator_ColumnVarNameInTable="columnfac_number_of_adjustments" msprop:Generator_ColumnPropNameInTable="fac_number_of_adjustmentsColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_verify_date_create" msprop:Generator_UserColumnName="fac_verify_date_create" msprop:Generator_ColumnPropNameInRow="fac_verify_date_create" msprop:Generator_ColumnVarNameInTable="columnfac_verify_date_create" msprop:Generator_ColumnPropNameInTable="fac_verify_date_createColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_verify_time_create" msprop:Generator_UserColumnName="fac_verify_time_create" msprop:Generator_ColumnPropNameInRow="fac_verify_time_create" msprop:Generator_ColumnVarNameInTable="columnfac_verify_time_create" msprop:Generator_ColumnPropNameInTable="fac_verify_time_createColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_verify_user_create" msprop:Generator_UserColumnName="fac_verify_user_create" msprop:Generator_ColumnPropNameInRow="fac_verify_user_create" msprop:Generator_ColumnVarNameInTable="columnfac_verify_user_create" msprop:Generator_ColumnPropNameInTable="fac_verify_user_createColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_verify_date_change" msprop:Generator_UserColumnName="fac_verify_date_change" msprop:Generator_ColumnPropNameInRow="fac_verify_date_change" msprop:Generator_ColumnVarNameInTable="columnfac_verify_date_change" msprop:Generator_ColumnPropNameInTable="fac_verify_date_changeColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_verify_time_change" msprop:Generator_UserColumnName="fac_verify_time_change" msprop:Generator_ColumnPropNameInRow="fac_verify_time_change" msprop:Generator_ColumnVarNameInTable="columnfac_verify_time_change" msprop:Generator_ColumnPropNameInTable="fac_verify_time_changeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_verify_user_change" msprop:Generator_UserColumnName="fac_verify_user_change" msprop:Generator_ColumnPropNameInRow="fac_verify_user_change" msprop:Generator_ColumnVarNameInTable="columnfac_verify_user_change" msprop:Generator_ColumnPropNameInTable="fac_verify_user_changeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PFFacility" msprop:Generator_UserTableName="PFFacility" msprop:Generator_RowDeletedName="PFFacilityRowDeleted" msprop:Generator_TableClassName="PFFacilityDataTable" msprop:Generator_RowChangedName="PFFacilityRowChanged" msprop:Generator_RowClassName="PFFacilityRow" msprop:Generator_RowChangingName="PFFacilityRowChanging" msprop:Generator_RowEvArgName="PFFacilityRowChangeEvent" msprop:Generator_RowEvHandlerName="PFFacilityRowChangeEventHandler" msprop:Generator_TablePropName="PFFacility" msprop:Generator_TableVarName="tablePFFacility" msprop:Generator_RowDeletingName="PFFacilityRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="branch_inst_no" msprop:Generator_UserColumnName="branch_inst_no" msprop:Generator_ColumnPropNameInRow="branch_inst_no" msprop:Generator_ColumnVarNameInTable="columnbranch_inst_no" msprop:Generator_ColumnPropNameInTable="branch_inst_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_reference_number" msprop:Generator_UserColumnName="fac_reference_number" msprop:Generator_ColumnPropNameInRow="fac_reference_number" msprop:Generator_ColumnVarNameInTable="columnfac_reference_number" msprop:Generator_ColumnPropNameInTable="fac_reference_numberColumn" type="xs:decimal" />
+              <xs:element name="fac_customer_alpha_id" msprop:Generator_UserColumnName="fac_customer_alpha_id" msprop:Generator_ColumnPropNameInRow="fac_customer_alpha_id" msprop:Generator_ColumnVarNameInTable="columnfac_customer_alpha_id" msprop:Generator_ColumnPropNameInTable="fac_customer_alpha_idColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_tranche" msprop:Generator_UserColumnName="fac_tranche" msprop:Generator_ColumnPropNameInRow="fac_tranche" msprop:Generator_ColumnVarNameInTable="columnfac_tranche" msprop:Generator_ColumnPropNameInTable="fac_trancheColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_status" msprop:Generator_UserColumnName="fac_status" msprop:Generator_ColumnPropNameInRow="fac_status" msprop:Generator_ColumnVarNameInTable="columnfac_status" msprop:Generator_ColumnPropNameInTable="fac_statusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fac_dg_facility_amount" msprop:Generator_UserColumnName="fac_dg_facility_amount" msprop:Generator_ColumnPropNameInRow="fac_dg_facility_amount" msprop:Generator_ColumnVarNameInTable="columnfac_dg_facility_amount" msprop:Generator_ColumnPropNameInTable="fac_dg_facility_amountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_dg_fac_amt_used_port" msprop:Generator_UserColumnName="fac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInRow="fac_dg_fac_amt_used_port" msprop:Generator_ColumnVarNameInTable="columnfac_dg_fac_amt_used_port" msprop:Generator_ColumnPropNameInTable="fac_dg_fac_amt_used_portColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_branch_cost_centre" msprop:Generator_UserColumnName="fac_branch_cost_centre" msprop:Generator_ColumnPropNameInRow="fac_branch_cost_centre" msprop:Generator_ColumnVarNameInTable="columnfac_branch_cost_centre" msprop:Generator_ColumnPropNameInTable="fac_branch_cost_centreColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Used" msprop:Generator_UserColumnName="Used" msprop:Generator_ColumnPropNameInRow="Used" msprop:Generator_ColumnVarNameInTable="columnUsed" msprop:Generator_ColumnPropNameInTable="UsedColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fac_com_final_maturity_date" msprop:Generator_UserColumnName="fac_com_final_maturity_date" msprop:Generator_ColumnPropNameInRow="fac_com_final_maturity_date" msprop:Generator_ColumnVarNameInTable="columnfac_com_final_maturity_date" msprop:Generator_ColumnPropNameInTable="fac_com_final_maturity_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_com_agreemt_effective_date" msprop:Generator_UserColumnName="fac_com_agreemt_effective_date" msprop:Generator_ColumnPropNameInRow="fac_com_agreemt_effective_date" msprop:Generator_ColumnVarNameInTable="columnfac_com_agreemt_effective_date" msprop:Generator_ColumnPropNameInTable="fac_com_agreemt_effective_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="fac_cust_shortname" msprop:Generator_UserColumnName="fac_cust_shortname" msprop:Generator_ColumnPropNameInRow="fac_cust_shortname" msprop:Generator_ColumnVarNameInTable="columnfac_cust_shortname" msprop:Generator_ColumnPropNameInTable="fac_cust_shortnameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="32" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DZUsersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DZUsersModelStoreContainer">
+          <EntitySet Name="BranchUsers" EntityType="DZUsersModel.Store.BranchUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Depts" EntityType="DZUsersModel.Store.Depts" store:Type="Views" store:Schema="dbo" store:Name="Depts">
+            <DefiningQuery>SELECT 
+      [Depts].[Dept] AS [Dept]
+      FROM [dbo].[Depts] AS [Depts]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <EntityType Name="BranchUsers">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Dept" Type="nvarchar" Nullable="false" MaxLength="8" />
+          <Property Name="XN" Type="nvarchar" Nullable="false" MaxLength="8" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="DZCellPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmpType" Type="nvarchar" MaxLength="50" />
+          <Property Name="MgrID" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SAPID" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DZUsers.dbo.Depts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Depts">
+          <Key>
+            <PropertyRef Name="Dept" />
+          </Key>
+          <Property Name="Dept" Type="nvarchar" Nullable="false" MaxLength="8" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DZUsersModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DZUsersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BranchUsers" EntityType="DZUsersModel.BranchUser" />
+          <EntitySet Name="Depts" EntityType="DZUsersModel.Dept" />
+        </EntityContainer>
+        <EntityType Name="BranchUser">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Dept" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="XN" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DZCellPhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EmpType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MgrID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SAPID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Dept">
+          <Key>
+            <PropertyRef Name="Dept1" />
+          </Key>
+          <Property Name="Dept1" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DZUsersModelStoreContainer" CdmEntityContainer="DZUsersEntities">
+          <EntitySetMapping Name="BranchUsers"><EntityTypeMapping TypeName="DZUsersModel.BranchUser"><MappingFragment StoreEntitySet="BranchUsers">
+            <ScalarProperty Name="LastName" ColumnName="LastName" />
+            <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+            <ScalarProperty Name="Dept" ColumnName="Dept" />
+            <ScalarProperty Name="XN" ColumnName="XN" />
+            <ScalarProperty Name="Phone" ColumnName="Phone" />
+            <ScalarProperty Name="DZCellPhone" ColumnName="DZCellPhone" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+            <ScalarProperty Name="MgrID" ColumnName="MgrID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="SAPID" ColumnName="SAPID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Depts"><EntityTypeMapping TypeName="DZUsersModel.Dept"><MappingFragment StoreEntitySet="Depts">
+            <ScalarProperty Name="Dept1" ColumnName="Dept" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DZUsersModel">
+        <EntityTypeShape EntityType="DZUsersModel.BranchUser" Width="1.5" PointX="0.875" PointY="0.875" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DZUsersModel.Dept" Width="1.5" PointX="2.75" PointY="0.875" Height="1.2110807291666668" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

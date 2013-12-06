@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KYCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="KYCModelStoreContainer">
+          <EntitySet Name="ChangeInfo" EntityType="KYCModel.Store.ChangeInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CUST" EntityType="KYCModel.Store.CUST" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CUSTDetail" EntityType="KYCModel.Store.CUSTDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CUSTUniversal" EntityType="KYCModel.Store.CUSTUniversal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DataSync" EntityType="KYCModel.Store.DataSync" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SAPBP" EntityType="KYCModel.Store.SAPBP" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CUST_CUSTUniversal" Association="KYCModel.Store.FK_CUST_CUSTUniversal">
+            <End Role="CUSTUniversal" EntitySet="CUSTUniversal" />
+            <End Role="CUST" EntitySet="CUST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTDetail_CUSTUniversal" Association="KYCModel.Store.FK_CUSTDetail_CUSTUniversal">
+            <End Role="CUSTUniversal" EntitySet="CUSTUniversal" />
+            <End Role="CUSTDetail" EntitySet="CUSTDetail" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChangeInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustID" Type="int" Nullable="false" />
+          <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+          <Property Name="ChangeType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Author" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="OldScore" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="NewScore" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CUST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="OFAC" Type="bit" />
+          <Property Name="BPRole" Type="nvarchar" MaxLength="100" />
+          <Property Name="ZISLegalForm" Type="nvarchar" MaxLength="100" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="UltCountryCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="SpecType" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalEntity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContractPartner" Type="nvarchar" MaxLength="2" />
+          <Property Name="RiskSector" Type="nvarchar" MaxLength="50" />
+          <Property Name="SectorKey" Type="nchar" MaxLength="10" />
+          <Property Name="Systematic" Type="nvarchar" MaxLength="100" />
+          <Property Name="SAPIndCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatBusRelation" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustGrp" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relationship" Type="nvarchar" MaxLength="50" />
+          <Property Name="BorrowerUnit" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDType" Type="nvarchar" MaxLength="100" />
+          <Property Name="FaxPrintdate" Type="datetime" />
+          <Property Name="CustType" Type="nvarchar" MaxLength="50" />
+          <Property Name="LegalEntityType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReferredBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Purpose" Type="nvarchar(max)" />
+          <Property Name="IDNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusNature" Type="nvarchar(max)" />
+          <Property Name="SIC" Type="nvarchar" MaxLength="100" />
+          <Property Name="ExistingRelation" Type="bit" />
+          <Property Name="TenK" Type="bit" />
+          <Property Name="PrimeCertInc" Type="bit" />
+          <Property Name="PrimeCertGoodStand" Type="bit" />
+          <Property Name="PrimeSyndParticipant" Type="bit" />
+          <Property Name="PrimeGovEntity" Type="bit" />
+          <Property Name="PrimeOther" Type="bit" />
+          <Property Name="PrimeDriverLic" Type="bit" />
+          <Property Name="PrimePassport" Type="bit" />
+          <Property Name="PrimeStateID" Type="bit" />
+          <Property Name="PrimeAlienReg" Type="bit" />
+          <Property Name="PrimeResidentID" Type="bit" />
+          <Property Name="PrimeUSSynd" Type="bit" />
+          <Property Name="SecWorldCheck" Type="bit" />
+          <Property Name="SecDB" Type="bit" />
+          <Property Name="SecCertGoodStand" Type="bit" />
+          <Property Name="SecCreditReport" Type="bit" />
+          <Property Name="SecUtilityBill" Type="bit" />
+          <Property Name="SecReverseDirectory" Type="bit" />
+          <Property Name="SecBankRef" Type="bit" />
+          <Property Name="SecOther" Type="bit" />
+          <Property Name="MissingDocsPrim" Type="bit" />
+          <Property Name="MissingDocsSec" Type="bit" />
+          <Property Name="MissingDocs" Type="nvarchar(max)" />
+          <Property Name="MissingDocDate" Type="datetime" />
+          <Property Name="OtherDocs" Type="nvarchar(max)" />
+          <Property Name="CustNotification" Type="bit" />
+          <Property Name="Ownership" Type="nvarchar(max)" />
+          <Property Name="Directors" Type="nvarchar(max)" />
+          <Property Name="Owners" Type="nvarchar(max)" />
+          <Property Name="Involvement" Type="nvarchar(max)" />
+          <Property Name="NamesMgmt" Type="nvarchar(max)" />
+          <Property Name="Subsidiaries" Type="nvarchar(max)" />
+          <Property Name="Signatories" Type="nvarchar(max)" />
+          <Property Name="WealthSource" Type="nvarchar(max)" />
+          <Property Name="FundsSource" Type="nvarchar(max)" />
+          <Property Name="Syndications" Type="bit" />
+          <Property Name="OtherLending" Type="bit" />
+          <Property Name="FundsTransfer" Type="bit" />
+          <Property Name="BookTransfer" Type="bit" />
+          <Property Name="RevolvingCredit" Type="bit" />
+          <Property Name="StandbyLC" Type="bit" />
+          <Property Name="CommLC" Type="bit" />
+          <Property Name="DemandDA" Type="bit" />
+          <Property Name="TimeDA" Type="bit" />
+          <Property Name="CommPaper" Type="bit" />
+          <Property Name="FXTrading" Type="bit" />
+          <Property Name="DL" Type="bit" />
+          <Property Name="FXDerivatives" Type="bit" />
+          <Property Name="IntRateDerivatives" Type="bit" />
+          <Property Name="TradeFinance" Type="bit" />
+          <Property Name="ChecksIssued" Type="bit" />
+          <Property Name="ProdOther" Type="bit" />
+          <Property Name="ProdOtherText" Type="nvarchar(max)" />
+          <Property Name="BranchActivityCoun" Type="nvarchar(max)" />
+          <Property Name="FundMove1" Type="bit" />
+          <Property Name="FundMove2" Type="bit" />
+          <Property Name="FundMove3" Type="bit" />
+          <Property Name="FundMove4" Type="bit" />
+          <Property Name="FundMove5" Type="bit" />
+          <Property Name="FundMove6" Type="bit" />
+          <Property Name="InitDeposit" Type="float" />
+          <Property Name="InitDepositSource" Type="nvarchar(max)" />
+          <Property Name="InitDepositTransfer" Type="bit" />
+          <Property Name="InitDepositCheck" Type="bit" />
+          <Property Name="PrimaryVendors" Type="nvarchar(max)" />
+          <Property Name="InMonthlyTransactions" Type="float" />
+          <Property Name="InMonthlyAmount" Type="float" />
+          <Property Name="InRemitters" Type="nvarchar(max)" />
+          <Property Name="InCoun" Type="nvarchar(max)" />
+          <Property Name="OutMonthlyTransactions" Type="float" />
+          <Property Name="OutMonthlyAmount" Type="float" />
+          <Property Name="OutBeneficiaries" Type="nvarchar(max)" />
+          <Property Name="OutCoun" Type="nvarchar(max)" />
+          <Property Name="FinInstType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tele" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinInstFAX" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinInstWeb" Type="nvarchar" MaxLength="100" />
+          <Property Name="FinInstID" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinInstSWIFT" Type="nvarchar" MaxLength="100" />
+          <Property Name="FinInstExchange" Type="nvarchar" MaxLength="100" />
+          <Property Name="FinInstSub" Type="bit" />
+          <Property Name="FinInstSubParent" Type="nvarchar" MaxLength="100" />
+          <Property Name="FinInstGovUN" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinInstPriviate" Type="bit" />
+          <Property Name="FinInstGovPercent" Type="decimal" Scale="4" />
+          <Property Name="FinInstShellBank" Type="bit" />
+          <Property Name="FinInstRegulator" Type="nvarchar" MaxLength="100" />
+          <Property Name="Moody" Type="nvarchar" MaxLength="50" />
+          <Property Name="MoodySL" Type="nvarchar" MaxLength="50" />
+          <Property Name="SP" Type="nvarchar" MaxLength="50" />
+          <Property Name="SPSL" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fitch" Type="nvarchar" MaxLength="50" />
+          <Property Name="FitchSL" Type="nvarchar" MaxLength="50" />
+          <Property Name="SettlementUSD" Type="nvarchar(max)" />
+          <Property Name="SettlementEURO" Type="nvarchar(max)" />
+          <Property Name="SettlementGBP" Type="nvarchar(max)" />
+          <Property Name="SettlementJPY" Type="nvarchar(max)" />
+          <Property Name="FinInstPatriot" Type="bit" />
+          <Property Name="PatCertDate" Type="datetime" />
+          <Property Name="FinInstKYC" Type="bit" />
+          <Property Name="FinInstStatement" Type="bit" />
+          <Property Name="FinInstBankAlmanac" Type="bit" />
+          <Property Name="FinInstComments" Type="nvarchar(max)" />
+          <Property Name="IndvEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="IndvNationality" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustOpenStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="PrintStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustComplianceStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="EditBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="CustOpenChange" Type="nvarchar" MaxLength="50" />
+          <Property Name="OffEditBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="OffEditDate" Type="datetime" />
+          <Property Name="CommentEditBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CommentEditDate" Type="datetime" />
+          <Property Name="CompEditBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompEditdate" Type="datetime" />
+          <Property Name="RiskCompBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="RiskCompDate" Type="datetime" />
+          <Property Name="TempScore" Type="float" />
+          <Property Name="TempRating" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReviewDate" Type="datetime" />
+          <Property Name="Score" Type="float" />
+          <Property Name="Rating" Type="nvarchar" MaxLength="50" />
+          <Property Name="BusHRForBanks" Type="bit" />
+          <Property Name="BusHRCollection" Type="bit" />
+          <Property Name="BusHROffShore" Type="bit" />
+          <Property Name="BusHRImpExp" Type="bit" />
+          <Property Name="BusHRCoun" Type="bit" />
+          <Property Name="BusHRPIC" Type="bit" />
+          <Property Name="BusHRLuxury" Type="bit" />
+          <Property Name="BusHRGambling" Type="bit" />
+          <Property Name="BusHRProfessionals" Type="bit" />
+          <Property Name="BusHRInsurance" Type="bit" />
+          <Property Name="BusHRBrokers" Type="bit" />
+          <Property Name="BusHRREIT" Type="bit" />
+          <Property Name="BusMRPublic" Type="bit" />
+          <Property Name="BusMRPrivate" Type="bit" />
+          <Property Name="BusMRForeignInd" Type="bit" />
+          <Property Name="BusMRCoun" Type="bit" />
+          <Property Name="BusMRUN" Type="bit" />
+          <Property Name="BusLRBanks" Type="bit" />
+          <Property Name="BusLRDomInd" Type="bit" />
+          <Property Name="BusLRPublic" Type="bit" />
+          <Property Name="BusLRCoun" Type="bit" />
+          <Property Name="BusLRFCB" Type="bit" />
+          <Property Name="TranHRCorrBanks" Type="bit" />
+          <Property Name="TranHRIntlWire" Type="bit" />
+          <Property Name="TranHRCash" Type="bit" />
+          <Property Name="TranHRTrust" Type="bit" />
+          <Property Name="TranHRFOREX" Type="bit" />
+          <Property Name="TranMRChecks" Type="bit" />
+          <Property Name="TranMRDomWire" Type="bit" />
+          <Property Name="TranLRChecks" Type="bit" />
+          <Property Name="TranLRMMKT" Type="bit" />
+          <Property Name="TranLRDomWire" Type="bit" />
+          <Property Name="TranLRCashMGMT" Type="bit" />
+          <Property Name="TranLRCommPaper" Type="bit" />
+          <Property Name="TranLRFOREX" Type="bit" />
+          <Property Name="TranNR" Type="bit" />
+          <Property Name="CreditHRLC" Type="bit" />
+          <Property Name="CreditHRCashLoan" Type="bit" />
+          <Property Name="CreditLRCorpLoan" Type="bit" />
+          <Property Name="CreditLRRevCredit" Type="bit" />
+          <Property Name="CreditMRSyndLoan" Type="bit" />
+          <Property Name="CreditLRSyndLoan" Type="bit" />
+          <Property Name="CreditLRCommLC" Type="bit" />
+          <Property Name="CreditLRStandbyLC" Type="bit" />
+          <Property Name="CreditLRCommMTG" Type="bit" />
+          <Property Name="CreditNR" Type="bit" />
+          <Property Name="GeoHRFAFT" Type="bit" />
+          <Property Name="GeoHROFAC" Type="bit" />
+          <Property Name="GeoHROther" Type="bit" />
+          <Property Name="GeoHRAML" Type="bit" />
+          <Property Name="GeoMRAML" Type="bit" />
+          <Property Name="GeoLRAML" Type="bit" />
+          <Property Name="GeoCountry1" Type="nvarchar" MaxLength="100" />
+          <Property Name="GeoRisk1" Type="nvarchar" MaxLength="50" />
+          <Property Name="GeoCountry2" Type="nvarchar" MaxLength="100" />
+          <Property Name="GeoRisk2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustHR2" Type="bit" />
+          <Property Name="CustHRSAR" Type="bit" />
+          <Property Name="CustHRBadPress" Type="bit" />
+          <Property Name="CustMR2to5" Type="bit" />
+          <Property Name="CustLR5" Type="bit" />
+          <Property Name="CustLR5Parent" Type="bit" />
+          <Property Name="CustHRBP" Type="bit" />
+          <Property Name="CustMRBP" Type="bit" />
+          <Property Name="CustLRBP" Type="bit" />
+          <Property Name="CustHRSub" Type="bit" />
+          <Property Name="CustNR" Type="bit" />
+        </EntityType>
+        <EntityType Name="CUSTDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="SName" Type="nvarchar" MaxLength="100" />
+          <Property Name="COName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityState" Type="nvarchar" MaxLength="100" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+          <Property Name="AccountMgr" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreditMgr" Type="nvarchar" MaxLength="50" />
+          <Property Name="OPICSref" Type="nvarchar" MaxLength="50" />
+          <Property Name="MUREXref" Type="nvarchar" MaxLength="50" />
+          <Property Name="CMNE" Type="nvarchar" MaxLength="10" />
+          <Property Name="SAP" Type="nvarchar" MaxLength="50" />
+          <Property Name="LName" Type="nvarchar" MaxLength="100" />
+          <Property Name="LStreet" Type="nvarchar" MaxLength="100" />
+          <Property Name="LPostCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="LCityState" Type="nvarchar" MaxLength="100" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="AcctCloseDate" Type="datetime" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CUSTUniversal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AcctOpenDate" Type="datetime" />
+          <Property Name="AcctOpenBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Owner" Type="nvarchar" MaxLength="50" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="EditBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="KYCStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreditStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DataSync">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="5" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="50" />
+          <Property Name="SyncDate" Type="datetime" />
+          <Property Name="SyncBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataVaild" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SAPBP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BP" Type="nvarchar" Nullable="false" MaxLength="8" />
+          <Property Name="BPName" Type="nvarchar" MaxLength="100" />
+          <Property Name="KYCID" Type="int" />
+        </EntityType>
+        <Association Name="FK_CUST_CUSTUniversal">
+          <End Role="CUSTUniversal" Type="KYCModel.Store.CUSTUniversal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CUST" Type="KYCModel.Store.CUST" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTUniversal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUST">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTDetail_CUSTUniversal">
+          <End Role="CUSTUniversal" Type="KYCModel.Store.CUSTUniversal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CUSTDetail" Type="KYCModel.Store.CUSTDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTUniversal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUSTDetail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KYCModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="KYCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CUSTs" EntityType="KYCModel.CUST" />
+          <EntitySet Name="CUSTDetails" EntityType="KYCModel.CUSTDetail" />
+          <EntitySet Name="CUSTUniversals" EntityType="KYCModel.CUSTUniversal" />
+          <EntitySet Name="DataSyncs" EntityType="KYCModel.DataSync" />
+          <EntitySet Name="SAPBPs" EntityType="KYCModel.SAPBP" />
+          <AssociationSet Name="FK_CUST_CUSTUniversal" Association="KYCModel.FK_CUST_CUSTUniversal">
+            <End Role="CUSTUniversal" EntitySet="CUSTUniversals" />
+            <End Role="CUST" EntitySet="CUSTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CUSTDetail_CUSTUniversal" Association="KYCModel.FK_CUSTDetail_CUSTUniversal">
+            <End Role="CUSTUniversal" EntitySet="CUSTUniversals" />
+            <End Role="CUSTDetail" EntitySet="CUSTDetails" />
+          </AssociationSet>
+          <EntitySet Name="ChangeInfoes" EntityType="KYCModel.ChangeInfo" />
+        </EntityContainer>
+        <EntityType Name="CUST">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="OFAC" Type="Boolean" />
+          <Property Name="BPRole" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ZISLegalForm" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UltCountryCode" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SpecType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LegalEntity" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ContractPartner" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="RiskSector" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SectorKey" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Systematic" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SAPIndCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StatBusRelation" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CustGrp" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Relationship" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BorrowerUnit" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="IDType" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FaxPrintdate" Type="DateTime" />
+          <Property Name="CustType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LegalEntityType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ReferredBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Purpose" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IDNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BusNature" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SIC" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ExistingRelation" Type="Boolean" />
+          <Property Name="TenK" Type="Boolean" />
+          <Property Name="PrimeCertInc" Type="Boolean" />
+          <Property Name="PrimeCertGoodStand" Type="Boolean" />
+          <Property Name="PrimeSyndParticipant" Type="Boolean" />
+          <Property Name="PrimeGovEntity" Type="Boolean" />
+          <Property Name="PrimeOther" Type="Boolean" />
+          <Property Name="PrimeDriverLic" Type="Boolean" />
+          <Property Name="PrimePassport" Type="Boolean" />
+          <Property Name="PrimeStateID" Type="Boolean" />
+          <Property Name="PrimeAlienReg" Type="Boolean" />
+          <Property Name="PrimeResidentID" Type="Boolean" />
+          <Property Name="PrimeUSSynd" Type="Boolean" />
+          <Property Name="SecWorldCheck" Type="Boolean" />
+          <Property Name="SecDB" Type="Boolean" />
+          <Property Name="SecCertGoodStand" Type="Boolean" />
+          <Property Name="SecCreditReport" Type="Boolean" />
+          <Property Name="SecUtilityBill" Type="Boolean" />
+          <Property Name="SecReverseDirectory" Type="Boolean" />
+          <Property Name="SecBankRef" Type="Boolean" />
+          <Property Name="SecOther" Type="Boolean" />
+          <Property Name="MissingDocsPrim" Type="Boolean" />
+          <Property Name="MissingDocsSec" Type="Boolean" />
+          <Property Name="MissingDocs" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MissingDocDate" Type="DateTime" />
+          <Property Name="OtherDocs" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CustNotification" Type="Boolean" />
+          <Property Name="Ownership" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Directors" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Owners" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Involvement" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NamesMgmt" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Subsidiaries" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Signatories" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="WealthSource" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FundsSource" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Syndications" Type="Boolean" />
+          <Property Name="OtherLending" Type="Boolean" />
+          <Property Name="FundsTransfer" Type="Boolean" />
+          <Property Name="BookTransfer" Type="Boolean" />
+          <Property Name="RevolvingCredit" Type="Boolean" />
+          <Property Name="StandbyLC" Type="Boolean" />
+          <Property Name="CommLC" Type="Boolean" />
+          <Property Name="DemandDA" Type="Boolean" />
+          <Property Name="TimeDA" Type="Boolean" />
+          <Property Name="CommPaper" Type="Boolean" />
+          <Property Name="FXTrading" Type="Boolean" />
+          <Property Name="DL" Type="Boolean" />
+          <Property Name="FXDerivatives" Type="Boolean" />
+          <Property Name="IntRateDerivatives" Type="Boolean" />
+          <Property Name="TradeFinance" Type="Boolean" />
+          <Property Name="ChecksIssued" Type="Boolean" />
+          <Property Name="ProdOther" Type="Boolean" />
+          <Property Name="ProdOtherText" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="BranchActivityCoun" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FundMove1" Type="Boolean" />
+          <Property Name="FundMove2" Type="Boolean" />
+          <Property Name="FundMove3" Type="Boolean" />
+          <Property Name="FundMove4" Type="Boolean" />
+          <Property Name="FundMove5" Type="Boolean" />
+          <Property Name="FundMove6" Type="Boolean" />
+          <Property Name="InitDeposit" Type="Double" />
+          <Property Name="InitDepositSource" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="InitDepositTransfer" Type="Boolean" />
+          <Property Name="InitDepositCheck" Type="Boolean" />
+          <Property Name="PrimaryVendors" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="InMonthlyTransactions" Type="Double" />
+          <Property Name="InMonthlyAmount" Type="Double" />
+          <Property Name="InRemitters" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="InCoun" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="OutMonthlyTransactions" Type="Double" />
+          <Property Name="OutMonthlyAmount" Type="Double" />
+          <Property Name="OutBeneficiaries" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="OutCoun" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tele" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstFAX" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstWeb" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstSWIFT" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstExchange" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstSub" Type="Boolean" />
+          <Property Name="FinInstSubParent" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstGovUN" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstPriviate" Type="Boolean" />
+          <Property Name="FinInstGovPercent" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="FinInstShellBank" Type="Boolean" />
+          <Property Name="FinInstRegulator" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Moody" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MoodySL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SPSL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Fitch" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="FitchSL" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SettlementUSD" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SettlementEURO" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SettlementGBP" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="SettlementJPY" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="FinInstPatriot" Type="Boolean" />
+          <Property Name="PatCertDate" Type="DateTime" />
+          <Property Name="FinInstKYC" Type="Boolean" />
+          <Property Name="FinInstStatement" Type="Boolean" />
+          <Property Name="FinInstBankAlmanac" Type="Boolean" />
+          <Property Name="FinInstComments" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IndvEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="IndvNationality" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="CustOpenStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PrintStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CustComplianceStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EditBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EditDate" Type="DateTime" />
+          <Property Name="CustOpenChange" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OffEditBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OffEditDate" Type="DateTime" />
+          <Property Name="CommentEditBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CommentEditDate" Type="DateTime" />
+          <Property Name="CompEditBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CompEditdate" Type="DateTime" />
+          <Property Name="RiskCompBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="RiskCompDate" Type="DateTime" />
+          <Property Name="TempScore" Type="Double" />
+          <Property Name="TempRating" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ReviewDate" Type="DateTime" />
+          <Property Name="Score" Type="Double" />
+          <Property Name="Rating" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="BusHRForBanks" Type="Boolean" />
+          <Property Name="BusHRCollection" Type="Boolean" />
+          <Property Name="BusHROffShore" Type="Boolean" />
+          <Property Name="BusHRImpExp" Type="Boolean" />
+          <Property Name="BusHRCoun" Type="Boolean" />
+          <Property Name="BusHRPIC" Type="Boolean" />
+          <Property Name="BusHRLuxury" Type="Boolean" />
+          <Property Name="BusHRGambling" Type="Boolean" />
+          <Property Name="BusHRProfessionals" Type="Boolean" />
+          <Property Name="BusHRInsurance" Type="Boolean" />
+          <Property Name="BusHRBrokers" Type="Boolean" />
+          <Property Name="BusHRREIT" Type="Boolean" />
+          <Property Name="BusMRPublic" Type="Boolean" />
+          <Property Name="BusMRPrivate" Type="Boolean" />
+          <Property Name="BusMRForeignInd" Type="Boolean" />
+          <Property Name="BusMRCoun" Type="Boolean" />
+          <Property Name="BusMRUN" Type="Boolean" />
+          <Property Name="BusLRBanks" Type="Boolean" />
+          <Property Name="BusLRDomInd" Type="Boolean" />
+          <Property Name="BusLRPublic" Type="Boolean" />
+          <Property Name="BusLRCoun" Type="Boolean" />
+          <Property Name="BusLRFCB" Type="Boolean" />
+          <Property Name="TranHRCorrBanks" Type="Boolean" />
+          <Property Name="TranHRIntlWire" Type="Boolean" />
+          <Property Name="TranHRCash" Type="Boolean" />
+          <Property Name="TranHRTrust" Type="Boolean" />
+          <Property Name="TranHRFOREX" Type="Boolean" />
+          <Property Name="TranMRChecks" Type="Boolean" />
+          <Property Name="TranMRDomWire" Type="Boolean" />
+          <Property Name="TranLRChecks" Type="Boolean" />
+          <Property Name="TranLRMMKT" Type="Boolean" />
+          <Property Name="TranLRDomWire" Type="Boolean" />
+          <Property Name="TranLRCashMGMT" Type="Boolean" />
+          <Property Name="TranLRCommPaper" Type="Boolean" />
+          <Property Name="TranLRFOREX" Type="Boolean" />
+          <Property Name="TranNR" Type="Boolean" />
+          <Property Name="CreditHRLC" Type="Boolean" />
+          <Property Name="CreditHRCashLoan" Type="Boolean" />
+          <Property Name="CreditLRCorpLoan" Type="Boolean" />
+          <Property Name="CreditLRRevCredit" Type="Boolean" />
+          <Property Name="CreditMRSyndLoan" Type="Boolean" />
+          <Property Name="CreditLRSyndLoan" Type="Boolean" />
+          <Property Name="CreditLRCommLC" Type="Boolean" />
+          <Property Name="CreditLRStandbyLC" Type="Boolean" />
+          <Property Name="CreditLRCommMTG" Type="Boolean" />
+          <Property Name="CreditNR" Type="Boolean" />
+          <Property Name="GeoHRFAFT" Type="Boolean" />
+          <Property Name="GeoHROFAC" Type="Boolean" />
+          <Property Name="GeoHROther" Type="Boolean" />
+          <Property Name="GeoHRAML" Type="Boolean" />
+          <Property Name="GeoMRAML" Type="Boolean" />
+          <Property Name="GeoLRAML" Type="Boolean" />
+          <Property Name="GeoCountry1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="GeoRisk1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="GeoCountry2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="GeoRisk2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CustHR2" Type="Boolean" />
+          <Property Name="CustHRSAR" Type="Boolean" />
+          <Property Name="CustHRBadPress" Type="Boolean" />
+          <Property Name="CustMR2to5" Type="Boolean" />
+          <Property Name="CustLR5" Type="Boolean" />
+          <Property Name="CustLR5Parent" Type="Boolean" />
+          <Property Name="CustHRBP" Type="Boolean" />
+          <Property Name="CustMRBP" Type="Boolean" />
+          <Property Name="CustLRBP" Type="Boolean" />
+          <Property Name="CustHRSub" Type="Boolean" />
+          <Property Name="CustNR" Type="Boolean" />
+          <NavigationProperty Name="CUSTUniversal" Relationship="KYCModel.FK_CUST_CUSTUniversal" FromRole="CUST" ToRole="CUSTUniversal" />
+        </EntityType>
+        <EntityType Name="CUSTDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="COName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Street" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PostCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CityState" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="AccountMgr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreditMgr" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="OPICSref" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MUREXref" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CMNE" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="SAP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LStreet" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LPostCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LCityState" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" />
+          <Property Name="AcctCloseDate" Type="DateTime" />
+          <Property Name="EditDate" Type="DateTime" />
+          <Property Name="EditBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CUSTUniversal" Relationship="KYCModel.FK_CUSTDetail_CUSTUniversal" FromRole="CUSTDetail" ToRole="CUSTUniversal" />
+        </EntityType>
+        <EntityType Name="CUSTUniversal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="AcctOpenDate" Type="DateTime" />
+          <Property Name="AcctOpenBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Owner" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EditDate" Type="DateTime" />
+          <Property Name="EditBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KYCStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CreditStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CustStatus" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CUST" Relationship="KYCModel.FK_CUST_CUSTUniversal" FromRole="CUSTUniversal" ToRole="CUST" />
+          <NavigationProperty Name="CUSTDetail" Relationship="KYCModel.FK_CUSTDetail_CUSTUniversal" FromRole="CUSTUniversal" ToRole="CUSTDetail" />
+        </EntityType>
+        <EntityType Name="DataSync">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="DataType" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SyncDate" Type="DateTime" />
+          <Property Name="SyncBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DataVaild" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="SAPBP">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BP" Type="String" Nullable="false" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="BPName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="KYCID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_CUST_CUSTUniversal">
+          <End Role="CUSTUniversal" Type="KYCModel.CUSTUniversal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CUST" Type="KYCModel.CUST" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTUniversal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUST">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CUSTDetail_CUSTUniversal">
+          <End Role="CUSTUniversal" Type="KYCModel.CUSTUniversal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CUSTDetail" Type="KYCModel.CUSTDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTUniversal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CUSTDetail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChangeInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustID" Nullable="false" />
+          <Property Type="DateTime" Name="ChangeDate" Nullable="false" />
+          <Property Type="String" Name="ChangeType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OldScore" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NewScore" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KYCModelStoreContainer" CdmEntityContainer="KYCEntities">
+          <EntitySetMapping Name="CUSTs"><EntityTypeMapping TypeName="KYCModel.CUST"><MappingFragment StoreEntitySet="CUST">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="OFAC" ColumnName="OFAC" />
+            <ScalarProperty Name="BPRole" ColumnName="BPRole" />
+            <ScalarProperty Name="ZISLegalForm" ColumnName="ZISLegalForm" />
+            <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+            <ScalarProperty Name="UltCountryCode" ColumnName="UltCountryCode" />
+            <ScalarProperty Name="SpecType" ColumnName="SpecType" />
+            <ScalarProperty Name="LegalEntity" ColumnName="LegalEntity" />
+            <ScalarProperty Name="ContractPartner" ColumnName="ContractPartner" />
+            <ScalarProperty Name="RiskSector" ColumnName="RiskSector" />
+            <ScalarProperty Name="SectorKey" ColumnName="SectorKey" />
+            <ScalarProperty Name="Systematic" ColumnName="Systematic" />
+            <ScalarProperty Name="SAPIndCode" ColumnName="SAPIndCode" />
+            <ScalarProperty Name="StatBusRelation" ColumnName="StatBusRelation" />
+            <ScalarProperty Name="CustGrp" ColumnName="CustGrp" />
+            <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+            <ScalarProperty Name="BorrowerUnit" ColumnName="BorrowerUnit" />
+            <ScalarProperty Name="IDType" ColumnName="IDType" />
+            <ScalarProperty Name="FaxPrintdate" ColumnName="FaxPrintdate" />
+            <ScalarProperty Name="CustType" ColumnName="CustType" />
+            <ScalarProperty Name="LegalEntityType" ColumnName="LegalEntityType" />
+            <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+            <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+            <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+            <ScalarProperty Name="BusNature" ColumnName="BusNature" />
+            <ScalarProperty Name="SIC" ColumnName="SIC" />
+            <ScalarProperty Name="ExistingRelation" ColumnName="ExistingRelation" />
+            <ScalarProperty Name="TenK" ColumnName="TenK" />
+            <ScalarProperty Name="PrimeCertInc" ColumnName="PrimeCertInc" />
+            <ScalarProperty Name="PrimeCertGoodStand" ColumnName="PrimeCertGoodStand" />
+            <ScalarProperty Name="PrimeSyndParticipant" ColumnName="PrimeSyndParticipant" />
+            <ScalarProperty Name="PrimeGovEntity" ColumnName="PrimeGovEntity" />
+            <ScalarProperty Name="PrimeOther" ColumnName="PrimeOther" />
+            <ScalarProperty Name="PrimeDriverLic" ColumnName="PrimeDriverLic" />
+            <ScalarProperty Name="PrimePassport" ColumnName="PrimePassport" />
+            <ScalarProperty Name="PrimeStateID" ColumnName="PrimeStateID" />
+            <ScalarProperty Name="PrimeAlienReg" ColumnName="PrimeAlienReg" />
+            <ScalarProperty Name="PrimeResidentID" ColumnName="PrimeResidentID" />
+            <ScalarProperty Name="PrimeUSSynd" ColumnName="PrimeUSSynd" />
+            <ScalarProperty Name="SecWorldCheck" ColumnName="SecWorldCheck" />
+            <ScalarProperty Name="SecDB" ColumnName="SecDB" />
+            <ScalarProperty Name="SecCertGoodStand" ColumnName="SecCertGoodStand" />
+            <ScalarProperty Name="SecCreditReport" ColumnName="SecCreditReport" />
+            <ScalarProperty Name="SecUtilityBill" ColumnName="SecUtilityBill" />
+            <ScalarProperty Name="SecReverseDirectory" ColumnName="SecReverseDirectory" />
+            <ScalarProperty Name="SecBankRef" ColumnName="SecBankRef" />
+            <ScalarProperty Name="SecOther" ColumnName="SecOther" />
+            <ScalarProperty Name="MissingDocsPrim" ColumnName="MissingDocsPrim" />
+            <ScalarProperty Name="MissingDocsSec" ColumnName="MissingDocsSec" />
+            <ScalarProperty Name="MissingDocs" ColumnName="MissingDocs" />
+            <ScalarProperty Name="MissingDocDate" ColumnName="MissingDocDate" />
+            <ScalarProperty Name="OtherDocs" ColumnName="OtherDocs" />
+            <ScalarProperty Name="CustNotification" ColumnName="CustNotification" />
+            <ScalarProperty Name="Ownership" ColumnName="Ownership" />
+            <ScalarProperty Name="Directors" ColumnName="Directors" />
+            <ScalarProperty Name="Owners" ColumnName="Owners" />
+            <ScalarProperty Name="Involvement" ColumnName="Involvement" />
+            <ScalarProperty Name="NamesMgmt" ColumnName="NamesMgmt" />
+            <ScalarProperty Name="Subsidiaries" ColumnName="Subsidiaries" />
+            <ScalarProperty Name="Signatories" ColumnName="Signatories" />
+            <ScalarProperty Name="WealthSource" ColumnName="WealthSource" />
+            <ScalarProperty Name="FundsSource" ColumnName="FundsSource" />
+            <ScalarProperty Name="Syndications" ColumnName="Syndications" />
+            <ScalarProperty Name="OtherLending" ColumnName="OtherLending" />
+            <ScalarProperty Name="FundsTransfer" ColumnName="FundsTransfer" />
+            <ScalarProperty Name="BookTransfer" ColumnName="BookTransfer" />
+            <ScalarProperty Name="RevolvingCredit" ColumnName="RevolvingCredit" />
+            <ScalarProperty Name="StandbyLC" ColumnName="StandbyLC" />
+            <ScalarProperty Name="CommLC" ColumnName="CommLC" />
+            <ScalarProperty Name="DemandDA" ColumnName="DemandDA" />
+            <ScalarProperty Name="TimeDA" ColumnName="TimeDA" />
+            <ScalarProperty Name="CommPaper" ColumnName="CommPaper" />
+            <ScalarProperty Name="FXTrading" ColumnName="FXTrading" />
+            <ScalarProperty Name="DL" ColumnName="DL" />
+            <ScalarProperty Name="FXDerivatives" ColumnName="FXDerivatives" />
+            <ScalarProperty Name="IntRateDerivatives" ColumnName="IntRateDerivatives" />
+            <ScalarProperty Name="TradeFinance" ColumnName="TradeFinance" />
+            <ScalarProperty Name="ChecksIssued" ColumnName="ChecksIssued" />
+            <ScalarProperty Name="ProdOther" ColumnName="ProdOther" />
+            <ScalarProperty Name="ProdOtherText" ColumnName="ProdOtherText" />
+            <ScalarProperty Name="BranchActivityCoun" ColumnName="BranchActivityCoun" />
+            <ScalarProperty Name="FundMove1" ColumnName="FundMove1" />
+            <ScalarProperty Name="FundMove2" ColumnName="FundMove2" />
+            <ScalarProperty Name="FundMove3" ColumnName="FundMove3" />
+            <ScalarProperty Name="FundMove4" ColumnName="FundMove4" />
+            <ScalarProperty Name="FundMove5" ColumnName="FundMove5" />
+            <ScalarProperty Name="FundMove6" ColumnName="FundMove6" />
+            <ScalarProperty Name="InitDeposit" ColumnName="InitDeposit" />
+            <ScalarProperty Name="InitDepositSource" ColumnName="InitDepositSource" />
+            <ScalarProperty Name="InitDepositTransfer" ColumnName="InitDepositTransfer" />
+            <ScalarProperty Name="InitDepositCheck" ColumnName="InitDepositCheck" />
+            <ScalarProperty Name="PrimaryVendors" ColumnName="PrimaryVendors" />
+            <ScalarProperty Name="InMonthlyTransactions" ColumnName="InMonthlyTransactions" />
+            <ScalarProperty Name="InMonthlyAmount" ColumnName="InMonthlyAmount" />
+            <ScalarProperty Name="InRemitters" ColumnName="InRemitters" />
+            <ScalarProperty Name="InCoun" ColumnName="InCoun" />
+            <ScalarProperty Name="OutMonthlyTransactions" ColumnName="OutMonthlyTransactions" />
+            <ScalarProperty Name="OutMonthlyAmount" ColumnName="OutMonthlyAmount" />
+            <ScalarProperty Name="OutBeneficiaries" ColumnName="OutBeneficiaries" />
+            <ScalarProperty Name="OutCoun" ColumnName="OutCoun" />
+            <ScalarProperty Name="FinInstType" ColumnName="FinInstType" />
+            <ScalarProperty Name="Tele" ColumnName="Tele" />
+            <ScalarProperty Name="FinInstFAX" ColumnName="FinInstFAX" />
+            <ScalarProperty Name="FinInstWeb" ColumnName="FinInstWeb" />
+            <ScalarProperty Name="FinInstID" ColumnName="FinInstID" />
+            <ScalarProperty Name="FinInstSWIFT" ColumnName="FinInstSWIFT" />
+            <ScalarProperty Name="FinInstExchange" ColumnName="FinInstExchange" />
+            <ScalarProperty Name="FinInstSub" ColumnName="FinInstSub" />
+            <ScalarProperty Name="FinInstSubParent" ColumnName="FinInstSubParent" />
+            <ScalarProperty Name="FinInstGovUN" ColumnName="FinInstGovUN" />
+            <ScalarProperty Name="FinInstPriviate" ColumnName="FinInstPriviate" />
+            <ScalarProperty Name="FinInstGovPercent" ColumnName="FinInstGovPercent" />
+            <ScalarProperty Name="FinInstShellBank" ColumnName="FinInstShellBank" />
+            <ScalarProperty Name="FinInstRegulator" ColumnName="FinInstRegulator" />
+            <ScalarProperty Name="Moody" ColumnName="Moody" />
+            <ScalarProperty Name="MoodySL" ColumnName="MoodySL" />
+            <ScalarProperty Name="SP" ColumnName="SP" />
+            <ScalarProperty Name="SPSL" ColumnName="SPSL" />
+            <ScalarProperty Name="Fitch" ColumnName="Fitch" />
+            <ScalarProperty Name="FitchSL" ColumnName="FitchSL" />
+            <ScalarProperty Name="SettlementUSD" ColumnName="SettlementUSD" />
+            <ScalarProperty Name="SettlementEURO" ColumnName="SettlementEURO" />
+            <ScalarProperty Name="SettlementGBP" ColumnName="SettlementGBP" />
+            <ScalarProperty Name="SettlementJPY" ColumnName="SettlementJPY" />
+            <ScalarProperty Name="FinInstPatriot" ColumnName="FinInstPatriot" />
+            <ScalarProperty Name="PatCertDate" ColumnName="PatCertDate" />
+            <ScalarProperty Name="FinInstKYC" ColumnName="FinInstKYC" />
+            <ScalarProperty Name="FinInstStatement" ColumnName="FinInstStatement" />
+            <ScalarProperty Name="FinInstBankAlmanac" ColumnName="FinInstBankAlmanac" />
+            <ScalarProperty Name="FinInstComments" ColumnName="FinInstComments" />
+            <ScalarProperty Name="IndvEmail" ColumnName="IndvEmail" />
+            <ScalarProperty Name="IndvNationality" ColumnName="IndvNationality" />
+            <ScalarProperty Name="CustOpenStatus" ColumnName="CustOpenStatus" />
+            <ScalarProperty Name="PrintStatus" ColumnName="PrintStatus" />
+            <ScalarProperty Name="CustComplianceStatus" ColumnName="CustComplianceStatus" />
+            <ScalarProperty Name="EditBy" ColumnName="EditBy" />
+            <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+            <ScalarProperty Name="CustOpenChange" ColumnName="CustOpenChange" />
+            <ScalarProperty Name="OffEditBy" ColumnName="OffEditBy" />
+            <ScalarProperty Name="OffEditDate" ColumnName="OffEditDate" />
+            <ScalarProperty Name="CommentEditBy" ColumnName="CommentEditBy" />
+            <ScalarProperty Name="CommentEditDate" ColumnName="CommentEditDate" />
+            <ScalarProperty Name="CompEditBy" ColumnName="CompEditBy" />
+            <ScalarProperty Name="CompEditdate" ColumnName="CompEditdate" />
+            <ScalarProperty Name="RiskCompBy" ColumnName="RiskCompBy" />
+            <ScalarProperty Name="RiskCompDate" ColumnName="RiskCompDate" />
+            <ScalarProperty Name="TempScore" ColumnName="TempScore" />
+            <ScalarProperty Name="TempRating" ColumnName="TempRating" />
+            <ScalarProperty Name="ReviewDate" ColumnName="ReviewDate" />
+            <ScalarProperty Name="Score" ColumnName="Score" />
+            <ScalarProperty Name="Rating" ColumnName="Rating" />
+            <ScalarProperty Name="BusHRForBanks" ColumnName="BusHRForBanks" />
+            <ScalarProperty Name="BusHRCollection" ColumnName="BusHRCollection" />
+            <ScalarProperty Name="BusHROffShore" ColumnName="BusHROffShore" />
+            <ScalarProperty Name="BusHRImpExp" ColumnName="BusHRImpExp" />
+            <ScalarProperty Name="BusHRCoun" ColumnName="BusHRCoun" />
+            <ScalarProperty Name="BusHRPIC" ColumnName="BusHRPIC" />
+            <ScalarProperty Name="BusHRLuxury" ColumnName="BusHRLuxury" />
+            <ScalarProperty Name="BusHRGambling" ColumnName="BusHRGambling" />
+            <ScalarProperty Name="BusHRProfessionals" ColumnName="BusHRProfessionals" />
+            <ScalarProperty Name="BusHRInsurance" ColumnName="BusHRInsurance" />
+            <ScalarProperty Name="BusHRBrokers" ColumnName="BusHRBrokers" />
+            <ScalarProperty Name="BusHRREIT" ColumnName="BusHRREIT" />
+            <ScalarProperty Name="BusMRPublic" ColumnName="BusMRPublic" />
+            <ScalarProperty Name="BusMRPrivate" ColumnName="BusMRPrivate" />
+            <ScalarProperty Name="BusMRForeignInd" ColumnName="BusMRForeignInd" />
+            <ScalarProperty Name="BusMRCoun" ColumnName="BusMRCoun" />
+            <ScalarProperty Name="BusMRUN" ColumnName="BusMRUN" />
+            <ScalarProperty Name="BusLRBanks" ColumnName="BusLRBanks" />
+            <ScalarProperty Name="BusLRDomInd" ColumnName="BusLRDomInd" />
+            <ScalarProperty Name="BusLRPublic" ColumnName="BusLRPublic" />
+            <ScalarProperty Name="BusLRCoun" ColumnName="BusLRCoun" />
+            <ScalarProperty Name="BusLRFCB" ColumnName="BusLRFCB" />
+            <ScalarProperty Name="TranHRCorrBanks" ColumnName="TranHRCorrBanks" />
+            <ScalarProperty Name="TranHRIntlWire" ColumnName="TranHRIntlWire" />
+            <ScalarProperty Name="TranHRCash" ColumnName="TranHRCash" />
+            <ScalarProperty Name="TranHRTrust" ColumnName="TranHRTrust" />
+            <ScalarProperty Name="TranHRFOREX" ColumnName="TranHRFOREX" />
+            <ScalarProperty Name="TranMRChecks" ColumnName="TranMRChecks" />
+            <ScalarProperty Name="TranMRDomWire" ColumnName="TranMRDomWire" />
+            <ScalarProperty Name="TranLRChecks" ColumnName="TranLRChecks" />
+            <ScalarProperty Name="TranLRMMKT" ColumnName="TranLRMMKT" />
+            <ScalarProperty Name="TranLRDomWire" ColumnName="TranLRDomWire" />
+            <ScalarProperty Name="TranLRCashMGMT" ColumnName="TranLRCashMGMT" />
+            <ScalarProperty Name="TranLRCommPaper" ColumnName="TranLRCommPaper" />
+            <ScalarProperty Name="TranLRFOREX" ColumnName="TranLRFOREX" />
+            <ScalarProperty Name="TranNR" ColumnName="TranNR" />
+            <ScalarProperty Name="CreditHRLC" ColumnName="CreditHRLC" />
+            <ScalarProperty Name="CreditHRCashLoan" ColumnName="CreditHRCashLoan" />
+            <ScalarProperty Name="CreditLRCorpLoan" ColumnName="CreditLRCorpLoan" />
+            <ScalarProperty Name="CreditLRRevCredit" ColumnName="CreditLRRevCredit" />
+            <ScalarProperty Name="CreditMRSyndLoan" ColumnName="CreditMRSyndLoan" />
+            <ScalarProperty Name="CreditLRSyndLoan" ColumnName="CreditLRSyndLoan" />
+            <ScalarProperty Name="CreditLRCommLC" ColumnName="CreditLRCommLC" />
+            <ScalarProperty Name="CreditLRStandbyLC" ColumnName="CreditLRStandbyLC" />
+            <ScalarProperty Name="CreditLRCommMTG" ColumnName="CreditLRCommMTG" />
+            <ScalarProperty Name="CreditNR" ColumnName="CreditNR" />
+            <ScalarProperty Name="GeoHRFAFT" ColumnName="GeoHRFAFT" />
+            <ScalarProperty Name="GeoHROFAC" ColumnName="GeoHROFAC" />
+            <ScalarProperty Name="GeoHROther" ColumnName="GeoHROther" />
+            <ScalarProperty Name="GeoHRAML" ColumnName="GeoHRAML" />
+            <ScalarProperty Name="GeoMRAML" ColumnName="GeoMRAML" />
+            <ScalarProperty Name="GeoLRAML" ColumnName="GeoLRAML" />
+            <ScalarProperty Name="GeoCountry1" ColumnName="GeoCountry1" />
+            <ScalarProperty Name="GeoRisk1" ColumnName="GeoRisk1" />
+            <ScalarProperty Name="GeoCountry2" ColumnName="GeoCountry2" />
+            <ScalarProperty Name="GeoRisk2" ColumnName="GeoRisk2" />
+            <ScalarProperty Name="CustHR2" ColumnName="CustHR2" />
+            <ScalarProperty Name="CustHRSAR" ColumnName="CustHRSAR" />
+            <ScalarProperty Name="CustHRBadPress" ColumnName="CustHRBadPress" />
+            <ScalarProperty Name="CustMR2to5" ColumnName="CustMR2to5" />
+            <ScalarProperty Name="CustLR5" ColumnName="CustLR5" />
+            <ScalarProperty Name="CustLR5Parent" ColumnName="CustLR5Parent" />
+            <ScalarProperty Name="CustHRBP" ColumnName="CustHRBP" />
+            <ScalarProperty Name="CustMRBP" ColumnName="CustMRBP" />
+            <ScalarProperty Name="CustLRBP" ColumnName="CustLRBP" />
+            <ScalarProperty Name="CustHRSub" ColumnName="CustHRSub" />
+            <ScalarProperty Name="CustNR" ColumnName="CustNR" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CUSTDetails"><EntityTypeMapping TypeName="KYCModel.CUSTDetail"><MappingFragment StoreEntitySet="CUSTDetail">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="SName" ColumnName="SName" />
+            <ScalarProperty Name="COName" ColumnName="COName" />
+            <ScalarProperty Name="Street" ColumnName="Street" />
+            <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+            <ScalarProperty Name="CityState" ColumnName="CityState" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="AccountMgr" ColumnName="AccountMgr" />
+            <ScalarProperty Name="CreditMgr" ColumnName="CreditMgr" />
+            <ScalarProperty Name="OPICSref" ColumnName="OPICSref" />
+            <ScalarProperty Name="MUREXref" ColumnName="MUREXref" />
+            <ScalarProperty Name="CMNE" ColumnName="CMNE" />
+            <ScalarProperty Name="SAP" ColumnName="SAP" />
+            <ScalarProperty Name="LName" ColumnName="LName" />
+            <ScalarProperty Name="LStreet" ColumnName="LStreet" />
+            <ScalarProperty Name="LPostCode" ColumnName="LPostCode" />
+            <ScalarProperty Name="LCityState" ColumnName="LCityState" />
+            <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+            <ScalarProperty Name="AcctCloseDate" ColumnName="AcctCloseDate" />
+            <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+            <ScalarProperty Name="EditBy" ColumnName="EditBy" />
+            <ScalarProperty Name="Comments" ColumnName="Comments" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CUSTUniversals"><EntityTypeMapping TypeName="KYCModel.CUSTUniversal"><MappingFragment StoreEntitySet="CUSTUniversal">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="FullName" ColumnName="FullName" />
+            <ScalarProperty Name="AcctOpenDate" ColumnName="AcctOpenDate" />
+            <ScalarProperty Name="AcctOpenBy" ColumnName="AcctOpenBy" />
+            <ScalarProperty Name="Owner" ColumnName="Owner" />
+            <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+            <ScalarProperty Name="EditBy" ColumnName="EditBy" />
+            <ScalarProperty Name="KYCStatus" ColumnName="KYCStatus" />
+            <ScalarProperty Name="CreditStatus" ColumnName="CreditStatus" />
+            <ScalarProperty Name="CustStatus" ColumnName="CustStatus" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DataSyncs"><EntityTypeMapping TypeName="KYCModel.DataSync"><MappingFragment StoreEntitySet="DataSync">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="DataType" ColumnName="DataType" />
+            <ScalarProperty Name="SyncDate" ColumnName="SyncDate" />
+            <ScalarProperty Name="SyncBy" ColumnName="SyncBy" />
+            <ScalarProperty Name="DataVaild" ColumnName="DataVaild" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SAPBPs"><EntityTypeMapping TypeName="KYCModel.SAPBP"><MappingFragment StoreEntitySet="SAPBP">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="BP" ColumnName="BP" />
+            <ScalarProperty Name="BPName" ColumnName="BPName" />
+            <ScalarProperty Name="KYCID" ColumnName="KYCID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ChangeInfoes">
+            <EntityTypeMapping TypeName="KYCModel.ChangeInfo">
+              <MappingFragment StoreEntitySet="ChangeInfo">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="NewScore" ColumnName="NewScore" />
+                <ScalarProperty Name="OldScore" ColumnName="OldScore" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="KYCModel" ZoomLevel="74">
+        <EntityTypeShape EntityType="KYCModel.CUST" Width="1.5" PointX="3" PointY="8.375" Height="36.926982421874989" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYCModel.CUSTDetail" Width="1.5" PointX="3.125" PointY="3.25" Height="5.4417122395833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYCModel.CUSTUniversal" Width="1.5" PointX="0.75" PointY="22.625" Height="2.907084960937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYCModel.DataSync" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="KYCModel.SAPBP" Width="1.5" PointX="5.75" PointY="3.75" Height="1.5923063151041674" IsExpanded="true" />
+        <AssociationConnector Association="KYCModel.FK_CUST_CUSTUniversal" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="24.078542480468748" />
+          <ConnectorPoint PointX="3" PointY="24.078542480468748" />
+        </AssociationConnector>
+        <AssociationConnector Association="KYCModel.FK_CUSTDetail_CUSTUniversal" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="22.625" />
+          <ConnectorPoint PointX="1.5" PointY="5.78125" />
+          <ConnectorPoint PointX="3.125" PointY="5.78125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="KYCModel.ChangeInfo" Width="1.5" PointX="5.375" PointY="6.75" Height="2.2496956380208317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

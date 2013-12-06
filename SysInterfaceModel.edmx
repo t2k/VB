@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SysInterfaceModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SysInterfaceModelStoreContainer">
+          <EntitySet Name="Documents" EntityType="SysInterfaceModel.Store.Documents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IFaceLog" EntityType="SysInterfaceModel.Store.IFaceLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mpCDSCurve" EntityType="SysInterfaceModel.Store.mpCDSCurve" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mpREFOB" EntityType="SysInterfaceModel.Store.mpREFOB" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MX_RLOAN" EntityType="SysInterfaceModel.Store.MX_RLOAN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="mxCDS" EntityType="SysInterfaceModel.Store.mxCDS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RED_REFOB" EntityType="SysInterfaceModel.Store.RED_REFOB" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="REDENTITY" EntityType="SysInterfaceModel.Store.REDENTITY" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ResearchStore" EntityType="SysInterfaceModel.Store.ResearchStore" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SystemInterface" EntityType="SysInterfaceModel.Store.SystemInterface" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_IFaceLog_SystemInterface" Association="SysInterfaceModel.Store.FK_IFaceLog_SystemInterface">
+            <End Role="SystemInterface" EntitySet="SystemInterface" />
+            <End Role="IFaceLog" EntitySet="IFaceLog" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="DocID" />
+          </Key>
+          <Property Name="DocID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="25" />
+          <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IFaceLog">
+          <Key>
+            <PropertyRef Name="IFaceDate" />
+            <PropertyRef Name="IFaceName" />
+            <PropertyRef Name="IFaceTimeStamp" />
+          </Key>
+          <Property Name="IFaceDate" Type="datetime" Nullable="false" />
+          <Property Name="IFaceName" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="IFaceTimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="IFaceCount" Type="int" />
+          <Property Name="IFaceNote" Type="nvarchar" MaxLength="150" />
+          <Property Name="IFaceUser" Type="nvarchar" MaxLength="25" />
+          <Property Name="IFaceStatus" Type="bit" />
+        </EntityType>
+        <EntityType Name="mpCDSCurve">
+          <Key>
+            <PropertyRef Name="EvalDate" />
+            <PropertyRef Name="TICKER" />
+            <PropertyRef Name="Tier" />
+            <PropertyRef Name="CCY" />
+            <PropertyRef Name="DocClause" />
+          </Key>
+          <Property Name="EvalDate" Type="datetime" Nullable="false" />
+          <Property Name="TICKER" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="100" />
+          <Property Name="RedCode" Type="nvarchar" MaxLength="6" />
+          <Property Name="Tier" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="CCY" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="DocClause" Type="nvarchar" Nullable="false" MaxLength="3" />
+          <Property Name="Depth" Type="int" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="30" />
+          <Property Name="Region" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="AvRating" Type="nvarchar" MaxLength="6" />
+          <Property Name="_6m" Type="float" />
+          <Property Name="_1Y" Type="float" />
+          <Property Name="_2Y" Type="float" />
+          <Property Name="_3Y" Type="float" />
+          <Property Name="_4Y" Type="float" />
+          <Property Name="_5Y" Type="float" />
+          <Property Name="_7Y" Type="float" />
+          <Property Name="_10Y" Type="float" />
+          <Property Name="_15Y" Type="float" />
+          <Property Name="_20Y" Type="float" />
+          <Property Name="_30Y" Type="float" />
+          <Property Name="Recovery" Type="float" />
+        </EntityType>
+        <EntityType Name="mpREFOB">
+          <Key>
+            <PropertyRef Name="PairClip" />
+          </Key>
+          <Property Name="PairClip" Type="nvarchar" Nullable="false" MaxLength="9" />
+          <Property Name="EntityClip" Type="nvarchar" MaxLength="6" />
+          <Property Name="Role" Type="nvarchar" MaxLength="10" />
+          <Property Name="ISIN" Type="nvarchar" MaxLength="50" />
+          <Property Name="CUSIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsPreferred" Type="bit" />
+          <Property Name="IsPairCurrent" Type="bit" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsConvert" Type="bit" />
+          <Property Name="CouponType" Type="nvarchar" MaxLength="5" />
+          <Property Name="Tier" Type="nvarchar" MaxLength="8" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="Maturity" Type="datetime" />
+          <Property Name="Coupon" Type="float" />
+          <Property Name="Issuer" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="MX_RLOAN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AFIL" Type="nvarchar" MaxLength="2" />
+          <Property Name="EXT_NB" Type="int" />
+          <Property Name="TradeID" Type="int" />
+          <Property Name="OrigID" Type="int" />
+          <Property Name="PeriodStart" Type="datetime" />
+          <Property Name="PeriodEnd" Type="datetime" />
+          <Property Name="PayRec" Type="nvarchar" MaxLength="8" />
+          <Property Name="FixFloat" Type="nvarchar" MaxLength="8" />
+          <Property Name="Fixing" Type="float" />
+          <Property Name="Margin" Type="float" />
+          <Property Name="TotalRate" Type="float" />
+          <Property Name="Notional" Type="float" />
+          <Property Name="Internal" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreditIssuer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Index" Type="nvarchar" MaxLength="50" />
+          <Property Name="Start" Type="datetime" />
+          <Property Name="End" Type="datetime" />
+          <Property Name="Portfolio" Type="nvarchar" MaxLength="50" />
+          <Property Name="Counterpart" Type="nvarchar" MaxLength="50" />
+          <Property Name="CCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="Flow" Type="float" />
+          <Property Name="Group" Type="nvarchar" MaxLength="25" />
+          <Property Name="TradeDate" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="25" />
+          <Property Name="LAST_MOP" Type="nvarchar" MaxLength="25" />
+          <Property Name="Fix_date" Type="datetime" />
+          <Property Name="Current_period" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="mxCDS">
+          <Key>
+            <PropertyRef Name="SAVEDATE" />
+            <PropertyRef Name="NB" />
+          </Key>
+          <Property Name="SAVEDATE" Type="datetime" Nullable="false" />
+          <Property Name="NB" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="NBEXT" Type="int" />
+          <Property Name="PL_INSCUR" Type="nvarchar" MaxLength="3" />
+          <Property Name="FAMILY" Type="nvarchar" MaxLength="15" />
+          <Property Name="GROUP" Type="nvarchar" MaxLength="12" />
+          <Property Name="TP_STATUS" Type="nvarchar" MaxLength="12" />
+          <Property Name="COUNTERPART" Type="nvarchar" MaxLength="20" />
+          <Property Name="PORTFOLIO" Type="nvarchar" MaxLength="20" />
+          <Property Name="BRW_NOM1" Type="float" />
+          <Property Name="TRNDATE" Type="datetime" />
+          <Property Name="MATURITY" Type="datetime" />
+          <Property Name="EXPIRY" Type="datetime" />
+          <Property Name="VALID" Type="nvarchar" MaxLength="12" />
+          <Property Name="IE" Type="nvarchar" MaxLength="5" />
+          <Property Name="INSTRUMENT" Type="nvarchar" MaxLength="20" />
+          <Property Name="MARKET INDEX" Type="nvarchar" MaxLength="20" />
+          <Property Name="RATE_MARG0" Type="float" />
+          <Property Name="B/S" Type="nvarchar" MaxLength="12" />
+          <Property Name="TRADER" Type="nvarchar" MaxLength="12" />
+          <Property Name="MOP_LAST" Type="int" />
+          <Property Name="OPT_MOPLST" Type="nvarchar" MaxLength="50" />
+          <Property Name="PayRecvLeg" Type="nvarchar" MaxLength="12" />
+          <Property Name="STL_FLW" Type="float" />
+          <Property Name="BRW_SDTE" Type="datetime" />
+          <Property Name="OPT_FLWFST" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RED_REFOB">
+          <Key>
+            <PropertyRef Name="RED RO" />
+            <PropertyRef Name="RED Pair Code" />
+          </Key>
+          <Property Name="RED RO" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="REDCODE" Type="nvarchar" MaxLength="6" />
+          <Property Name="RED Pair Code" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Bloomberg Company Name" Type="nvarchar" MaxLength="80" />
+          <Property Name="RED Tier" Type="nvarchar" MaxLength="12" />
+          <Property Name="BB REF OB" Type="nvarchar" MaxLength="25" />
+          <Property Name="TICKER" Type="nvarchar" MaxLength="12" />
+          <Property Name="CRNCY" Type="nvarchar" MaxLength="3" />
+          <Property Name="RTG_BB_COMP" Type="nvarchar" MaxLength="8" />
+          <Property Name="SnrSub" Type="nvarchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="REDENTITY">
+          <Key>
+            <PropertyRef Name="TICKER" />
+          </Key>
+          <Property Name="TICKER" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="EntityName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="150" />
+          <Property Name="REDCODE" Type="nvarchar" MaxLength="10" />
+          <Property Name="CUSIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="10" />
+          <Property Name="Jurisdiction" Type="nvarchar" MaxLength="50" />
+          <Property Name="MarkitSector" Type="nvarchar" MaxLength="50" />
+          <Property Name="PTICKER" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="ResearchStore">
+          <Key>
+            <PropertyRef Name="ReportDate" />
+            <PropertyRef Name="ResearchFirm" />
+            <PropertyRef Name="Comments" />
+          </Key>
+          <Property Name="ReportDate" Type="datetime" Nullable="false" />
+          <Property Name="ResearchFirm" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Comments" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="ReportLink" Type="ntext" />
+        </EntityType>
+        <EntityType Name="SystemInterface">
+          <Key>
+            <PropertyRef Name="IFaceName" />
+          </Key>
+          <Property Name="IFaceName" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="SystemName" Type="nvarchar" MaxLength="25" />
+          <Property Name="SystemNameFgn" Type="nvarchar" MaxLength="25" />
+          <Property Name="Schedule" Type="nvarchar" MaxLength="12" />
+          <Property Name="IFaceFormat" Type="nvarchar" MaxLength="3" />
+          <Property Name="IFaceFileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IFaceDescripton" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_IFaceLog_SystemInterface">
+          <End Role="SystemInterface" Type="SysInterfaceModel.Store.SystemInterface" Multiplicity="1" />
+          <End Role="IFaceLog" Type="SysInterfaceModel.Store.IFaceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemInterface">
+              <PropertyRef Name="IFaceName" />
+            </Principal>
+            <Dependent Role="IFaceLog">
+              <PropertyRef Name="IFaceName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SysInterfaceModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SysInterfaceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Documents" EntityType="SysInterfaceModel.Document" />
+          <EntitySet Name="IFaceLogs" EntityType="SysInterfaceModel.IFaceLog" />
+          <EntitySet Name="mpCDSCurves" EntityType="SysInterfaceModel.mpCDSCurve" />
+          <EntitySet Name="MX_RLOAN" EntityType="SysInterfaceModel.MX_RLOAN" />
+          <EntitySet Name="mxCDS" EntityType="SysInterfaceModel.mxCD" />
+          <EntitySet Name="RED_REFOB" EntityType="SysInterfaceModel.RED_REFOB" />
+          <EntitySet Name="REDENTITies" EntityType="SysInterfaceModel.REDENTITY" />
+          <EntitySet Name="SystemInterfaces" EntityType="SysInterfaceModel.SystemInterface" />
+          <AssociationSet Name="FK_IFaceLog_SystemInterface" Association="SysInterfaceModel.FK_IFaceLog_SystemInterface">
+            <End Role="SystemInterface" EntitySet="SystemInterfaces" />
+            <End Role="IFaceLog" EntitySet="IFaceLogs" />
+          </AssociationSet>
+          <EntitySet Name="ResearchStores" EntityType="SysInterfaceModel.ResearchStore" />
+          <EntitySet Name="mpREFOBs" EntityType="SysInterfaceModel.mpREFOB" />
+        </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="DocID" />
+          </Key>
+          <Property Name="DocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TimeStamp" Type="DateTime" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="IFaceLog">
+          <Key>
+            <PropertyRef Name="IFaceDate" />
+            <PropertyRef Name="IFaceName" />
+            <PropertyRef Name="IFaceTimeStamp" />
+          </Key>
+          <Property Name="IFaceDate" Type="DateTime" Nullable="false" />
+          <Property Name="IFaceName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="IFaceTimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="IFaceCount" Type="Int32" />
+          <Property Name="IFaceNote" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="IFaceUser" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="IFaceStatus" Type="Boolean" />
+          <NavigationProperty Name="SystemInterface" Relationship="SysInterfaceModel.FK_IFaceLog_SystemInterface" FromRole="IFaceLog" ToRole="SystemInterface" />
+        </EntityType>
+        <EntityType Name="mpCDSCurve">
+          <Key>
+            <PropertyRef Name="EvalDate" />
+            <PropertyRef Name="TICKER" />
+            <PropertyRef Name="Tier" />
+            <PropertyRef Name="CCY" />
+            <PropertyRef Name="DocClause" />
+          </Key>
+          <Property Name="EvalDate" Type="DateTime" Nullable="false" />
+          <Property Name="TICKER" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="ShortName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="RedCode" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Tier" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="CCY" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="DocClause" Type="String" Nullable="false" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Depth" Type="Int32" />
+          <Property Name="Sector" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Region" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AvRating" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="C_6m" Type="Double" />
+          <Property Name="C_1Y" Type="Double" />
+          <Property Name="C_2Y" Type="Double" />
+          <Property Name="C_3Y" Type="Double" />
+          <Property Name="C_4Y" Type="Double" />
+          <Property Name="C_5Y" Type="Double" />
+          <Property Name="C_7Y" Type="Double" />
+          <Property Name="C_10Y" Type="Double" />
+          <Property Name="C_15Y" Type="Double" />
+          <Property Name="C_20Y" Type="Double" />
+          <Property Name="C_30Y" Type="Double" />
+          <Property Name="Recovery" Type="Double" />
+        </EntityType>
+        <EntityType Name="MX_RLOAN">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AFIL" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="EXT_NB" Type="Int32" />
+          <Property Name="TradeID" Type="Int32" />
+          <Property Name="OrigID" Type="Int32" />
+          <Property Name="PeriodStart" Type="DateTime" />
+          <Property Name="PeriodEnd" Type="DateTime" />
+          <Property Name="PayRec" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="FixFloat" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="Fixing" Type="Double" />
+          <Property Name="Margin" Type="Double" />
+          <Property Name="TotalRate" Type="Double" />
+          <Property Name="Notional" Type="Double" />
+          <Property Name="Internal" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="CreditIssuer" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Index" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Start" Type="DateTime" />
+          <Property Name="End" Type="DateTime" />
+          <Property Name="Portfolio" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Counterpart" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="Flow" Type="Double" />
+          <Property Name="Group" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TradeDate" Type="DateTime" />
+          <Property Name="Status" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="LAST_MOP" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Fix_date" Type="DateTime" />
+          <Property Name="Current_period" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="mxCD">
+          <Key>
+            <PropertyRef Name="SAVEDATE" />
+            <PropertyRef Name="NB" />
+          </Key>
+          <Property Name="SAVEDATE" Type="DateTime" Nullable="false" />
+          <Property Name="NB" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="NBEXT" Type="Int32" />
+          <Property Name="PL_INSCUR" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="FAMILY" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="GROUP" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="TP_STATUS" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="COUNTERPART" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="PORTFOLIO" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="BRW_NOM1" Type="Double" />
+          <Property Name="TRNDATE" Type="DateTime" />
+          <Property Name="MATURITY" Type="DateTime" />
+          <Property Name="EXPIRY" Type="DateTime" />
+          <Property Name="VALID" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="IE" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="INSTRUMENT" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="MARKET_INDEX" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="RATE_MARG0" Type="Double" />
+          <Property Name="B_S" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="TRADER" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="MOP_LAST" Type="Int32" />
+          <Property Name="OPT_MOPLST" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PayRecvLeg" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="STL_FLW" Type="Double" />
+          <Property Name="BRW_SDTE" Type="DateTime" />
+          <Property Name="OPT_FLWFST" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="RED_REFOB">
+          <Key>
+            <PropertyRef Name="RED_RO" />
+            <PropertyRef Name="RED_Pair_Code" />
+          </Key>
+          <Property Name="RED_RO" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="REDCODE" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="RED_Pair_Code" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Bloomberg_Company_Name" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+          <Property Name="RED_Tier" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="BB_REF_OB" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="TICKER" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="CRNCY" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="RTG_BB_COMP" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="SnrSub" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="REDENTITY">
+          <Key>
+            <PropertyRef Name="TICKER" />
+          </Key>
+          <Property Name="TICKER" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="EntityName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="ShortName" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="REDCODE" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="CUSIP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="TYPE" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Jurisdiction" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MarkitSector" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PTICKER" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SystemInterface">
+          <Key>
+            <PropertyRef Name="IFaceName" />
+          </Key>
+          <Property Name="IFaceName" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="SystemName" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="SystemNameFgn" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+          <Property Name="Schedule" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="IFaceFormat" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="IFaceFileName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IFaceDescripton" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="IFaceLogs" Relationship="SysInterfaceModel.FK_IFaceLog_SystemInterface" FromRole="SystemInterface" ToRole="IFaceLog" />
+        </EntityType>
+        <Association Name="FK_IFaceLog_SystemInterface">
+          <End Role="SystemInterface" Type="SysInterfaceModel.SystemInterface" Multiplicity="1" />
+          <End Role="IFaceLog" Type="SysInterfaceModel.IFaceLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemInterface">
+              <PropertyRef Name="IFaceName" />
+            </Principal>
+            <Dependent Role="IFaceLog">
+              <PropertyRef Name="IFaceName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ResearchStore">
+          <Key>
+            <PropertyRef Name="ReportDate" />
+            <PropertyRef Name="ResearchFirm" />
+            <PropertyRef Name="Comments" />
+          </Key>
+          <Property Type="DateTime" Name="ReportDate" Nullable="false" />
+          <Property Type="String" Name="ResearchFirm" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Comments" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ReportLink" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="mpREFOB">
+          <Key>
+            <PropertyRef Name="PairClip" />
+          </Key>
+          <Property Type="String" Name="PairClip" Nullable="false" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EntityClip" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Role" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ISIN" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CUSIP" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsPreferred" />
+          <Property Type="Boolean" Name="IsPairCurrent" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsConvert" />
+          <Property Type="String" Name="CouponType" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Tier" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CCY" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Maturity" />
+          <Property Type="Double" Name="Coupon" />
+          <Property Type="String" Name="Issuer" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SysInterfaceModelStoreContainer" CdmEntityContainer="SysInterfaceEntities">
+          <EntitySetMapping Name="Documents"><EntityTypeMapping TypeName="SysInterfaceModel.Document"><MappingFragment StoreEntitySet="Documents">
+            <ScalarProperty Name="DocID" ColumnName="DocID" />
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="IFaceLogs"><EntityTypeMapping TypeName="SysInterfaceModel.IFaceLog"><MappingFragment StoreEntitySet="IFaceLog">
+            <ScalarProperty Name="IFaceDate" ColumnName="IFaceDate" />
+            <ScalarProperty Name="IFaceName" ColumnName="IFaceName" />
+            <ScalarProperty Name="IFaceTimeStamp" ColumnName="IFaceTimeStamp" />
+            <ScalarProperty Name="IFaceCount" ColumnName="IFaceCount" />
+            <ScalarProperty Name="IFaceNote" ColumnName="IFaceNote" />
+            <ScalarProperty Name="IFaceUser" ColumnName="IFaceUser" />
+            <ScalarProperty Name="IFaceStatus" ColumnName="IFaceStatus" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="mpCDSCurves"><EntityTypeMapping TypeName="SysInterfaceModel.mpCDSCurve"><MappingFragment StoreEntitySet="mpCDSCurve">
+            <ScalarProperty Name="EvalDate" ColumnName="EvalDate" />
+            <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+            <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+            <ScalarProperty Name="RedCode" ColumnName="RedCode" />
+            <ScalarProperty Name="Tier" ColumnName="Tier" />
+            <ScalarProperty Name="CCY" ColumnName="CCY" />
+            <ScalarProperty Name="DocClause" ColumnName="DocClause" />
+            <ScalarProperty Name="Depth" ColumnName="Depth" />
+            <ScalarProperty Name="Sector" ColumnName="Sector" />
+            <ScalarProperty Name="Region" ColumnName="Region" />
+            <ScalarProperty Name="Country" ColumnName="Country" />
+            <ScalarProperty Name="AvRating" ColumnName="AvRating" />
+            <ScalarProperty Name="C_6m" ColumnName="_6m" />
+            <ScalarProperty Name="C_1Y" ColumnName="_1Y" />
+            <ScalarProperty Name="C_2Y" ColumnName="_2Y" />
+            <ScalarProperty Name="C_3Y" ColumnName="_3Y" />
+            <ScalarProperty Name="C_4Y" ColumnName="_4Y" />
+            <ScalarProperty Name="C_5Y" ColumnName="_5Y" />
+            <ScalarProperty Name="C_7Y" ColumnName="_7Y" />
+            <ScalarProperty Name="C_10Y" ColumnName="_10Y" />
+            <ScalarProperty Name="C_15Y" ColumnName="_15Y" />
+            <ScalarProperty Name="C_20Y" ColumnName="_20Y" />
+            <ScalarProperty Name="C_30Y" ColumnName="_30Y" />
+            <ScalarProperty Name="Recovery" ColumnName="Recovery" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MX_RLOAN"><EntityTypeMapping TypeName="SysInterfaceModel.MX_RLOAN"><MappingFragment StoreEntitySet="MX_RLOAN">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="AFIL" ColumnName="AFIL" />
+            <ScalarProperty Name="EXT_NB" ColumnName="EXT_NB" />
+            <ScalarProperty Name="TradeID" ColumnName="TradeID" />
+            <ScalarProperty Name="OrigID" ColumnName="OrigID" />
+            <ScalarProperty Name="PeriodStart" ColumnName="PeriodStart" />
+            <ScalarProperty Name="PeriodEnd" ColumnName="PeriodEnd" />
+            <ScalarProperty Name="PayRec" ColumnName="PayRec" />
+            <ScalarProperty Name="FixFloat" ColumnName="FixFloat" />
+            <ScalarProperty Name="Fixing" ColumnName="Fixing" />
+            <ScalarProperty Name="Margin" ColumnName="Margin" />
+            <ScalarProperty Name="TotalRate" ColumnName="TotalRate" />
+            <ScalarProperty Name="Notional" ColumnName="Notional" />
+            <ScalarProperty Name="Internal" ColumnName="Internal" />
+            <ScalarProperty Name="CreditIssuer" ColumnName="CreditIssuer" />
+            <ScalarProperty Name="Index" ColumnName="Index" />
+            <ScalarProperty Name="Start" ColumnName="Start" />
+            <ScalarProperty Name="End" ColumnName="End" />
+            <ScalarProperty Name="Portfolio" ColumnName="Portfolio" />
+            <ScalarProperty Name="Counterpart" ColumnName="Counterpart" />
+            <ScalarProperty Name="CCY" ColumnName="CCY" />
+            <ScalarProperty Name="Flow" ColumnName="Flow" />
+            <ScalarProperty Name="Group" ColumnName="Group" />
+            <ScalarProperty Name="TradeDate" ColumnName="TradeDate" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="LAST_MOP" ColumnName="LAST_MOP" />
+            <ScalarProperty Name="Fix_date" ColumnName="Fix_date" />
+            <ScalarProperty Name="Current_period" ColumnName="Current_period" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="mxCDS"><EntityTypeMapping TypeName="SysInterfaceModel.mxCD"><MappingFragment StoreEntitySet="mxCDS">
+            <ScalarProperty Name="SAVEDATE" ColumnName="SAVEDATE" />
+            <ScalarProperty Name="NB" ColumnName="NB" />
+            <ScalarProperty Name="NBEXT" ColumnName="NBEXT" />
+            <ScalarProperty Name="PL_INSCUR" ColumnName="PL_INSCUR" />
+            <ScalarProperty Name="FAMILY" ColumnName="FAMILY" />
+            <ScalarProperty Name="GROUP" ColumnName="GROUP" />
+            <ScalarProperty Name="TP_STATUS" ColumnName="TP_STATUS" />
+            <ScalarProperty Name="COUNTERPART" ColumnName="COUNTERPART" />
+            <ScalarProperty Name="PORTFOLIO" ColumnName="PORTFOLIO" />
+            <ScalarProperty Name="BRW_NOM1" ColumnName="BRW_NOM1" />
+            <ScalarProperty Name="TRNDATE" ColumnName="TRNDATE" />
+            <ScalarProperty Name="MATURITY" ColumnName="MATURITY" />
+            <ScalarProperty Name="EXPIRY" ColumnName="EXPIRY" />
+            <ScalarProperty Name="VALID" ColumnName="VALID" />
+            <ScalarProperty Name="IE" ColumnName="IE" />
+            <ScalarProperty Name="INSTRUMENT" ColumnName="INSTRUMENT" />
+            <ScalarProperty Name="MARKET_INDEX" ColumnName="MARKET INDEX" />
+            <ScalarProperty Name="RATE_MARG0" ColumnName="RATE_MARG0" />
+            <ScalarProperty Name="B_S" ColumnName="B/S" />
+            <ScalarProperty Name="TRADER" ColumnName="TRADER" />
+            <ScalarProperty Name="MOP_LAST" ColumnName="MOP_LAST" />
+            <ScalarProperty Name="OPT_MOPLST" ColumnName="OPT_MOPLST" />
+            <ScalarProperty Name="PayRecvLeg" ColumnName="PayRecvLeg" />
+            <ScalarProperty Name="STL_FLW" ColumnName="STL_FLW" />
+            <ScalarProperty Name="BRW_SDTE" ColumnName="BRW_SDTE" />
+            <ScalarProperty Name="OPT_FLWFST" ColumnName="OPT_FLWFST" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RED_REFOB"><EntityTypeMapping TypeName="SysInterfaceModel.RED_REFOB"><MappingFragment StoreEntitySet="RED_REFOB">
+            <ScalarProperty Name="RED_RO" ColumnName="RED RO" />
+            <ScalarProperty Name="REDCODE" ColumnName="REDCODE" />
+            <ScalarProperty Name="RED_Pair_Code" ColumnName="RED Pair Code" />
+            <ScalarProperty Name="Bloomberg_Company_Name" ColumnName="Bloomberg Company Name" />
+            <ScalarProperty Name="RED_Tier" ColumnName="RED Tier" />
+            <ScalarProperty Name="BB_REF_OB" ColumnName="BB REF OB" />
+            <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+            <ScalarProperty Name="CRNCY" ColumnName="CRNCY" />
+            <ScalarProperty Name="RTG_BB_COMP" ColumnName="RTG_BB_COMP" />
+            <ScalarProperty Name="SnrSub" ColumnName="SnrSub" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="REDENTITies"><EntityTypeMapping TypeName="SysInterfaceModel.REDENTITY"><MappingFragment StoreEntitySet="REDENTITY">
+            <ScalarProperty Name="TICKER" ColumnName="TICKER" />
+            <ScalarProperty Name="EntityName" ColumnName="EntityName" />
+            <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+            <ScalarProperty Name="REDCODE" ColumnName="REDCODE" />
+            <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+            <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+            <ScalarProperty Name="Jurisdiction" ColumnName="Jurisdiction" />
+            <ScalarProperty Name="MarkitSector" ColumnName="MarkitSector" />
+            <ScalarProperty Name="PTICKER" ColumnName="PTICKER" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SystemInterfaces"><EntityTypeMapping TypeName="SysInterfaceModel.SystemInterface"><MappingFragment StoreEntitySet="SystemInterface">
+            <ScalarProperty Name="IFaceName" ColumnName="IFaceName" />
+            <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+            <ScalarProperty Name="SystemNameFgn" ColumnName="SystemNameFgn" />
+            <ScalarProperty Name="Schedule" ColumnName="Schedule" />
+            <ScalarProperty Name="IFaceFormat" ColumnName="IFaceFormat" />
+            <ScalarProperty Name="IFaceFileName" ColumnName="IFaceFileName" />
+            <ScalarProperty Name="IFaceDescripton" ColumnName="IFaceDescripton" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="ResearchStores">
+            <EntityTypeMapping TypeName="SysInterfaceModel.ResearchStore">
+              <MappingFragment StoreEntitySet="ResearchStore">
+                <ScalarProperty Name="ReportLink" ColumnName="ReportLink" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ResearchFirm" ColumnName="ResearchFirm" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mpREFOBs">
+            <EntityTypeMapping TypeName="SysInterfaceModel.mpREFOB">
+              <MappingFragment StoreEntitySet="mpREFOB">
+                <ScalarProperty Name="Issuer" ColumnName="Issuer" />
+                <ScalarProperty Name="Coupon" ColumnName="Coupon" />
+                <ScalarProperty Name="Maturity" ColumnName="Maturity" />
+                <ScalarProperty Name="CCY" ColumnName="CCY" />
+                <ScalarProperty Name="Tier" ColumnName="Tier" />
+                <ScalarProperty Name="CouponType" ColumnName="CouponType" />
+                <ScalarProperty Name="IsConvert" ColumnName="IsConvert" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="IsPairCurrent" ColumnName="IsPairCurrent" />
+                <ScalarProperty Name="IsPreferred" ColumnName="IsPreferred" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+                <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="EntityClip" ColumnName="EntityClip" />
+                <ScalarProperty Name="PairClip" ColumnName="PairClip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SysInterfaceModel">
+        <EntityTypeShape EntityType="SysInterfaceModel.Document" Width="1.5" PointX="0.75" PointY="4.75" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.IFaceLog" Width="1.5" PointX="3.125" PointY="0.875" Height="2.5571907552083331" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.mpCDSCurve" Width="1.5" PointX="2.75" PointY="4.75" Height="4.8792529296875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.MX_RLOAN" Width="1.5" PointX="6.625" PointY="0.75" Height="5.5366422526041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.mxCD" Width="1.5" PointX="6.75" PointY="7.75" Height="5.2079475911458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.RED_REFOB" Width="1.5" PointX="8.75" PointY="0.75" Height="2.5783902994791674" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.REDENTITY" Width="1.5" PointX="8.75" PointY="4.75" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SysInterfaceModel.SystemInterface" Width="1.875" PointX="0.75" PointY="0.875" Height="2.2496956380208317" IsExpanded="true" />
+        <AssociationConnector Association="SysInterfaceModel.FK_IFaceLog_SystemInterface" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.625" PointY="2.1535953776041667" />
+          <ConnectorPoint PointX="3.125" PointY="2.1535953776041667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SysInterfaceModel.ResearchStore" Width="1.5" PointX="9.125" PointY="8.25" Height="1.5923063151041674" />
+        <EntityTypeShape EntityType="SysInterfaceModel.mpREFOB" Width="1.5" PointX="0.75" PointY="10.75" Height="3.5644742838541674" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
